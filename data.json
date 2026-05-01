@@ -1,7 +1,9 @@
 {
-  "generated_at": "2026-05-01T22:33:43",
+  "generated_at": "2026-05-01T22:44:17",
   "dates": [
-    "2026-05-01"
+    "2026-05-01",
+    "2026-04-30",
+    "2026-04-29"
   ],
   "records": {
     "2026-05-01": {
@@ -31,17 +33,31 @@
         "warning_lines": [],
         "log_file": "logs/260501_ISLAND_P2P1.json"
       },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "end_time": "10:07:30",
+        "duration_sec": 150,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "log_file": "logs/260501_KIDS_P2P1.json"
+      },
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
         "status": "error",
         "end_time": "10:02:10",
         "duration_sec": 70,
-        "error_count": 1,
+        "error_count": 2,
         "warning_count": 0,
         "error_summary": "ConnectionError: 사이트 접속 실패",
         "error_lines": [
-          "[ERROR] ConnectionError: 사이트 접속 실패"
+          "[ERROR] ConnectionError: 사이트 접속 실패",
+          "[ERROR] 재시도 3회 모두 실패"
         ],
         "warning_lines": [],
         "log_file": "logs/260501_OCEAN_P2P1.json"
@@ -60,6 +76,152 @@
           "[WARNING] 재시도 1회 발생"
         ],
         "log_file": "logs/260501_VALLEY_P2P1.json"
+      }
+    },
+    "2026-04-30": {
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
+        "status": "success",
+        "end_time": "10:06:00",
+        "duration_sec": 180,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "log_file": "logs/260430_BUSAN_P2P1.json"
+      },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "error",
+        "end_time": "10:01:45",
+        "duration_sec": 105,
+        "error_count": 1,
+        "warning_count": 0,
+        "error_summary": "TimeoutError: 응답 시간 초과",
+        "error_lines": [
+          "[ERROR] TimeoutError: 응답 시간 초과"
+        ],
+        "warning_lines": [],
+        "log_file": "logs/260430_ISLAND_P2P1.json"
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "error",
+        "end_time": "10:04:30",
+        "duration_sec": 30,
+        "error_count": 2,
+        "warning_count": 0,
+        "error_summary": "PermissionError: 파일 접근 거부",
+        "error_lines": [
+          "[ERROR] PermissionError: 파일 접근 거부",
+          "[ERROR] 작업 중단됨"
+        ],
+        "warning_lines": [],
+        "log_file": "logs/260430_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "10:04:20",
+        "duration_sec": 200,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "log_file": "logs/260430_OCEAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "10:05:10",
+        "duration_sec": 190,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "[WARNING] 응답 지연 감지"
+        ],
+        "log_file": "logs/260430_VALLEY_P2P1.json"
+      }
+    },
+    "2026-04-29": {
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
+        "status": "success",
+        "end_time": "10:06:20",
+        "duration_sec": 200,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "log_file": "logs/260429_BUSAN_P2P1.json"
+      },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "10:03:10",
+        "duration_sec": 190,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "log_file": "logs/260429_ISLAND_P2P1.json"
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "end_time": "10:07:00",
+        "duration_sec": 180,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "log_file": "logs/260429_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "error",
+        "end_time": "10:02:00",
+        "duration_sec": 60,
+        "error_count": 2,
+        "warning_count": 0,
+        "error_summary": "SSLError: 인증서 오류",
+        "error_lines": [
+          "[ERROR] SSLError: 인증서 오류",
+          "[ERROR] 재시도 후에도 동일 오류 발생"
+        ],
+        "warning_lines": [],
+        "log_file": "logs/260429_OCEAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "10:05:30",
+        "duration_sec": 210,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "[WARNING] 응답 지연"
+        ],
+        "log_file": "logs/260429_VALLEY_P2P1.json"
       }
     }
   }
