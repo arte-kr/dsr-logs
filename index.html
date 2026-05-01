@@ -445,5 +445,55 @@ function loadData() {
 
 loadData();
 </script>
+
+  <!-- 플로팅 뒤로가기 버튼 -->
+  <button id="fab-back" onclick="fabGoBack()" title="이전 화면">
+    &#8592;
+  </button>
+  <style>
+    #fab-back {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      font-size: 22px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #fab-back:active { transform: scale(0.92); }
+  </style>
+  <script>
+    function updateFab() {
+      var fab = document.getElementById('fab-back');
+      if (!fab) return;
+      var onDetail = document.getElementById('detail-view') &&
+                     document.getElementById('detail-view').style.display !== 'none';
+      fab.style.display = onDetail ? 'flex' : 'none';
+    }
+    function fabGoBack() {
+      var detail = document.getElementById('detail-view');
+      var list   = document.getElementById('list-view');
+      if (detail) detail.style.display = 'none';
+      if (list)   list.style.display   = 'block';
+      updateFab();
+    }
+    // detail-view 표시될 때마다 FAB 업데이트
+    var _origShow = window._showDetail || null;
+    var fabObserver = new MutationObserver(function() { updateFab(); });
+    document.addEventListener('DOMContentLoaded', function() {
+      var detail = document.getElementById('detail-view');
+      if (detail) fabObserver.observe(detail, { attributes: true, attributeFilter: ['style'] });
+      updateFab();
+    });
+  </script>
 </body>
 </html>
