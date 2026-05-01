@@ -1,0 +1,17 @@
+{
+  "run_date": "2026-04-29",
+  "sales_date": "2026-04-29",
+  "branch": "OCEAN",
+  "stage": "P2P1",
+  "status": "error",
+  "start_time": "2026-04-29T10:01:00",
+  "end_time": "2026-04-29T10:02:00",
+  "duration_sec": 60,
+  "error_summary": "SSLError: 인증서 오류",
+  "log_lines": [
+    "[INFO] P2P1 시작",
+    "[ERROR] SSLError: 인증서 오류",
+    "[ERROR] SSLError: 인증서 오류",
+    "[ERROR] 재시도 후에도 동일 오류 발생"
+  ]
+}
