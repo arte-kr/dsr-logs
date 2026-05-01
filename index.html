@@ -253,16 +253,11 @@ function badgesHtml(r) {
   var hasErr = (r.error_count > 0 || r.warning_count > 0);
   var okCls  = isOk ? 'bf bf-ok' : isRun ? 'bf bf-run' : 'bf bf-off';
   var okTxt  = isRun ? '실행중' : '완료';
-  var summ   = r.error_summary || '';
-  var stopTxt = summ.indexOf('강제종료') >= 0 ? '강제종료' :
-                summ.indexOf('미실행')  >= 0 ? '미실행'   : '중단';
-  var summHtml = (isStop && summ && stopTxt === '중단') ?
-    '<div class="b-summ">' + summ + '</div>' : '';
   return '<div class="bfrow">' +
     '<span class="' + okCls + '">' + okTxt + '</span>' +
-    '<span class="' + (isStop ? 'bf bf-stop' : 'bf bf-off') + '">' + stopTxt + '</span>' +
+    '<span class="' + (isStop ? 'bf bf-stop' : 'bf bf-off') + '">중단</span>' +
     '<span class="' + (hasErr ? 'bf bf-err' : 'bf bf-off') + '">오류</span>' +
-    '</div>' + summHtml;
+    '</div>';
 }
 
 function renderMonths() {
