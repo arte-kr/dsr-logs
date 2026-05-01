@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Daily Sales Report — 실행 모니터</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#F5F5F5;color:#111;min-height:100vh}
+.app{max-width:480px;margin:0 auto;min-height:100vh;background:#fff;position:relative;overflow:hidden}
+.screen{display:none;flex-direction:column;min-height:100vh}
+.screen.active{display:flex}
+
+/* 탑바 */
+.topbar{background:#fff;padding:14px 16px 12px;border-bottom:1px solid #EBEBEB;flex-shrink:0}
+.topbar-row{display:flex;align-items:center;justify-content:space-between}
+.topbar-title{font-size:15px;font-weight:600;color:#111;letter-spacing:-0.3px}
+.topbar-desc{font-size:11px;color:#999;margin-top:2px}
+.sync-badge{font-size:11px;color:#888;background:#F5F5F5;padding:4px 9px;border-radius:6px}
+.topbar-back{display:flex;align-items:center;gap:10px}
+.back-btn{width:30px;height:30px;border:1px solid #E0E0E0;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff;flex-shrink:0}
+.back-btn svg{width:14px;height:14px;stroke:#666;fill:none;stroke-width:2}
+
+/* 날짜 패널 */
+.date-panel{background:#fff;border-bottom:1px solid #EBEBEB;flex-shrink:0}
+.year-row{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 8px}
+.ynav{width:28px;height:28px;border:1px solid #E0E0E0;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff}
+.ynav svg{width:13px;height:13px;stroke:#666;fill:none;stroke-width:2}
+.ylabel{font-size:14px;font-weight:600;color:#111}
+.month-row{display:flex;gap:4px;padding:0 16px 10px;overflow-x:auto;scrollbar-width:none}
+.month-row::-webkit-scrollbar{display:none}
+.mc{flex-shrink:0;min-width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:12px;cursor:pointer;padding:0 6px;transition:background .15s}
+.mc-no{color:#CCC}
+.mc-has{color:#333;font-weight:500}
+.mc-sel{background:#1D9E75;color:#fff;font-weight:600}
+.date-list{border-top:1px solid #F0F0F0}
+.drow{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;cursor:pointer;border-bottom:1px solid #F5F5F5;transition:background .1s}
+.drow:last-child{border-bottom:none}
+.drow:active{background:#F9F9F9}
+.drow-sel{background:#F0FBF6}
+.dleft{display:flex;align-items:center;gap:7px}
+.ddate{font-size:13px;color:#333}
+.ddate-sel{color:#0F6E56;font-weight:600}
+.today-tag{font-size:10px;background:#E1F5EE;color:#0F6E56;padding:2px 6px;border-radius:4px;font-weight:600}
+.ddots{display:flex;gap:3px;align-items:center}
+.dd{width:8px;height:8px;border-radius:50%}
+.d-ok{background:#52A800}.d-warn{background:#E8920A}.d-stop{background:#D63B2F}.d-run{background:#2B7BB9}.d-gray{background:#CCC}
+.expand-btn{display:flex;align-items:center;justify-content:center;padding:9px;cursor:pointer;gap:5px;color:#888;font-size:12px;border-top:1px solid #F0F0F0;background:#FAFAFA}
+.expand-btn svg{width:13px;height:13px;stroke:#999;fill:none;stroke-width:2}
+
+/* 지점 카드 */
+.content{flex:1;padding:12px 14px;overflow-y:auto;background:#F5F5F5}
+.sec-label{font-size:11px;color:#999;margin-bottom:9px;padding:0 2px;font-weight:500;letter-spacing:0.03em}
+.bc{background:#fff;border:1px solid #EBEBEB;border-radius:12px;padding:12px 13px;margin-bottom:8px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .1s}
+.bc:active{background:#F9F9F9}
+.bcleft{flex:1;min-width:0}
+.bcname{font-size:14px;font-weight:600;color:#111;letter-spacing:-0.2px}
+.bccode{font-size:11px;color:#AAA;margin-top:2px}
+.bcright{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
+.bfrow{display:flex;gap:4px}
+.bf{font-size:11px;font-weight:600;padding:3px 0;border-radius:5px;width:38px;text-align:center;flex-shrink:0}
+.bf-ok{background:#EAF5DE;color:#3A7A10}
+.bf-stop{background:#FDECEA;color:#B33025}
+.bf-err{background:#FEF3E2;color:#905A08}
+.bf-run{background:#E3F0FB;color:#1A5F9A}
+.bf-off{background:#F3F3F3;color:#C0C0C0}
+.bctime{font-size:11px;color:#AAA}
+.carr{width:14px;height:14px;stroke:#CCC;fill:none;stroke-width:2;flex-shrink:0}
+
+/* 상태 없음 */
+.empty{text-align:center;padding:40px 20px;color:#BBB;font-size:13px;line-height:1.8}
+.empty-icon{font-size:36px;margin-bottom:12px;opacity:0.4}
+
+/* 로딩 */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:14px;color:#AAA;font-size:13px}
+.spinner{width:28px;height:28px;border:2.5px solid #E0E0E0;border-top-color:#1D9E75;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* 상세 화면 */
+.detail-content{flex:1;padding:12px 14px;overflow-y:auto;background:#F5F5F5}
+.dhead{background:#fff;border-radius:12px;border:1px solid #EBEBEB;padding:14px 15px;margin-bottom:10px}
+.dname{font-size:18px;font-weight:700;color:#111;letter-spacing:-0.3px}
+.dcode-txt{font-size:12px;color:#AAA;margin-top:3px;margin-bottom:13px}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sbox{background:#F8F8F8;border-radius:8px;padding:10px 12px}
+.sl{font-size:11px;color:#AAA;margin-bottom:4px;font-weight:500}
+.sv{font-size:13px;font-weight:600;color:#111}
+.sv-ok{color:#3A7A10}.sv-warn{color:#905A08}.sv-stop{color:#B33025}.sv-run{color:#1A5F9A}
+
+.ecard{background:#fff;border-radius:12px;border:1px solid #EBEBEB;padding:13px 15px;margin-bottom:10px}
+.etitle{font-size:12px;font-weight:600;color:#333;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.etitle-dot{width:7px;height:7px;border-radius:50%;background:#E8920A;flex-shrink:0}
+.eitem{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid #F5F5F5}
+.eitem:last-child{border-bottom:none;padding-bottom:0}
+.etype{font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;margin-top:1px;letter-spacing:0.03em}
+.etype-e{background:#FDECEA;color:#B33025}
+.etype-w{background:#FEF3E2;color:#905A08}
+.emsg{font-size:12px;color:#666;line-height:1.6}
+
+.logtog{background:#fff;border-radius:12px;border:1px solid #EBEBEB;padding:12px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.logtog span{font-size:12px;color:#888}
+.logtog svg{width:14px;height:14px;stroke:#BBB;fill:none;stroke-width:2}
+.loglines{background:#fff;border-radius:0 0 12px 12px;border:1px solid #EBEBEB;border-top:none;padding:12px 15px;font-size:11px;color:#888;font-family:'SF Mono','Consolas','Courier New',monospace;line-height:1.8;max-height:200px;overflow-y:auto;display:none;margin-bottom:4px;word-break:break-all}
+.log-err{color:#B33025}.log-warn{color:#905A08}.log-info{color:#1A5F9A}
+
+/* 에러 메시지 */
+.err-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:30px 20px;text-align:center;gap:12px}
+.err-title{font-size:15px;font-weight:600;color:#333}
+.err-msg{font-size:12px;color:#999;line-height:1.7}
+.retry-btn{margin-top:8px;padding:9px 22px;background:#1D9E75;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- 메인 화면 -->
+<div id="main" class="screen">
+  <div class="topbar">
+    <div class="topbar-row">
+      <div>
+        <div class="topbar-title">Daily Sales Report</div>
+        <div class="topbar-desc">실행 모니터</div>
+      </div>
+      <div class="sync-badge" id="sync-txt">불러오는 중...</div>
+    </div>
+  </div>
+
+  <div class="date-panel" id="date-panel" style="display:none">
+    <div class="year-row">
+      <div class="ynav" onclick="chgYear(-1)"><svg viewBox="0 0 13 13"><path d="M8 2L4 6.5l4 4.5"/></svg></div>
+      <span class="ylabel" id="ylbl">2026</span>
+      <div class="ynav" onclick="chgYear(1)"><svg viewBox="0 0 13 13"><path d="M5 2l4 4.5-4 4.5"/></svg></div>
+    </div>
+    <div class="month-row" id="mrow"></div>
+    <div id="dlist" class="date-list"></div>
+    <div class="expand-btn" id="expbtn" onclick="toggleExp()" style="display:none">
+      <span id="explbl">이전 기록 더 보기</span>
+      <svg viewBox="0 0 13 13"><path id="expath" d="M2 4l4.5 4 4.5-4"/></svg>
+    </div>
+  </div>
+
+  <div id="main-body" class="content" style="background:#F5F5F5">
+    <div class="loading"><div class="spinner"></div><span>데이터 불러오는 중...</span></div>
+  </div>
+</div>
+
+<!-- 상세 화면 -->
+<div id="detail" class="screen">
+  <div class="topbar">
+    <div class="topbar-back">
+      <div class="back-btn" onclick="goBack()"><svg viewBox="0 0 13 13"><path d="M9 2L5 6.5l4 4.5"/></svg></div>
+      <div>
+        <div class="topbar-title" id="d-title">OCEAN</div>
+        <div class="topbar-desc" id="d-sub">2026-05-01</div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-content">
+    <div class="dhead">
+      <div class="dname" id="d-name"></div>
+      <div class="dcode-txt" id="d-code"></div>
+      <div class="sgrid">
+        <div class="sbox"><div class="sl">상태</div><div class="sv" id="d-status"></div></div>
+        <div class="sbox"><div class="sl">완료 / 중단 시각</div><div class="sv" id="d-time"></div></div>
+        <div class="sbox"><div class="sl">소요 시간</div><div class="sv" id="d-dur"></div></div>
+        <div class="sbox"><div class="sl">오류 포함</div><div class="sv" id="d-haserr"></div></div>
+      </div>
+    </div>
+    <div class="ecard" id="ecard">
+      <div class="etitle"><div class="etitle-dot"></div><span id="etitle-txt"></span></div>
+      <div id="elist"></div>
+    </div>
+    <div class="logtog" id="logtog" onclick="toggleLog()">
+      <span id="log-lbl">전체 로그 펼치기</span>
+      <svg viewBox="0 0 13 13"><path d="M2 4l4.5 4 4.5-4"/></svg>
+    </div>
+    <div class="loglines" id="loglines"></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+var REPO_BASE = 'https://arte-kr.github.io/dsr-logs';
+var CY = new Date().getFullYear();
+var CM = new Date().getMonth() + 1;
+var SD = '';
+var EXP = false;
+var SHOW_N = 2;
+var DB = null;
+var CUR_BRANCH = '';
+var LOG_OPEN = false;
+
+function fmtDur(sec) {
+  if (!sec || sec <= 0) return '—';
+  var m = Math.floor(sec / 60), s = sec % 60;
+  return m > 0 ? m + '분 ' + s + '초' : s + '초';
+}
+
+function fmtDate(iso) {
+  if (!iso) return '';
+  var d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+function fmtSync(iso) {
+  if (!iso) return '—';
+  try {
+    var d = new Date(iso);
+    return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0') + ' 동기화';
+  } catch(e) { return iso; }
+}
+
+function isToday(dateStr) {
+  var t = new Date(), td = t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+  return dateStr === td;
+}
+
+function dotCls(rec) {
+  if (rec.status === 'error') return 'd-stop';
+  if (rec.error_count > 0 || rec.warning_count > 0) return 'd-warn';
+  if (rec.status === 'running') return 'd-run';
+  return 'd-ok';
+}
+
+function dotsHtml(dateStr) {
+  if (!DB || !DB.records[dateStr]) return '';
+  var branches = ['ISLAND','OCEAN','VALLEY','BUSAN','KIDS'];
+  return branches.map(function(br) {
+    var r = DB.records[dateStr][br];
+    return '<div class="dd ' + (r ? dotCls(r) : 'd-gray') + '"></div>';
+  }).join('');
+}
+
+function filteredDates() {
+  if (!DB) return [];
+  return (DB.dates || []).filter(function(d) {
+    return parseInt(d.substr(0,4)) === CY && parseInt(d.substr(5,2)) === CM;
+  });
+}
+
+function badgesHtml(r) {
+  var isOk   = r.status === 'success';
+  var isStop = r.status === 'error';
+  var isRun  = r.status === 'running';
+  var hasErr = (r.error_count > 0 || r.warning_count > 0);
+  var okCls  = isOk ? 'bf bf-ok' : isRun ? 'bf bf-run' : 'bf bf-off';
+  var okTxt  = isRun ? '실행중' : '완료';
+  return '<div class="bfrow">' +
+    '<span class="' + okCls + '">' + okTxt + '</span>' +
+    '<span class="' + (isStop ? 'bf bf-stop' : 'bf bf-off') + '">중단</span>' +
+    '<span class="' + (hasErr ? 'bf bf-err' : 'bf bf-off') + '">오류</span>' +
+    '</div>';
+}
+
+function renderMonths() {
+  var hasMon = {};
+  (DB.dates || []).forEach(function(d) {
+    var y = parseInt(d.substr(0,4)), m = parseInt(d.substr(5,2));
+    if (!hasMon[y]) hasMon[y] = {};
+    hasMon[y][m] = true;
+  });
+  document.getElementById('ylbl').textContent = CY;
+  var html = '';
+  for (var i = 1; i <= 12; i++) {
+    var has = hasMon[CY] && hasMon[CY][i];
+    var sel = i === CM;
+    html += '<div class="mc ' + (sel ? 'mc-sel' : has ? 'mc-has' : 'mc-no') + '" onclick="selMonth(' + i + ')">' + i + '</div>';
+  }
+  document.getElementById('mrow').innerHTML = html;
+}
+
+function renderDates() {
+  var dates = filteredDates();
+  var show = EXP ? dates : dates.slice(0, SHOW_N);
+  var html = '';
+  show.forEach(function(d) {
+    var isSel = d === SD, today = isToday(d);
+    html += '<div class="drow' + (isSel ? ' drow-sel' : '') + '" onclick="selDate(\'' + d + '\')">' +
+      '<div class="dleft">' +
+        '<span class="ddate' + (isSel ? ' ddate-sel' : '') + '">' + d + '</span>' +
+        (today ? '<span class="today-tag">오늘</span>' : '') +
+      '</div>' +
+      '<div class="ddots">' + dotsHtml(d) + '</div>' +
+      '</div>';
+  });
+  document.getElementById('dlist').innerHTML = html;
+  var eb = document.getElementById('expbtn');
+  if (dates.length <= SHOW_N) {
+    eb.style.display = 'none';
+  } else {
+    eb.style.display = 'flex';
+    document.getElementById('explbl').textContent = EXP ? '접기' : '이전 기록 더 보기 (' + (dates.length - SHOW_N) + '일)';
+    document.getElementById('expath').setAttribute('d', EXP ? 'M2 9l4.5-4 4.5 4' : 'M2 4l4.5 4 4.5-4');
+  }
+}
+
+function renderBranches() {
+  var mb = document.getElementById('main-body');
+  if (!SD || !DB.records[SD]) {
+    mb.innerHTML = '<div class="empty"><div class="empty-icon">📋</div>해당 날짜의 실행 기록이 없습니다.</div>';
+    document.getElementById('sec-lbl') && (document.getElementById('sec-lbl').textContent = '날짜를 선택하세요');
+    return;
+  }
+  var branches = ['ISLAND','OCEAN','VALLEY','BUSAN','KIDS'];
+  var html = '<div class="sec-label" id="sec-lbl">' + SD + ' 실행 현황</div>';
+  branches.forEach(function(br) {
+    var r = DB.records[SD][br];
+    if (!r) return;
+    html += '<div class="bc" onclick="showDetail(\'' + br + '\')">' +
+      '<div class="bcleft"><div class="bcname">' + br + '</div><div class="bccode">' + r.branch_code + ' · ' + r.display_name + '</div></div>' +
+      '<div class="bcright">' + badgesHtml(r) + '<div class="bctime">' + r.end_time + '</div></div>' +
+      '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
+      '</div>';
+  });
+  mb.innerHTML = html;
+}
+
+function selDate(d) { SD = d; renderDates(); renderBranches(); }
+function selMonth(m) { CM = m; EXP = false; var fd = filteredDates(); SD = fd.length ? fd[0] : ''; renderMonths(); renderDates(); renderBranches(); }
+function chgYear(dir) { CY += dir; EXP = false; renderMonths(); var fd = filteredDates(); SD = fd.length ? fd[0] : ''; renderDates(); renderBranches(); }
+function toggleExp() { EXP = !EXP; renderDates(); }
+
+function showDetail(br) {
+  var r = DB && DB.records[SD] && DB.records[SD][br];
+  if (!r) return;
+  CUR_BRANCH = br;
+  document.getElementById('d-title').textContent = br;
+  document.getElementById('d-sub').textContent = SD + ' · ' + r.branch_code;
+  document.getElementById('d-name').textContent = br;
+  document.getElementById('d-code').textContent = r.branch_code + ' · ' + r.display_name;
+
+  var ds = document.getElementById('d-status');
+  if (r.status === 'success') { ds.textContent = '완료'; ds.className = 'sv sv-ok'; }
+  else if (r.status === 'error') { ds.textContent = '중단'; ds.className = 'sv sv-stop'; }
+  else { ds.textContent = '실행 중'; ds.className = 'sv sv-run'; }
+
+  document.getElementById('d-time').textContent = r.end_time || '—';
+  document.getElementById('d-dur').textContent = fmtDur(r.duration_sec);
+
+  var he = document.getElementById('d-haserr');
+  var hasErr = r.error_count > 0 || r.warning_count > 0;
+  he.textContent = hasErr ? '있음' : '없음';
+  he.className = 'sv ' + (hasErr ? 'sv-warn' : 'sv-ok');
+
+  var ec = document.getElementById('ecard');
+  if (hasErr) {
+    ec.style.display = 'block';
+    document.getElementById('etitle-txt').textContent = 'ERROR ' + r.error_count + '건 · WARNING ' + r.warning_count + '건';
+    var eh = '';
+    (r.error_lines || []).forEach(function(l) { eh += '<div class="eitem"><span class="etype etype-e">ERROR</span><span class="emsg">' + l + '</span></div>'; });
+    (r.warning_lines || []).forEach(function(l) { eh += '<div class="eitem"><span class="etype etype-w">WARNING</span><span class="emsg">' + l + '</span></div>'; });
+    document.getElementById('elist').innerHTML = eh;
+  } else {
+    ec.style.display = 'none';
+  }
+
+  document.getElementById('loglines').style.display = 'none';
+  document.getElementById('loglines').innerHTML = '';
+  document.getElementById('log-lbl').textContent = '전체 로그 펼치기';
+  LOG_OPEN = false;
+
+  document.getElementById('main').classList.remove('active');
+  document.getElementById('detail').classList.add('active');
+}
+
+function toggleLog() {
+  var ll = document.getElementById('loglines');
+  var lb = document.getElementById('log-lbl');
+  if (!LOG_OPEN) {
+    lb.textContent = '불러오는 중...';
+    var r = DB && DB.records[SD] && DB.records[SD][CUR_BRANCH];
+    if (!r || !r.log_file) { lb.textContent = '전체 로그 없음'; return; }
+    fetch(REPO_BASE + '/' + r.log_file + '?t=' + Date.now())
+      .then(function(res) { return res.json(); })
+      .then(function(raw) {
+        var lines = (raw.log_lines || []);
+        if (!lines.length) { lb.textContent = '로그 없음'; return; }
+        ll.innerHTML = lines.map(function(l) {
+          var cls = l.indexOf('ERROR') >= 0 ? 'log-err' : l.indexOf('WARNING') >= 0 ? 'log-warn' : l.indexOf('[INFO]') >= 0 ? 'log-info' : '';
+          return '<div class="' + cls + '">' + l + '</div>';
+        }).join('');
+        ll.style.display = 'block';
+        lb.textContent = '전체 로그 접기';
+        LOG_OPEN = true;
+      })
+      .catch(function() { lb.textContent = '로그 파일을 불러올 수 없습니다'; });
+  } else {
+    ll.style.display = 'none';
+    lb.textContent = '전체 로그 펼치기';
+    LOG_OPEN = false;
+  }
+}
+
+function goBack() {
+  document.getElementById('detail').classList.remove('active');
+  document.getElementById('main').classList.add('active');
+}
+
+function initUI() {
+  if (!DB || !DB.dates || !DB.dates.length) {
+    document.getElementById('main-body').innerHTML =
+      '<div class="empty"><div class="empty-icon">📋</div>아직 업로드된 로그가 없습니다.<br>log_uploader.py 실행 후 다시 확인해주세요.</div>';
+    document.getElementById('date-panel').style.display = 'none';
+    return;
+  }
+  document.getElementById('sync-txt').textContent = fmtSync(DB.generated_at);
+  var today = new Date().getFullYear() + '-' + String(new Date().getMonth()+1).padStart(2,'0') + '-' + String(new Date().getDate()).padStart(2,'0');
+  SD = DB.dates.includes(today) ? today : DB.dates[0];
+  var sd = new Date(SD);
+  CY = sd.getFullYear(); CM = sd.getMonth() + 1;
+  document.getElementById('date-panel').style.display = 'block';
+  renderMonths(); renderDates(); renderBranches();
+}
+
+function loadData() {
+  document.getElementById('main').classList.add('active');
+  fetch(REPO_BASE + '/data.json?t=' + Date.now())
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .then(function(data) {
+      DB = data;
+      initUI();
+    })
+    .catch(function(e) {
+      document.getElementById('main-body').innerHTML =
+        '<div class="err-screen">' +
+        '<div class="err-title">데이터를 불러올 수 없습니다</div>' +
+        '<div class="err-msg">log_uploader.py가 아직 실행되지 않았거나<br>GitHub Pages 배포 중일 수 있습니다.<br><br>' + e.message + '</div>' +
+        '<button class="retry-btn" onclick="location.reload()">다시 시도</button>' +
+        '</div>';
+      document.getElementById('date-panel').style.display = 'none';
+      document.getElementById('sync-txt').textContent = '오류';
+    });
+}
+
+loadData();
+</script>
+</body>
+</html>
