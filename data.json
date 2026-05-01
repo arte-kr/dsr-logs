@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-05-01T22:33:43",
+  "dates": [
+    "2026-05-01"
+  ],
+  "records": {
+    "2026-05-01": {
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
+        "status": "error",
+        "end_time": "—",
+        "duration_sec": 0,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "프로그램 강제종료",
+        "error_lines": [],
+        "warning_lines": [],
+        "log_file": "logs/260501_BUSAN_P2P1.json"
+      },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "10:03:25",
+        "duration_sec": 205,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "log_file": "logs/260501_ISLAND_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "error",
+        "end_time": "10:02:10",
+        "duration_sec": 70,
+        "error_count": 1,
+        "warning_count": 0,
+        "error_summary": "ConnectionError: 사이트 접속 실패",
+        "error_lines": [
+          "[ERROR] ConnectionError: 사이트 접속 실패"
+        ],
+        "warning_lines": [],
+        "log_file": "logs/260501_OCEAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "10:04:00",
+        "duration_sec": 210,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "[WARNING] 재시도 1회 발생"
+        ],
+        "log_file": "logs/260501_VALLEY_P2P1.json"
+      }
+    }
+  }
+}
