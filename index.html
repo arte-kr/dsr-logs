@@ -22,7 +22,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .topbar-row{display:flex;align-items:center;justify-content:space-between}
 .topbar-title{font-size:15px;font-weight:600;color:#111;letter-spacing:-0.3px}
 .topbar-desc{font-size:11px;color:#999;margin-top:2px}
-.sync-badge{font-size:11px;color:#888;background:#F5F5F5;padding:4px 9px;border-radius:6px}
+.sync-badge{font-size:11px;color:#888;background:#F5F5F5;padding:4px 9px;border-radius:6px}.b-summ{font-size:11px;color:#E53935;margin-top:4px}
 .topbar-back{display:flex;align-items:center;gap:10px}
 .back-btn{width:30px;height:30px;border:1px solid #E0E0E0;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff;flex-shrink:0}
 .back-btn svg{width:14px;height:14px;stroke:#666;fill:none;stroke-width:2}
@@ -253,11 +253,16 @@ function badgesHtml(r) {
   var hasErr = (r.error_count > 0 || r.warning_count > 0);
   var okCls  = isOk ? 'bf bf-ok' : isRun ? 'bf bf-run' : 'bf bf-off';
   var okTxt  = isRun ? '실행중' : '완료';
+  var summ   = r.error_summary || '';
+  var stopTxt = summ.indexOf('강제종료') >= 0 ? '강제종료' :
+                summ.indexOf('미실행')  >= 0 ? '미실행'   : '중단';
+  var summHtml = (isStop && summ && stopTxt === '중단') ?
+    '<div class="b-summ">' + summ + '</div>' : '';
   return '<div class="bfrow">' +
     '<span class="' + okCls + '">' + okTxt + '</span>' +
-    '<span class="' + (isStop ? 'bf bf-stop' : 'bf bf-off') + '">중단</span>' +
+    '<span class="' + (isStop ? 'bf bf-stop' : 'bf bf-off') + '">' + stopTxt + '</span>' +
     '<span class="' + (hasErr ? 'bf bf-err' : 'bf bf-off') + '">오류</span>' +
-    '</div>';
+    '</div>' + summHtml;
 }
 
 function renderMonths() {
@@ -332,13 +337,16 @@ function showDetail(br) {
   var r = DB && DB.records[SD] && DB.records[SD][br];
   if (!r) return;
   CUR_BRANCH = br;
-  document.getElementById('d-title').textContent = br;
+  document.getElementById('d-title').textContent = r.branch_code;
   document.getElementById('d-sub').textContent = SD + ' · ' + r.branch_code;
   document.getElementById('d-name').textContent = br;
   document.getElementById('d-code').textContent = r.branch_code + ' · ' + r.display_name;
 
   var ds = document.getElementById('d-status');
+  var summ2 = r.error_summary || '';
   if (r.status === 'success') { ds.textContent = '완료'; ds.className = 'sv sv-ok'; }
+  else if (r.status === 'error' && summ2.indexOf('강제종료') >= 0) { ds.textContent = '강제종료'; ds.className = 'sv sv-stop'; }
+  else if (r.status === 'error' && summ2.indexOf('미실행') >= 0) { ds.textContent = '미실행'; ds.className = 'sv sv-stop'; }
   else if (r.status === 'error') { ds.textContent = '중단'; ds.className = 'sv sv-stop'; }
   else { ds.textContent = '실행 중'; ds.className = 'sv sv-run'; }
 
@@ -475,22 +483,17 @@ loadData();
     function updateFab() {
       var fab = document.getElementById('fab-back');
       if (!fab) return;
-      var onDetail = document.getElementById('detail-view') &&
-                     document.getElementById('detail-view').style.display !== 'none';
+      var detail = document.getElementById('detail');
+      var onDetail = detail && detail.style.display !== 'none';
       fab.style.display = onDetail ? 'flex' : 'none';
     }
     function fabGoBack() {
-      var detail = document.getElementById('detail-view');
-      var list   = document.getElementById('list-view');
-      if (detail) detail.style.display = 'none';
-      if (list)   list.style.display   = 'block';
-      updateFab();
+      goBack();
+      setTimeout(updateFab, 50);
     }
-    // detail-view 표시될 때마다 FAB 업데이트
-    var _origShow = window._showDetail || null;
     var fabObserver = new MutationObserver(function() { updateFab(); });
     document.addEventListener('DOMContentLoaded', function() {
-      var detail = document.getElementById('detail-view');
+      var detail = document.getElementById('detail');
       if (detail) fabObserver.observe(detail, { attributes: true, attributeFilter: ['style'] });
       updateFab();
     });
