@@ -320,7 +320,7 @@ function renderBranches() {
     var r = DB.records[SD][br];
     if (!r) return;
     html += '<div class="bc" onclick="showDetail(\'' + br + '\')">' +
-      '<div class="bcleft"><div class="bcname">' + br + '</div><div class="bccode">' + r.branch_code + ' · ' + r.display_name + '</div></div>' +
+      '<div class="bcleft"><div class="bcname">' + r.branch_code + '</div><div class="bccode">' + r.display_name + '</div></div>' +
       '<div class="bcright">' + badgesHtml(r) + '<div class="bctime">' + r.end_time + '</div></div>' +
       '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
       '</div>';
@@ -339,8 +339,8 @@ function showDetail(br) {
   CUR_BRANCH = br;
   document.getElementById('d-title').textContent = r.branch_code;
   document.getElementById('d-sub').textContent = SD + ' · ' + r.branch_code;
-  document.getElementById('d-name').textContent = br;
-  document.getElementById('d-code').textContent = r.branch_code + ' · ' + r.display_name;
+  document.getElementById('d-name').textContent = r.branch_code;
+  document.getElementById('d-code').textContent = r.display_name;
 
   var ds = document.getElementById('d-status');
   var summ2 = r.error_summary || '';
