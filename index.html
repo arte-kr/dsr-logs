@@ -357,37 +357,19 @@ function showDetail(br) {
   he.className = 'sv ' + (hasErr ? 'sv-warn' : 'sv-ok');
 
   // 메일 발송 상태
-  var mailBox = document.getElementById('d-mail-box');
-  var mailEl  = document.getElementById('d-mail');
-  if (r.mail_status) {
-    mailBox.style.display = '';
-    mailEl.textContent = r.mail_status;
-    mailEl.className = r.mail_status === '완료' ? 'sv sv-ok' : 'sv sv-stop';
-  } else {
-    mailBox.style.display = 'none';
-  }
+  var mailEl = document.getElementById('d-mail');
+  mailEl.textContent = r.mail_status || '—';
+  mailEl.className = r.mail_status === '완료' ? 'sv sv-ok' : r.mail_status === '중단' ? 'sv sv-stop' : 'sv';
 
   // KPI 업로드 상태
-  var kpiBox = document.getElementById('d-kpi-box');
-  var kpiEl  = document.getElementById('d-kpi');
-  if (r.kpi_status) {
-    kpiBox.style.display = '';
-    kpiEl.textContent = r.kpi_status;
-    kpiEl.className = r.kpi_status === '완료' ? 'sv sv-ok' : 'sv sv-stop';
-  } else {
-    kpiBox.style.display = 'none';
-  }
+  var kpiEl = document.getElementById('d-kpi');
+  kpiEl.textContent = r.kpi_status || '—';
+  kpiEl.className = r.kpi_status === '완료' ? 'sv sv-ok' : r.kpi_status === '중단' ? 'sv sv-stop' : 'sv';
 
   // Slack 발송 상태
-  var slackBox = document.getElementById('d-slack-box');
-  var slackEl  = document.getElementById('d-slack');
-  if (r.slack_status) {
-    slackBox.style.display = '';
-    slackEl.textContent = r.slack_status;
-    slackEl.className = r.slack_status === '발송' ? 'sv sv-ok' : 'sv sv-stop';
-  } else {
-    slackBox.style.display = 'none';
-  }
+  var slackEl = document.getElementById('d-slack');
+  slackEl.textContent = r.slack_status || '—';
+  slackEl.className = r.slack_status === '발송' ? 'sv sv-ok' : r.slack_status === '중단' ? 'sv sv-stop' : 'sv';
 
   var ec = document.getElementById('ecard');
   if (hasErr) {
