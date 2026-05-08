@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-08T13:24:01",
+  "generated_at": "2026-05-08T13:26:22",
   "dates": [
     "2026-05-08",
     "2026-05-07",
@@ -7,150 +7,8 @@
     "2026-05-05"
   ],
   "records": {
-    "2026-05-08": {
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "error",
-        "end_time": "—",
-        "duration_sec": 0,
-        "error_count": 1,
-        "warning_count": 0,
-        "error_summary": "프로그램 미실행",
-        "error_lines": [
-          "업로드 종료 시간까지 로그가 전송되지 않았습니다."
-        ],
-        "warning_lines": [],
-        "log_file": "",
-        "file_status": null,
-        "mail_status": null,
-        "kpi_status": null,
-        "slack_status": null
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "error",
-        "end_time": "12:57:31",
-        "duration_sec": 0,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "P2→P1 처리 중단 — 종료코드 1",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "중단",
-        "mail_status": null,
-        "kpi_status": null,
-        "slack_status": null,
-        "log_file": "logs/260508_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "error",
-        "end_time": "—",
-        "duration_sec": 0,
-        "error_count": 1,
-        "warning_count": 0,
-        "error_summary": "프로그램 미실행",
-        "error_lines": [
-          "업로드 종료 시간까지 로그가 전송되지 않았습니다."
-        ],
-        "warning_lines": [],
-        "log_file": "",
-        "file_status": null,
-        "mail_status": null,
-        "kpi_status": null,
-        "slack_status": null
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "error",
-        "end_time": "—",
-        "duration_sec": 0,
-        "error_count": 1,
-        "warning_count": 0,
-        "error_summary": "프로그램 미실행",
-        "error_lines": [
-          "업로드 종료 시간까지 로그가 전송되지 않았습니다."
-        ],
-        "warning_lines": [],
-        "log_file": "",
-        "file_status": null,
-        "mail_status": null,
-        "kpi_status": null,
-        "slack_status": null
-      },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
-        "status": "error",
-        "end_time": "—",
-        "duration_sec": 0,
-        "error_count": 1,
-        "warning_count": 0,
-        "error_summary": "프로그램 미실행",
-        "error_lines": [
-          "업로드 종료 시간까지 로그가 전송되지 않았습니다."
-        ],
-        "warning_lines": [],
-        "log_file": "",
-        "file_status": null,
-        "mail_status": null,
-        "kpi_status": null,
-        "slack_status": null
-      }
-    },
+    "2026-05-08": {},
     "2026-05-07": {
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "13:23:20",
-        "duration_sec": 131,
-        "error_count": 1,
-        "warning_count": 4,
-        "error_summary": "",
-        "error_lines": [
-          "13:22:27 [ERROR] manifest 미존재: [경로] LS 매출데이터 자료\\1. 할인유형별상품판매내역(T)\\_p2_3_manifest.json"
-        ],
-        "warning_lines": [
-          "13:22:27 [WARNING] manifest 항목 없음 + 편의점 데이터 없음 — P2-3 실행 여부 확인 필요",
-          "13:22:48 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "13:22:48 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "13:22:48 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260508_OCEAN_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "07:30:47",
-        "duration_sec": 1831,
-        "error_count": 0,
-        "warning_count": 6,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:11:09 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:11:18 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:12:07 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
-          "07:29:59 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:29:59 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:29:59 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260507_VALLEY_P2P1.json"
-      },
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
@@ -173,6 +31,29 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260507_ISLAND_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "08:57:54",
+        "duration_sec": 5259,
+        "error_count": 0,
+        "warning_count": 5,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:33:15 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "08:55:29 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "08:55:29 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "08:55:29 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행",
+          "08:56:43 [WARNING] [보낸편지함] 접근 실패: (-2147352567, '예외가 발생했습니다.', (4096, 'Microsoft Outlook', '작업을 완료할 수 없습니다. 연결되지 않은 상태입니다.', None, 0, -2147352567), None)"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260507_OCEAN_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -221,55 +102,33 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260507_BUSAN_P2P1.json"
-      }
-    },
-    "2026-05-06": {
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:43:16",
-        "duration_sec": 781,
-        "error_count": 0,
-        "warning_count": 4,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:33:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:43:09 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:43:09 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:43:09 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260506_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "end_time": "16:59:09",
-        "duration_sec": 896,
-        "error_count": 1,
-        "warning_count": 4,
+        "end_time": "07:30:47",
+        "duration_sec": 1831,
+        "error_count": 0,
+        "warning_count": 6,
         "error_summary": "",
-        "error_lines": [
-          "16:53:23 [ERROR] manifest 미존재: [경로] Korea\\Wonjun Choi(DSKR-최원준) - 회계팀_ARTE\\03_아르떼뮤지엄_강릉\\10.매출현황\\01.내부양식\\03_강릉매출파일★\\6.매출현황_메일보고용\\POS데이터\\_p2_3_manifest.json"
-        ],
+        "error_lines": [],
         "warning_lines": [
-          "16:53:23 [WARNING] manifest 항목 없음 + 편의점 데이터 없음 — P2-3 실행 여부 확인 필요",
-          "16:58:21 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "16:58:21 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "16:58:21 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+          "07:11:09 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:11:18 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:12:07 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
+          "07:29:59 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:29:59 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:29:59 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260506_VALLEY_P2P1.json"
-      },
+        "log_file": "logs/260507_VALLEY_P2P1.json"
+      }
+    },
+    "2026-05-06": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
@@ -292,6 +151,28 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260506_ISLAND_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:43:16",
+        "duration_sec": 781,
+        "error_count": 0,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:33:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:43:09 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:43:09 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:43:09 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260506_OCEAN_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -343,55 +224,33 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260507_BUSAN_P2P1.json"
-      }
-    },
-    "2026-05-05": {
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:43:52",
-        "duration_sec": 817,
-        "error_count": 0,
-        "warning_count": 4,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:32:56 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:43:24 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:43:24 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:43:24 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260505_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "end_time": "07:31:37",
-        "duration_sec": 1881,
-        "error_count": 0,
-        "warning_count": 6,
+        "end_time": "16:59:09",
+        "duration_sec": 896,
+        "error_count": 1,
+        "warning_count": 4,
         "error_summary": "",
-        "error_lines": [],
+        "error_lines": [
+          "16:53:23 [ERROR] manifest 미존재: [경로] Korea\\Wonjun Choi(DSKR-최원준) - 회계팀_ARTE\\03_아르떼뮤지엄_강릉\\10.매출현황\\01.내부양식\\03_강릉매출파일★\\6.매출현황_메일보고용\\POS데이터\\_p2_3_manifest.json"
+        ],
         "warning_lines": [
-          "07:11:03 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:11:12 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:12:01 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
-          "07:30:21 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:30:21 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:30:21 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+          "16:53:23 [WARNING] manifest 항목 없음 + 편의점 데이터 없음 — P2-3 실행 여부 확인 필요",
+          "16:58:21 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "16:58:21 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "16:58:21 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260505_VALLEY_P2P1.json"
-      },
+        "log_file": "logs/260506_VALLEY_P2P1.json"
+      }
+    },
+    "2026-05-05": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
@@ -415,6 +274,28 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260505_ISLAND_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:43:52",
+        "duration_sec": 817,
+        "error_count": 0,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:32:56 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:43:24 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:43:24 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:43:24 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260505_OCEAN_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -462,6 +343,30 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260505_BUSAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:31:37",
+        "duration_sec": 1881,
+        "error_count": 0,
+        "warning_count": 6,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:11:03 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:11:12 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:12:01 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
+          "07:30:21 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:30:21 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:30:21 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260505_VALLEY_P2P1.json"
       }
     }
   }
