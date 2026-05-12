@@ -133,6 +133,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .er-item-w .er-item-cnt{background:#EF9F27}
 .er-item-sub{font-size:10px;color:#666;flex:1}
 .er-item-arrow{font-size:11px;color:#999}
+.er-st{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:0.3px;flex-shrink:0}
+.er-st-open{background:#FCEBEB;color:#791F1F}
+.er-st-pending{background:#FAEEDA;color:#633806}
+.er-st-resolved{background:#E1F5EE;color:#0F6E56}
+.er-item.is-resolved{opacity:0.55}
+.er-item.is-pending{opacity:0.85}
 .er-occ{margin-top:8px;padding-top:8px;border-top:0.5px solid rgba(0,0,0,0.08);font-size:10px;color:#666;line-height:1.7}
 .er-more{margin:6px 14px 0;padding:9px;background:#F5F5F5;border-radius:8px;text-align:center;font-size:11px;font-weight:600;color:#666;cursor:pointer}
 .er-empty{text-align:center;padding:40px 20px;color:#BBB;font-size:13px}
@@ -428,6 +434,15 @@ function normalizeMsg(s) {
     .replace(/\s+/g, ' ').trim();
 }
 
+function _statusOf(maxDate, todayStr) {
+  if (!maxDate) return 'open';
+  var d1 = new Date(todayStr || getTodayStr()), d2 = new Date(maxDate);
+  var diff = Math.round((d1 - d2) / 86400000);
+  if (diff >= 7) return 'resolved';
+  if (diff >= 3) return 'pending';
+  return 'open';
+}
+
 function aggregateErrors(level, days) {
   var valid = getValidDates();
   var filtered = valid;
@@ -457,7 +472,17 @@ function aggregateErrors(level, days) {
     });
   });
   var list = Object.keys(groups).map(function(k){ return groups[k]; });
-  list.sort(function(a,b){ return b.count - a.count; });
+  var td = getTodayStr();
+  list.forEach(function(g){
+    var maxD = g.occurrences.reduce(function(m,o){ return o.date > m ? o.date : m; }, '');
+    g.maxDate = maxD;
+    g.status = _statusOf(maxD, td);
+  });
+  var statusPri = { open: 0, pending: 1, resolved: 2 };
+  list.sort(function(a,b){
+    if (statusPri[a.status] !== statusPri[b.status]) return statusPri[a.status] - statusPri[b.status];
+    return b.count - a.count;
+  });
   var dates = filtered.slice().sort();
   var timeline = dates.map(function(d){ return { date: d, count: byDate[d] || 0 }; });
   var total = list.reduce(function(s,g){ return s + g.count; }, 0);
@@ -528,13 +553,15 @@ function renderErrorDetail() {
   for (var i = 0; i < limit; i++) {
     var g = lst[i];
     var brTxt = Object.keys(g.byBranch).map(function(b){ return b + ' ' + g.byBranch[b]; }).join(' · ');
-    var dates = g.occurrences.map(function(o){ return o.date; });
-    var maxDate = dates.sort().reverse()[0];
     var arrow = ER_EXPANDED[g.key] ? '▴' : '▾';
-    html += '<div class="er-item' + levelCls + '" onclick="toggleErExpand(\'' + g.key.replace(/\\/g,"\\\\").replace(/\'/g,"\\\'") + '\')">' +
+    var stLbl = g.status === 'resolved' ? '해결' : g.status === 'pending' ? '해결예정' : '미해결';
+    var stCls = 'er-st er-st-' + g.status;
+    var itemCls = g.status === 'resolved' ? ' is-resolved' : g.status === 'pending' ? ' is-pending' : '';
+    html += '<div class="er-item' + levelCls + itemCls + '" onclick="toggleErExpand(\'' + g.key.replace(/\\/g,"\\\\").replace(/\'/g,"\\\'") + '\')">' +
       '<div class="er-item-msg">' + escapeHtml(g.msg) + '</div>' +
       '<div class="er-item-meta"><span class="er-item-cnt">' + g.count + '회</span>' +
-      '<span class="er-item-sub">' + brTxt + ' · 최근 ' + maxDate + '</span>' +
+      '<span class="' + stCls + '">' + stLbl + '</span>' +
+      '<span class="er-item-sub">' + brTxt + ' · 최근 ' + g.maxDate + '</span>' +
       '<span class="er-item-arrow">' + arrow + '</span></div>';
     if (ER_EXPANDED[g.key]) {
       var occ = g.occurrences.slice().sort(function(a,b){ return b.date.localeCompare(a.date); });
