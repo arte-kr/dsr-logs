@@ -473,16 +473,22 @@ function aggregateErrors(level, days) {
   });
   var list = Object.keys(groups).map(function(k){ return groups[k]; });
   var td = getTodayStr();
+  // maxDate는 항상 계산 (UI에서 '최근 YYYY-MM-DD' 표시용)
   list.forEach(function(g){
     var maxD = g.occurrences.reduce(function(m,o){ return o.date > m ? o.date : m; }, '');
     g.maxDate = maxD;
-    g.status = _statusOf(maxD, td);
+    // status는 오늘 모드(days=1)에서는 부여하지 않음
+    g.status = (days === 1) ? null : _statusOf(maxD, td);
   });
-  var statusPri = { open: 0, pending: 1, resolved: 2 };
-  list.sort(function(a,b){
-    if (statusPri[a.status] !== statusPri[b.status]) return statusPri[a.status] - statusPri[b.status];
-    return b.count - a.count;
-  });
+  if (days === 1) {
+    list.sort(function(a,b){ return b.count - a.count; });
+  } else {
+    var statusPri = { open: 0, pending: 1, resolved: 2 };
+    list.sort(function(a,b){
+      if (statusPri[a.status] !== statusPri[b.status]) return statusPri[a.status] - statusPri[b.status];
+      return b.count - a.count;
+    });
+  }
   var dates = filtered.slice().sort();
   var timeline = dates.map(function(d){ return { date: d, count: byDate[d] || 0 }; });
   var total = list.reduce(function(s,g){ return s + g.count; }, 0);
@@ -554,13 +560,17 @@ function renderErrorDetail() {
     var g = lst[i];
     var brTxt = Object.keys(g.byBranch).map(function(b){ return b + ' ' + g.byBranch[b]; }).join(' · ');
     var arrow = ER_EXPANDED[g.key] ? '▴' : '▾';
-    var stLbl = g.status === 'resolved' ? '해결' : g.status === 'pending' ? '해결예정' : '미해결';
-    var stCls = 'er-st er-st-' + g.status;
-    var itemCls = g.status === 'resolved' ? ' is-resolved' : g.status === 'pending' ? ' is-pending' : '';
+    var showStatus = ER_DAYS !== 1 && g.status;
+    var stHtml = '', itemCls = '';
+    if (showStatus) {
+      var stLbl = g.status === 'resolved' ? '해결' : g.status === 'pending' ? '해결예정' : '미해결';
+      stHtml = '<span class="er-st er-st-' + g.status + '">' + stLbl + '</span>';
+      itemCls = g.status === 'resolved' ? ' is-resolved' : g.status === 'pending' ? ' is-pending' : '';
+    }
     html += '<div class="er-item' + levelCls + itemCls + '" onclick="toggleErExpand(\'' + g.key.replace(/\\/g,"\\\\").replace(/\'/g,"\\\'") + '\')">' +
       '<div class="er-item-msg">' + escapeHtml(g.msg) + '</div>' +
       '<div class="er-item-meta"><span class="er-item-cnt">' + g.count + '회</span>' +
-      '<span class="' + stCls + '">' + stLbl + '</span>' +
+      stHtml +
       '<span class="er-item-sub">' + brTxt + ' · 최근 ' + g.maxDate + '</span>' +
       '<span class="er-item-arrow">' + arrow + '</span></div>';
     if (ER_EXPANDED[g.key]) {
