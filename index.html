@@ -249,6 +249,17 @@ function fmtSync(iso) {
 
 function isToday() { return false; }
 
+function getTodayStr() {
+  var t = new Date();
+  return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+}
+
+function getValidDates() {
+  if (!DB || !DB.dates) return [];
+  var td = getTodayStr();
+  return DB.dates.filter(function(d){ return d < td; });
+}
+
 function dotCls(rec) {
   if (rec.status === 'error') return 'd-stop';
   if (rec.error_count > 0 || rec.warning_count > 0) return 'd-warn';
@@ -267,7 +278,7 @@ function dotsHtml(dateStr) {
 
 function filteredDates() {
   if (!DB) return [];
-  return (DB.dates || []).filter(function(d) {
+  return getValidDates().filter(function(d) {
     return parseInt(d.substr(0,4)) === CY && parseInt(d.substr(5,2)) === CM;
   });
 }
@@ -298,7 +309,7 @@ function badgesHtml(r) {
 
 function renderMonths() {
   var hasMon = {};
-  (DB.dates || []).forEach(function(d) {
+  getValidDates().forEach(function(d) {
     var y = parseInt(d.substr(0,4)), m = parseInt(d.substr(5,2));
     if (!hasMon[y]) hasMon[y] = {};
     hasMon[y][m] = true;
@@ -339,7 +350,9 @@ function renderDates() {
 
 function renderSummary() {
   if (!DB || !DB.dates || !DB.dates.length) return;
-  var latest = DB.dates[0];
+  var valid = getValidDates();
+  if (!valid.length) { document.getElementById('summary-card').style.display = 'none'; return; }
+  var latest = valid[0];
   var recs = DB.records[latest] || {};
   var branches = ['ISLAND','OCEAN','VALLEY','BUSAN','KIDS'];
   var doneAll = 0, total = 0;
@@ -389,7 +402,7 @@ function renderSummary() {
 }
 
 function showDetailFromSummary(br) {
-  SD = DB.dates[0];
+  var v = getValidDates(); SD = v[0] || DB.dates[0];
   renderDates(); renderBranches();
   showDetail(br);
 }
@@ -537,7 +550,14 @@ function initUI() {
     return;
   }
   document.getElementById('sync-txt').textContent = fmtSync(DB.generated_at);
-  SD = DB.dates[0];
+  var valid = getValidDates();
+  SD = valid[0] || '';
+  if (!SD) {
+    document.getElementById('main-body').innerHTML = '<div class="empty"><div class="empty-icon">📋</div>아직 어제 이전 데이터가 없습니다.</div>';
+    document.getElementById('date-panel').style.display = 'none';
+    document.getElementById('summary-card').style.display = 'none';
+    return;
+  }
   var sd = new Date(SD);
   CY = sd.getFullYear(); CM = sd.getMonth() + 1;
   document.getElementById('summary-card').style.display = 'block';
