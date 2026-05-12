@@ -159,6 +159,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .sc-chip-off{background:#F3F3F3;color:#999}
 .sc-chip-code{font-size:11px;font-weight:700;line-height:1}
 .sc-chip-val{font-size:12px;font-weight:700;margin-top:6px;line-height:1}
+.sc-er-row{display:flex;gap:6px;margin-top:7px}
+.sc-er-chip{flex:1;padding:9px 12px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:0.5px solid transparent;transition:transform .1s}
+.sc-er-chip:active{transform:scale(0.97)}
+.sc-er-chip-e{background:#FDECEA;color:#B33025;border-color:#F09595}
+.sc-er-chip-w{background:#FEF3E2;color:#905A08;border-color:#EF9F27}
+.sc-er-lbl{font-size:10px;font-weight:700;letter-spacing:0.3px}
+.sc-er-val{font-size:13px;font-weight:700}
 
 /* 에러 메시지 */
 .err-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:30px 20px;text-align:center;gap:12px}
@@ -455,20 +462,8 @@ function aggregateErrors(level, days) {
   return { list: list, timeline: timeline, total: total, period: filtered };
 }
 
-function erSummaryCard() {
-  var e = aggregateErrors('error', 0);
-  var w = aggregateErrors('warning', 0);
-  return '<div class="bc" onclick="showErrorDetail()">' +
-    '<div class="bcleft"><div class="bcname">ERROR REPORT</div><div class="bccode">반복 발생 오류 집계</div></div>' +
-    '<div class="bcright"><div class="bfrow">' +
-      '<span class="bf bf-er-e">E ' + e.total + '</span>' +
-      '<span class="bf bf-er-w">W ' + w.total + '</span>' +
-    '</div></div>' +
-    '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
-    '</div>';
-}
-
-function showErrorDetail() {
+function showErrorDetail(level) {
+  if (level) ER_LEVEL = level;
   ER_EXPANDED = {}; ER_SHOW_ALL = false;
   document.getElementById('main').classList.remove('active');
   document.getElementById('error-detail').classList.add('active');
@@ -628,6 +623,24 @@ function renderSummary() {
       '<div class="sc-chip-code">' + r.branch_code + '</div>' +
       '<div class="sc-chip-val">' + val + '</div></div>';
   }).join('');
+  // 최신일 기준 ERROR/WARNING 건수
+  var ec = 0, wc = 0;
+  Object.keys(recs).forEach(function(br){
+    var r = recs[br];
+    ec += r.error_count || 0;
+    wc += r.warning_count || 0;
+  });
+  var erHtml =
+    '<div class="sc-divider"></div>' +
+    '<div class="sc-sub">ERROR REPORT</div>' +
+    '<div class="sc-er-row">' +
+      '<div class="sc-er-chip sc-er-chip-e" onclick="showErrorDetail(\'error\')">' +
+        '<span class="sc-er-lbl">ERROR</span><span class="sc-er-val">' + ec + '건</span>' +
+      '</div>' +
+      '<div class="sc-er-chip sc-er-chip-w" onclick="showErrorDetail(\'warning\')">' +
+        '<span class="sc-er-lbl">WARNING</span><span class="sc-er-val">' + wc + '건</span>' +
+      '</div>' +
+    '</div>';
   document.getElementById('summary-card').innerHTML =
     '<div class="sc-top">' +
       '<div><div class="sc-head-lbl">최신 매출보고일</div>' +
@@ -637,7 +650,8 @@ function renderSummary() {
     '</div>' +
     '<div class="sc-divider"></div>' +
     '<div class="sc-sub">지점 진행사항</div>' +
-    '<div class="sc-chips">' + chips + '</div>';
+    '<div class="sc-chips">' + chips + '</div>' +
+    erHtml;
 }
 
 function showDetailFromSummary(br) {
@@ -664,7 +678,6 @@ function renderBranches() {
       '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
       '</div>';
   });
-  html += erSummaryCard();
   mb.innerHTML = html;
 }
 
