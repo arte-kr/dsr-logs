@@ -524,11 +524,13 @@ function showErrorDetail(level) {
   document.getElementById('main').classList.remove('active');
   document.getElementById('error-detail').classList.add('active');
   renderErrorDetail();
+  if (typeof updateFab === 'function') updateFab();
 }
 
 function goBackFromError() {
   document.getElementById('error-detail').classList.remove('active');
   document.getElementById('main').classList.add('active');
+  if (typeof updateFab === 'function') updateFab();
 }
 
 function setErDays(n) { ER_DAYS = n; ER_STATUS_FILTER = 'open'; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
@@ -871,6 +873,7 @@ function showDetail(br) {
 
   document.getElementById('main').classList.remove('active');
   document.getElementById('detail').classList.add('active');
+  if (typeof updateFab === 'function') updateFab();
 }
 
 function toggleLog() {
@@ -904,6 +907,7 @@ function toggleLog() {
 function goBack() {
   document.getElementById('detail').classList.remove('active');
   document.getElementById('main').classList.add('active');
+  if (typeof updateFab === 'function') updateFab();
 }
 
 function initUI() {
@@ -999,7 +1003,9 @@ loadData();
     var fabObserver = new MutationObserver(function() { updateFab(); });
     document.addEventListener('DOMContentLoaded', function() {
       var detail = document.getElementById('detail');
-      if (detail) fabObserver.observe(detail, { attributes: true, attributeFilter: ['style'] });
+      var errd = document.getElementById('error-detail');
+      if (detail) fabObserver.observe(detail, { attributes: true, attributeFilter: ['class','style'] });
+      if (errd) fabObserver.observe(errd, { attributes: true, attributeFilter: ['class','style'] });
       updateFab();
     });
   </script>
