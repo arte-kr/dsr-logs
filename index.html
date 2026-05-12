@@ -124,6 +124,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .er-chart-title{font-size:11px;font-weight:600;color:#333;margin-bottom:8px;display:flex;justify-content:space-between}
 .er-chart-empty{text-align:center;padding:24px;color:#BBB;font-size:11px}
 .er-list-title{font-size:11px;font-weight:600;color:#333;padding:10px 18px 6px}
+.er-status-tabs{display:flex;gap:6px;padding:0 14px 8px}
+.er-status-tab{flex:1;padding:8px 0;border-radius:8px;background:#fff;color:#888;font-size:11px;font-weight:600;cursor:pointer;text-align:center;border:0.5px solid #EBEBEB;transition:all .15s}
+.er-status-tab-sel-o{background:#FCEBEB;color:#791F1F;border-color:#E24B4A}
+.er-status-tab-sel-p{background:#FFF8DC;color:#854F0B;border-color:#E8B500}
+.er-status-tab-sel-r{background:#EAF5DE;color:#3A7A10;border-color:#639922}
 .er-item{background:#FCEBEB;border:0.5px solid #F09595;border-radius:8px;margin:0 14px 6px;padding:10px 12px;cursor:pointer}
 .er-item-w{background:#FEF3E2;border-color:#EF9F27}
 .er-item-msg{font-size:12px;font-weight:600;color:#791F1F;line-height:1.4;word-break:break-all}
@@ -424,6 +429,7 @@ function renderDates() {
 }
 
 var ER_DAYS = 1;
+var ER_STATUS_FILTER = 'open';
 var ER_LEVEL = 'error';
 var ER_EXPANDED = {};
 var ER_SHOW_ALL = false;
@@ -513,7 +519,7 @@ function aggregateErrors(level, days) {
 
 function showErrorDetail(level) {
   if (level) ER_LEVEL = level;
-  ER_DAYS = 1;
+  ER_DAYS = 1; ER_STATUS_FILTER = 'open';
   ER_EXPANDED = {}; ER_SHOW_ALL = false;
   document.getElementById('main').classList.remove('active');
   document.getElementById('error-detail').classList.add('active');
@@ -525,8 +531,9 @@ function goBackFromError() {
   document.getElementById('main').classList.add('active');
 }
 
-function setErDays(n) { ER_DAYS = n; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
-function setErLevel(l) { ER_LEVEL = l; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+function setErDays(n) { ER_DAYS = n; ER_STATUS_FILTER = 'open'; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+function setErLevel(l) { ER_LEVEL = l; ER_STATUS_FILTER = 'open'; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+function setErStatusFilter(s) { ER_STATUS_FILTER = s; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
 function toggleErExpand(k) { ER_EXPANDED[k] = !ER_EXPANDED[k]; renderErrorDetail(); }
 function toggleErShowAll() { ER_SHOW_ALL = !ER_SHOW_ALL; renderErrorDetail(); }
 
@@ -566,12 +573,38 @@ function renderErrorDetail() {
   else { chartBox.style.display = ''; renderErChart(agg); }
 
   // 메시지 리스트
-  var lst = agg.list;
   var listEl = document.getElementById('ed-list');
-  if (!lst.length) { listEl.innerHTML = '<div class="er-empty">발생 ' + (ER_LEVEL==='error'?'ERROR':'WARNING') + '가 없습니다.</div>'; return; }
+  // 상태별 그룹 카운트 (ER_DAYS !== 1 일 때만 탭 노출)
+  var cO = 0, cP = 0, cR = 0;
+  agg.list.forEach(function(g){
+    if (g.status === 'pending') cP++;
+    else if (g.status === 'resolved') cR++;
+    else cO++;
+  });
+  var tabHtml = '';
+  if (ER_DAYS !== 1) {
+    var f = ER_STATUS_FILTER;
+    tabHtml = '<div class="er-status-tabs">' +
+      '<div class="er-status-tab' + (f==='open'?' er-status-tab-sel-o':'') + '" onclick="setErStatusFilter(\'open\')">미해결 ' + cO + '</div>' +
+      '<div class="er-status-tab' + (f==='pending'?' er-status-tab-sel-p':'') + '" onclick="setErStatusFilter(\'pending\')">해결예정 ' + cP + '</div>' +
+      '<div class="er-status-tab' + (f==='resolved'?' er-status-tab-sel-r':'') + '" onclick="setErStatusFilter(\'resolved\')">해결 ' + cR + '</div>' +
+    '</div>';
+  }
+  // 필터링
+  var lst;
+  if (ER_DAYS === 1) {
+    lst = agg.list;
+  } else {
+    lst = agg.list.filter(function(g){ return g.status === ER_STATUS_FILTER; });
+  }
+  if (!lst.length) {
+    var stLbl = ER_STATUS_FILTER === 'open' ? '미해결' : ER_STATUS_FILTER === 'pending' ? '해결예정' : '해결';
+    listEl.innerHTML = tabHtml + '<div class="er-empty">' + stLbl + ' ' + (ER_LEVEL==='error'?'ERROR':'WARNING') + '가 없습니다.</div>';
+    return;
+  }
   var limit = ER_SHOW_ALL ? lst.length : Math.min(5, lst.length);
   var levelCls = ER_LEVEL === 'warning' ? ' er-item-w' : '';
-  var html = '';
+  var html = tabHtml;
   for (var i = 0; i < limit; i++) {
     var g = lst[i];
     var brTxt = Object.keys(g.byBranch).map(function(b){ return b + ' ' + g.byBranch[b]; }).join(' · ');
