@@ -135,10 +135,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .er-item-arrow{font-size:11px;color:#999}
 .er-st{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:0.3px;flex-shrink:0}
 .er-st-open{background:#FCEBEB;color:#791F1F}
-.er-st-pending{background:#FAEEDA;color:#633806}
-.er-st-resolved{background:#E1F5EE;color:#0F6E56}
-.er-item.is-resolved{opacity:0.55}
-.er-item.is-pending{opacity:0.85}
+.er-st-pending{background:#FFF8DC;color:#854F0B}
+.er-st-resolved{background:#EAF5DE;color:#3A7A10}
+.er-item.is-pending{background:#FFF8DC;border-color:#F5D87A}
+.er-item.is-pending .er-item-msg{color:#854F0B}
+.er-item.is-pending .er-item-cnt{background:#E8B500}
+.er-item.is-resolved{background:#EAF5DE;border-color:#C0DD97}
+.er-item.is-resolved .er-item-msg{color:#3A7A10}
+.er-item.is-resolved .er-item-cnt{background:#639922}
 .er-occ{margin-top:8px;padding-top:8px;border-top:0.5px solid rgba(0,0,0,0.08);font-size:10px;color:#666;line-height:1.7}
 .er-more{margin:6px 14px 0;padding:9px;background:#F5F5F5;border-radius:8px;text-align:center;font-size:11px;font-weight:600;color:#666;cursor:pointer}
 .er-empty{text-align:center;padding:40px 20px;color:#BBB;font-size:13px}
@@ -453,8 +457,7 @@ function aggregateErrors(level, days) {
     var cutoff = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
     filtered = valid.filter(function(x){ return x >= cutoff; });
   }
-  var groups = {}, byDate = {};
-  filtered.forEach(function(d){ byDate[d] = 0; });
+  var groups = {};
   filtered.forEach(function(d){
     var dayRecs = DB.records[d] || {};
     Object.keys(dayRecs).forEach(function(br){
@@ -467,7 +470,6 @@ function aggregateErrors(level, days) {
         groups[norm].count++;
         groups[norm].byBranch[r.branch_code] = (groups[norm].byBranch[r.branch_code] || 0) + 1;
         groups[norm].occurrences.push({ date: d, branch: r.branch_code, line: line });
-        byDate[d]++;
       });
     });
   });
@@ -489,9 +491,23 @@ function aggregateErrors(level, days) {
       return b.count - a.count;
     });
   }
+  // resolved 제외, open/pending 분리한 일자별 집계
+  var byDateByStatus = {};
+  filtered.forEach(function(d){ byDateByStatus[d] = { open: 0, pending: 0 }; });
+  list.forEach(function(g){
+    if (g.status === 'resolved') return;
+    g.occurrences.forEach(function(o){
+      var s = byDateByStatus[o.date]; if (!s) return;
+      if (g.status === 'pending') s.pending++;
+      else s.open++;
+    });
+  });
   var dates = filtered.slice().sort();
-  var timeline = dates.map(function(d){ return { date: d, count: byDate[d] || 0 }; });
-  var total = list.reduce(function(s,g){ return s + g.count; }, 0);
+  var timeline = dates.map(function(d){
+    var s = byDateByStatus[d];
+    return { date: d, open: s.open, pending: s.pending, count: s.open + s.pending };
+  });
+  var total = timeline.reduce(function(s,t){ return s + t.count; }, 0);
   return { list: list, timeline: timeline, total: total, period: filtered };
 }
 
@@ -593,7 +609,8 @@ function escapeHtml(s) {
 
 function renderErChart(agg) {
   var box = document.getElementById('ed-chart-box');
-  var color = ER_LEVEL === 'error' ? '#E24B4A' : '#EF9F27';
+  var openColor = ER_LEVEL === 'error' ? '#E24B4A' : '#EF9F27';
+  var pendingColor = '#E8B500';
   var darkc = ER_LEVEL === 'error' ? '#791F1F' : '#633806';
   if (!agg.timeline.length) { box.innerHTML = '<div class="er-chart-empty">표시할 데이터가 없습니다.</div>'; return; }
   var maxV = Math.max.apply(null, agg.timeline.map(function(t){ return t.count; }));
@@ -602,13 +619,25 @@ function renderErChart(agg) {
   var bw = Math.max(8, Math.floor((W - padL - padR) / agg.timeline.length) - 4);
   var step = (W - padL - padR) / agg.timeline.length;
   var bars = '';
+  var chartH = H - padT - padB;
   agg.timeline.forEach(function(t, i){
     var x = padL + step * i + (step - bw) / 2;
-    var bh = ((H - padT - padB) * t.count / maxV);
-    var y = H - padB - bh;
-    bars += '<rect x="' + x + '" y="' + y + '" width="' + bw + '" height="' + bh + '" fill="' + color + '" rx="2"/>';
-    if (t.count > 0) bars += '<text x="' + (x + bw/2) + '" y="' + (y - 3) + '" font-size="8" font-weight="700" fill="' + darkc + '" text-anchor="middle">' + t.count + '</text>';
-    // 짧은 라벨 (MM-DD) — 너무 많으면 일부만
+    var yBottom = H - padB;
+    var pendH = chartH * (t.pending || 0) / maxV;
+    var openH = chartH * (t.open || 0) / maxV;
+    // 해결예정 (하단)
+    if (pendH > 0) {
+      bars += '<rect x="' + x + '" y="' + (yBottom - pendH) + '" width="' + bw + '" height="' + pendH + '" fill="' + pendingColor + '" rx="2"/>';
+    }
+    // 미해결 (상단)
+    if (openH > 0) {
+      bars += '<rect x="' + x + '" y="' + (yBottom - pendH - openH) + '" width="' + bw + '" height="' + openH + '" fill="' + openColor + '" rx="2"/>';
+    }
+    // 막대 위 합산 숫자
+    if (t.count > 0) {
+      var topY = yBottom - pendH - openH;
+      bars += '<text x="' + (x + bw/2) + '" y="' + (topY - 3) + '" font-size="8" font-weight="700" fill="' + darkc + '" text-anchor="middle">' + t.count + '</text>';
+    }
     var showLabel = agg.timeline.length <= 12 || i % Math.ceil(agg.timeline.length / 10) === 0;
     if (showLabel) {
       var lbl = t.date.substr(5);
@@ -624,7 +653,10 @@ function renderErChart(agg) {
     grid += '<text x="' + (W - padR - 2) + '" y="' + (midY - 2) + '" font-size="8" fill="#BBB" text-anchor="end">' + Math.round(maxV/2) + '</text>';
   }
   grid += '<text x="' + (W - padR - 2) + '" y="' + (padT - 2) + '" font-size="8" fill="#BBB" text-anchor="end">' + maxV + '</text>';
-  box.innerHTML = '<div class="er-chart-title"><span>일자별 발생 추이</span><span style="color:#888;font-weight:500">최댓값 ' + maxV + '건</span></div>' +
+  var legend = '<span style="display:inline-flex;align-items:center;gap:4px;font-weight:500;color:#666"><span style="display:inline-block;width:10px;height:10px;background:' + openColor + ';border-radius:2px"></span>미해결</span>' +
+    '<span style="display:inline-flex;align-items:center;gap:4px;font-weight:500;color:#666;margin-left:10px"><span style="display:inline-block;width:10px;height:10px;background:' + pendingColor + ';border-radius:2px"></span>해결예정</span>' +
+    '<span style="margin-left:10px;color:#888;font-weight:500">최댓값 ' + maxV + '건</span>';
+  box.innerHTML = '<div class="er-chart-title"><span>일자별 발생 추이</span><span>' + legend + '</span></div>' +
     '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;display:block">' + grid + bars + '</svg>';
 }
 
