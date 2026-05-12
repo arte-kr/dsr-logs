@@ -263,6 +263,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
     <div style="font-size:11px;color:#666" id="ed-period">집계 기간: —</div>
     <div class="er-chips">
       <div class="er-chip er-chip-sel" id="ed-c1" onclick="setErDays(1)">오늘</div>
+      <div class="er-chip" id="ed-c7" onclick="setErDays(7)">최근 7일</div>
       <div class="er-chip" id="ed-call" onclick="setErDays(0)">전체</div>
     </div>
   </div>
@@ -484,8 +485,8 @@ function toggleErShowAll() { ER_SHOW_ALL = !ER_SHOW_ALL; renderErrorDetail(); }
 
 function renderErrorDetail() {
   // 칩 활성
-  ['ed-c1','ed-call'].forEach(function(id){ document.getElementById(id).classList.remove('er-chip-sel'); });
-  var chipId = ER_DAYS === 1 ? 'ed-c1' : 'ed-call';
+  ['ed-c1','ed-c7','ed-call'].forEach(function(id){ document.getElementById(id).classList.remove('er-chip-sel'); });
+  var chipId = ER_DAYS === 1 ? 'ed-c1' : ER_DAYS === 7 ? 'ed-c7' : 'ed-call';
   document.getElementById(chipId).classList.add('er-chip-sel');
 
   // 탭 활성
@@ -507,9 +508,10 @@ function renderErrorDetail() {
   var pTxt;
   if (!ps.length) pTxt = '집계 기간: 데이터 없음';
   else if (ER_DAYS === 1) pTxt = '당일: ' + ps[0] + ' · 총 ' + agg.total + '건';
+  else if (ER_DAYS === 7) pTxt = '최근 7일: ' + ps[ps.length-1] + ' ~ ' + ps[0] + ' (' + ps.length + '일) · 총 ' + agg.total + '건';
   else pTxt = '전체: ' + ps[ps.length-1] + ' ~ ' + ps[0] + ' (' + ps.length + '일) · 총 ' + agg.total + '건';
   document.getElementById('ed-period').textContent = pTxt;
-  document.getElementById('ed-sub').textContent = ER_DAYS === 1 ? '오늘' : '전체 기간';
+  document.getElementById('ed-sub').textContent = ER_DAYS === 1 ? '오늘' : ER_DAYS === 7 ? '최근 7일' : '전체 기간';
 
   // 차트 (오늘 모드일 땐 숨김)
   var chartBox = document.getElementById('ed-chart-box');
