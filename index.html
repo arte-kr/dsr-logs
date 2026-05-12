@@ -109,6 +109,34 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .loglines{background:#fff;border-radius:0 0 12px 12px;border:1px solid #EBEBEB;border-top:none;padding:12px 15px;font-size:11px;color:#888;font-family:'SF Mono','Consolas','Courier New',monospace;line-height:1.8;max-height:200px;overflow-y:auto;display:none;margin-bottom:4px;word-break:break-all}
 .log-err{color:#B33025}.log-warn{color:#905A08}.log-info{color:#1A5F9A}
 
+/* ERROR REPORT 요약 카드 + 상세 화면 */
+.bf-er-e{background:#FDECEA;color:#B33025}
+.bf-er-w{background:#FEF3E2;color:#905A08}
+.er-meta{padding:14px 15px;border-bottom:1px solid #EBEBEB;background:#fff;flex-shrink:0}
+.er-chips{display:flex;gap:6px;margin-top:10px}
+.er-chip{padding:6px 14px;border-radius:14px;background:#F5F5F5;color:#666;font-size:12px;font-weight:600;cursor:pointer;border:0.5px solid #E0E0E0;flex:1;text-align:center;transition:all .15s}
+.er-chip-sel{background:#1D9E75;color:#fff;border-color:#1D9E75}
+.er-tabs{display:flex;gap:8px;padding:12px 14px 0;background:#F5F5F5;flex-shrink:0}
+.er-tab{flex:1;padding:8px 0;border-radius:8px;background:#fff;color:#888;font-size:12px;font-weight:600;cursor:pointer;text-align:center;border:0.5px solid #EBEBEB}
+.er-tab-sel-e{background:#FDECEA;color:#B33025;border-color:#B33025}
+.er-tab-sel-w{background:#FEF3E2;color:#905A08;border-color:#905A08}
+.er-chart-box{background:#fff;border:1px solid #EBEBEB;border-radius:12px;padding:12px 14px;margin:10px 14px 0}
+.er-chart-title{font-size:11px;font-weight:600;color:#333;margin-bottom:8px;display:flex;justify-content:space-between}
+.er-chart-empty{text-align:center;padding:24px;color:#BBB;font-size:11px}
+.er-list-title{font-size:11px;font-weight:600;color:#333;padding:10px 18px 6px}
+.er-item{background:#FCEBEB;border:0.5px solid #F09595;border-radius:8px;margin:0 14px 6px;padding:10px 12px;cursor:pointer}
+.er-item-w{background:#FEF3E2;border-color:#EF9F27}
+.er-item-msg{font-size:12px;font-weight:600;color:#791F1F;line-height:1.4;word-break:break-all}
+.er-item-w .er-item-msg{color:#633806}
+.er-item-meta{display:flex;align-items:center;gap:8px;margin-top:6px}
+.er-item-cnt{background:#E24B4A;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px}
+.er-item-w .er-item-cnt{background:#EF9F27}
+.er-item-sub{font-size:10px;color:#666;flex:1}
+.er-item-arrow{font-size:11px;color:#999}
+.er-occ{margin-top:8px;padding-top:8px;border-top:0.5px solid rgba(0,0,0,0.08);font-size:10px;color:#666;line-height:1.7}
+.er-more{margin:6px 14px 0;padding:9px;background:#F5F5F5;border-radius:8px;text-align:center;font-size:11px;font-weight:600;color:#666;cursor:pointer}
+.er-empty{text-align:center;padding:40px 20px;color:#BBB;font-size:13px}
+
 /* SUMMARY 카드 */
 .summary-card{background:#fff;border:1.5px solid #1D9E75;border-radius:12px;margin:10px 14px 0;padding:12px 14px;flex-shrink:0}
 .sc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
@@ -210,6 +238,36 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
       <svg viewBox="0 0 13 13"><path d="M2 4l4.5 4 4.5-4"/></svg>
     </div>
     <div class="loglines" id="loglines"></div>
+  </div>
+</div>
+
+<!-- ERROR REPORT 상세 화면 -->
+<div id="error-detail" class="screen">
+  <div class="topbar">
+    <div class="topbar-back">
+      <div class="back-btn" onclick="goBackFromError()"><svg viewBox="0 0 13 13"><path d="M9 2L5 6.5l4 4.5"/></svg></div>
+      <div>
+        <div class="topbar-title">ERROR REPORT</div>
+        <div class="topbar-desc" id="ed-sub">반복 발생 오류 집계</div>
+      </div>
+    </div>
+  </div>
+  <div class="er-meta">
+    <div style="font-size:11px;color:#666" id="ed-period">집계 기간: —</div>
+    <div class="er-chips">
+      <div class="er-chip er-chip-sel" id="ed-c7" onclick="setErDays(7)">최근 7일</div>
+      <div class="er-chip" id="ed-c30" onclick="setErDays(30)">최근 30일</div>
+      <div class="er-chip" id="ed-call" onclick="setErDays(0)">전체</div>
+    </div>
+  </div>
+  <div class="er-tabs">
+    <div class="er-tab er-tab-sel-e" id="ed-te" onclick="setErLevel('error')">ERROR · <span id="ed-ec">0</span>건</div>
+    <div class="er-tab" id="ed-tw" onclick="setErLevel('warning')">WARNING · <span id="ed-wc">0</span>건</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;background:#F5F5F5;padding-bottom:14px">
+    <div class="er-chart-box" id="ed-chart-box"></div>
+    <div class="er-list-title">반복 발생 메시지 <span style="color:#AAA;font-weight:500">· 발생 횟수 ↓</span></div>
+    <div id="ed-list"></div>
   </div>
 </div>
 
@@ -348,6 +406,187 @@ function renderDates() {
   }
 }
 
+var ER_DAYS = 7;
+var ER_LEVEL = 'error';
+var ER_EXPANDED = {};
+var ER_SHOW_ALL = false;
+
+function normalizeMsg(s) {
+  if (!s) return '';
+  return s
+    .replace(/\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}(\.\d+)?/g, '<TS>')
+    .replace(/\d{4}-\d{2}-\d{2}/g, '<DATE>')
+    .replace(/\d{2}:\d{2}:\d{2}/g, '<TIME>')
+    .replace(/\d{2}:\d{2}/g, '<TIME>')
+    .replace(/\s+/g, ' ').trim();
+}
+
+function aggregateErrors(level, days) {
+  var valid = getValidDates();
+  var filtered = valid;
+  if (days > 0) {
+    var d = new Date(); d.setDate(d.getDate() - days);
+    var cutoff = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    filtered = valid.filter(function(x){ return x >= cutoff; });
+  }
+  var groups = {}, byDate = {};
+  filtered.forEach(function(d){ byDate[d] = 0; });
+  filtered.forEach(function(d){
+    var dayRecs = DB.records[d] || {};
+    Object.keys(dayRecs).forEach(function(br){
+      var r = dayRecs[br];
+      var lines = level === 'error' ? (r.error_lines || []) : (r.warning_lines || []);
+      lines.forEach(function(line){
+        var norm = normalizeMsg(line);
+        if (!norm) return;
+        if (!groups[norm]) groups[norm] = { key: norm, msg: line, count: 0, byBranch: {}, occurrences: [] };
+        groups[norm].count++;
+        groups[norm].byBranch[r.branch_code] = (groups[norm].byBranch[r.branch_code] || 0) + 1;
+        groups[norm].occurrences.push({ date: d, branch: r.branch_code, line: line });
+        byDate[d]++;
+      });
+    });
+  });
+  var list = Object.keys(groups).map(function(k){ return groups[k]; });
+  list.sort(function(a,b){ return b.count - a.count; });
+  var dates = filtered.slice().sort();
+  var timeline = dates.map(function(d){ return { date: d, count: byDate[d] || 0 }; });
+  var total = list.reduce(function(s,g){ return s + g.count; }, 0);
+  return { list: list, timeline: timeline, total: total, period: filtered };
+}
+
+function erSummaryCard() {
+  var e = aggregateErrors('error', 0);
+  var w = aggregateErrors('warning', 0);
+  return '<div class="bc" onclick="showErrorDetail()">' +
+    '<div class="bcleft"><div class="bcname">ERROR REPORT</div><div class="bccode">반복 발생 오류 집계</div></div>' +
+    '<div class="bcright"><div class="bfrow">' +
+      '<span class="bf bf-er-e">E ' + e.total + '</span>' +
+      '<span class="bf bf-er-w">W ' + w.total + '</span>' +
+    '</div></div>' +
+    '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
+    '</div>';
+}
+
+function showErrorDetail() {
+  ER_EXPANDED = {}; ER_SHOW_ALL = false;
+  document.getElementById('main').classList.remove('active');
+  document.getElementById('error-detail').classList.add('active');
+  renderErrorDetail();
+}
+
+function goBackFromError() {
+  document.getElementById('error-detail').classList.remove('active');
+  document.getElementById('main').classList.add('active');
+}
+
+function setErDays(n) { ER_DAYS = n; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+function setErLevel(l) { ER_LEVEL = l; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+function toggleErExpand(k) { ER_EXPANDED[k] = !ER_EXPANDED[k]; renderErrorDetail(); }
+function toggleErShowAll() { ER_SHOW_ALL = !ER_SHOW_ALL; renderErrorDetail(); }
+
+function renderErrorDetail() {
+  // 칩 활성
+  ['ed-c7','ed-c30','ed-call'].forEach(function(id){ document.getElementById(id).classList.remove('er-chip-sel'); });
+  var chipId = ER_DAYS === 7 ? 'ed-c7' : ER_DAYS === 30 ? 'ed-c30' : 'ed-call';
+  document.getElementById(chipId).classList.add('er-chip-sel');
+
+  // 탭 활성
+  var te = document.getElementById('ed-te'), tw = document.getElementById('ed-tw');
+  te.classList.remove('er-tab-sel-e','er-tab-sel-w');
+  tw.classList.remove('er-tab-sel-e','er-tab-sel-w');
+  if (ER_LEVEL === 'error') te.classList.add('er-tab-sel-e');
+  else tw.classList.add('er-tab-sel-w');
+
+  // 건수 표시 (현재 기간 기준)
+  var aggE = aggregateErrors('error', ER_DAYS);
+  var aggW = aggregateErrors('warning', ER_DAYS);
+  document.getElementById('ed-ec').textContent = aggE.total;
+  document.getElementById('ed-wc').textContent = aggW.total;
+
+  // 기간 표시
+  var agg = ER_LEVEL === 'error' ? aggE : aggW;
+  var ps = agg.period;
+  var pTxt = ps.length ? ('집계 기간: ' + ps[ps.length-1] + ' ~ ' + ps[0] + ' (' + ps.length + '일) · 총 ' + agg.total + '건') : '집계 기간: 데이터 없음';
+  document.getElementById('ed-period').textContent = pTxt;
+  document.getElementById('ed-sub').textContent = ER_DAYS === 0 ? '전체 기간' : '최근 ' + ER_DAYS + '일';
+
+  // 차트
+  renderErChart(agg);
+
+  // 메시지 리스트
+  var lst = agg.list;
+  var listEl = document.getElementById('ed-list');
+  if (!lst.length) { listEl.innerHTML = '<div class="er-empty">발생 ' + (ER_LEVEL==='error'?'ERROR':'WARNING') + '가 없습니다.</div>'; return; }
+  var limit = ER_SHOW_ALL ? lst.length : Math.min(5, lst.length);
+  var levelCls = ER_LEVEL === 'warning' ? ' er-item-w' : '';
+  var html = '';
+  for (var i = 0; i < limit; i++) {
+    var g = lst[i];
+    var brTxt = Object.keys(g.byBranch).map(function(b){ return b + ' ' + g.byBranch[b]; }).join(' · ');
+    var dates = g.occurrences.map(function(o){ return o.date; });
+    var maxDate = dates.sort().reverse()[0];
+    var arrow = ER_EXPANDED[g.key] ? '▴' : '▾';
+    html += '<div class="er-item' + levelCls + '" onclick="toggleErExpand(\'' + g.key.replace(/\\/g,"\\\\").replace(/\'/g,"\\\'") + '\')">' +
+      '<div class="er-item-msg">' + escapeHtml(g.msg) + '</div>' +
+      '<div class="er-item-meta"><span class="er-item-cnt">' + g.count + '회</span>' +
+      '<span class="er-item-sub">' + brTxt + ' · 최근 ' + maxDate + '</span>' +
+      '<span class="er-item-arrow">' + arrow + '</span></div>';
+    if (ER_EXPANDED[g.key]) {
+      var occ = g.occurrences.slice().sort(function(a,b){ return b.date.localeCompare(a.date); });
+      var occHtml = occ.map(function(o){ return '· ' + o.date + ' ' + o.branch; }).join('<br>');
+      html += '<div class="er-occ">' + occHtml + '</div>';
+    }
+    html += '</div>';
+  }
+  if (lst.length > 5) {
+    html += '<div class="er-more" onclick="toggleErShowAll()">' +
+      (ER_SHOW_ALL ? '접기 ▴' : '더 보기 (' + (lst.length - 5) + '건 추가) ▾') + '</div>';
+  }
+  listEl.innerHTML = html;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderErChart(agg) {
+  var box = document.getElementById('ed-chart-box');
+  var color = ER_LEVEL === 'error' ? '#E24B4A' : '#EF9F27';
+  var darkc = ER_LEVEL === 'error' ? '#791F1F' : '#633806';
+  if (!agg.timeline.length) { box.innerHTML = '<div class="er-chart-empty">표시할 데이터가 없습니다.</div>'; return; }
+  var maxV = Math.max.apply(null, agg.timeline.map(function(t){ return t.count; }));
+  if (maxV < 1) maxV = 1;
+  var W = 300, H = 120, padL = 8, padR = 8, padT = 18, padB = 22;
+  var bw = Math.max(8, Math.floor((W - padL - padR) / agg.timeline.length) - 4);
+  var step = (W - padL - padR) / agg.timeline.length;
+  var bars = '';
+  agg.timeline.forEach(function(t, i){
+    var x = padL + step * i + (step - bw) / 2;
+    var bh = ((H - padT - padB) * t.count / maxV);
+    var y = H - padB - bh;
+    bars += '<rect x="' + x + '" y="' + y + '" width="' + bw + '" height="' + bh + '" fill="' + color + '" rx="2"/>';
+    if (t.count > 0) bars += '<text x="' + (x + bw/2) + '" y="' + (y - 3) + '" font-size="8" font-weight="700" fill="' + darkc + '" text-anchor="middle">' + t.count + '</text>';
+    // 짧은 라벨 (MM-DD) — 너무 많으면 일부만
+    var showLabel = agg.timeline.length <= 12 || i % Math.ceil(agg.timeline.length / 10) === 0;
+    if (showLabel) {
+      var lbl = t.date.substr(5);
+      bars += '<text x="' + (x + bw/2) + '" y="' + (H - 6) + '" font-size="8" fill="#888" text-anchor="middle">' + lbl + '</text>';
+    }
+  });
+  // 보조선
+  var gridY1 = H - padB, gridY2 = padT;
+  var grid = '<line x1="' + padL + '" y1="' + gridY1 + '" x2="' + (W - padR) + '" y2="' + gridY1 + '" stroke="#999" stroke-width="0.5"/>';
+  if (maxV > 1) {
+    var midY = padT + (H - padT - padB) / 2;
+    grid += '<line x1="' + padL + '" y1="' + midY + '" x2="' + (W - padR) + '" y2="' + midY + '" stroke="#E0E0E0" stroke-width="0.5" stroke-dasharray="2,3"/>';
+    grid += '<text x="' + (W - padR - 2) + '" y="' + (midY - 2) + '" font-size="8" fill="#BBB" text-anchor="end">' + Math.round(maxV/2) + '</text>';
+  }
+  grid += '<text x="' + (W - padR - 2) + '" y="' + (padT - 2) + '" font-size="8" fill="#BBB" text-anchor="end">' + maxV + '</text>';
+  box.innerHTML = '<div class="er-chart-title"><span>일자별 발생 추이</span><span style="color:#888;font-weight:500">최댓값 ' + maxV + '건</span></div>' +
+    '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;display:block">' + grid + bars + '</svg>';
+}
+
 function renderSummary() {
   if (!DB || !DB.dates || !DB.dates.length) return;
   var valid = getValidDates();
@@ -425,6 +664,7 @@ function renderBranches() {
       '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
       '</div>';
   });
+  html += erSummaryCard();
   mb.innerHTML = html;
 }
 
@@ -622,11 +862,14 @@ loadData();
       var fab = document.getElementById('fab-back');
       if (!fab) return;
       var detail = document.getElementById('detail');
-      var onDetail = detail && detail.style.display !== 'none';
+      var errd = document.getElementById('error-detail');
+      var onDetail = (detail && detail.classList.contains('active')) || (errd && errd.classList.contains('active'));
       fab.style.display = onDetail ? 'flex' : 'none';
     }
     function fabGoBack() {
-      goBack();
+      var errd = document.getElementById('error-detail');
+      if (errd && errd.classList.contains('active')) goBackFromError();
+      else goBack();
       setTimeout(updateFab, 50);
     }
     var fabObserver = new MutationObserver(function() { updateFab(); });
