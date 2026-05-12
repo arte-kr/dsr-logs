@@ -13,7 +13,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#F5F5F5;color:#111;min-height:100vh}
-.app{max-width:480px;margin:0 auto;min-height:100vh;background:#fff;position:relative;overflow:hidden}
+.app{max-width:640px;margin:0 auto;min-height:100vh;background:#fff;position:relative;overflow:hidden}
 .screen{display:none;flex-direction:column;min-height:100vh}
 .screen.active{display:flex}
 
@@ -109,6 +109,29 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .loglines{background:#fff;border-radius:0 0 12px 12px;border:1px solid #EBEBEB;border-top:none;padding:12px 15px;font-size:11px;color:#888;font-family:'SF Mono','Consolas','Courier New',monospace;line-height:1.8;max-height:200px;overflow-y:auto;display:none;margin-bottom:4px;word-break:break-all}
 .log-err{color:#B33025}.log-warn{color:#905A08}.log-info{color:#1A5F9A}
 
+/* SUMMARY 카드 */
+.summary-card{background:#fff;border:1.5px solid #1D9E75;border-radius:12px;margin:10px 14px 0;padding:12px 14px;flex-shrink:0}
+.sc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.sc-head-lbl{font-size:10px;font-weight:500;color:#888;letter-spacing:0.3px}
+.sc-date{font-size:19px;font-weight:700;color:#111;margin-top:3px;letter-spacing:-0.3px}
+.sc-rel{font-size:11px;font-weight:500;color:#0F6E56;margin-left:6px}
+.sc-rel-warn{color:#905A08}
+.sc-total{background:#F0FBF6;border-radius:8px;padding:7px 12px;text-align:center;min-width:104px;flex-shrink:0}
+.sc-total-lbl{font-size:9px;font-weight:500;color:#0F6E56}
+.sc-total-val{font-size:15px;font-weight:700;color:#0F6E56;margin-top:2px}
+.sc-divider{height:1px;background:#F0F0F0;margin:10px 0 8px}
+.sc-sub{font-size:10px;font-weight:500;color:#999;letter-spacing:0.3px;margin-bottom:7px}
+.sc-chips{display:flex;gap:4px;flex-wrap:wrap}
+.sc-chip{flex:1;min-width:48px;height:54px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform .1s;padding:4px 2px}
+.sc-chip:active{transform:scale(0.96)}
+.sc-chip-ok{background:#EAF5DE;color:#3A7A10}
+.sc-chip-warn{background:#FEF3E2;color:#905A08}
+.sc-chip-stop{background:#FDECEA;color:#B33025}
+.sc-chip-run{background:#E3F0FB;color:#1A5F9A}
+.sc-chip-off{background:#F3F3F3;color:#999}
+.sc-chip-code{font-size:11px;font-weight:700;line-height:1}
+.sc-chip-val{font-size:12px;font-weight:700;margin-top:6px;line-height:1}
+
 /* 에러 메시지 */
 .err-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:30px 20px;text-align:center;gap:12px}
 .err-title{font-size:15px;font-weight:600;color:#333}
@@ -130,6 +153,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
       <div class="sync-badge" id="sync-txt">불러오는 중...</div>
     </div>
   </div>
+
+  <div id="summary-card" class="summary-card" style="display:none"></div>
 
   <div class="date-panel" id="date-panel" style="display:none">
     <div class="year-row">
@@ -222,10 +247,7 @@ function fmtSync(iso) {
   } catch(e) { return iso; }
 }
 
-function isToday(dateStr) {
-  var t = new Date(), td = t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
-  return dateStr === td;
-}
+function isToday() { return false; }
 
 function dotCls(rec) {
   if (rec.status === 'error') return 'd-stop';
@@ -296,12 +318,11 @@ function renderDates() {
   var show = EXP ? dates : dates.slice(0, SHOW_N);
   var html = '';
   show.forEach(function(d) {
-    var isSel = d === SD, today = isToday(d);
+    var isSel = d === SD;
     html += '<div class="drow' + (isSel ? ' drow-sel' : '') + '" onclick="selDate(\'' + d + '\')">' +
       '<div class="dleft">' +
         '<span class="ddate' + (isSel ? ' ddate-sel' : '') + '">' + d + '</span>' +
-        (today ? '<span class="today-tag">오늘</span>' : '') +
-      '</div>' +
+        '</div>' +
       '<div class="ddots">' + dotsHtml(d) + '</div>' +
       '</div>';
   });
@@ -314,6 +335,63 @@ function renderDates() {
     document.getElementById('explbl').textContent = EXP ? '접기' : '이전 기록 더 보기 (' + (dates.length - SHOW_N) + '일)';
     document.getElementById('expath').setAttribute('d', EXP ? 'M2 9l4.5-4 4.5 4' : 'M2 4l4.5 4 4.5-4');
   }
+}
+
+function renderSummary() {
+  if (!DB || !DB.dates || !DB.dates.length) return;
+  var latest = DB.dates[0];
+  var recs = DB.records[latest] || {};
+  var branches = ['ISLAND','OCEAN','VALLEY','BUSAN','KIDS'];
+  var doneAll = 0, total = 0;
+  branches.forEach(function(br){
+    var r = recs[br]; if (!r) return;
+    total++;
+    var d = 0;
+    if (r.file_status === '완료') d++;
+    if (r.mail_status === '완료') d++;
+    if (r.kpi_status === '완료') d++;
+    if (r.slack_status === '발송') d++;
+    if (r.status === 'success' && d === 4) doneAll++;
+  });
+  var t = new Date(), td = t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+  var diffDays = Math.round((new Date(td) - new Date(latest)) / 86400000);
+  var rel = '', relCls = 'sc-rel';
+  if (diffDays === 1) rel = '(어제)';
+  else if (diffDays >= 2) { rel = '(' + diffDays + '일 전)'; relCls = 'sc-rel sc-rel-warn'; }
+  else if (diffDays === 0) rel = '(오늘)';
+  var chips = branches.map(function(br){
+    var r = recs[br];
+    if (!r) return '<div class="sc-chip sc-chip-off"><div class="sc-chip-code">' + br + '</div><div class="sc-chip-val">—</div></div>';
+    var d = 0;
+    if (r.file_status === '완료') d++;
+    if (r.mail_status === '완료') d++;
+    if (r.kpi_status === '완료') d++;
+    if (r.slack_status === '발송') d++;
+    var cls, val;
+    if (r.status === 'running') { cls = 'sc-chip-run'; val = '실행중'; }
+    else if (r.status === 'error') { cls = 'sc-chip-stop'; val = '중단'; }
+    else if (d === 4) { cls = 'sc-chip-ok'; val = '완료'; }
+    else { cls = 'sc-chip-warn'; val = d + '/4'; }
+    return '<div class="sc-chip ' + cls + '" onclick="showDetailFromSummary(\'' + br + '\')">' +
+      '<div class="sc-chip-code">' + r.branch_code + '</div>' +
+      '<div class="sc-chip-val">' + val + '</div></div>';
+  }).join('');
+  document.getElementById('summary-card').innerHTML =
+    '<div class="sc-top">' +
+      '<div><div class="sc-head-lbl">최신 매출보고일</div>' +
+      '<div class="sc-date">' + latest + '<span class="' + relCls + '">' + rel + '</span></div></div>' +
+      '<div class="sc-total"><div class="sc-total-lbl">전체 지점</div>' +
+      '<div class="sc-total-val">' + doneAll + ' / ' + total + ' 완료</div></div>' +
+    '</div>' +
+    '<div class="sc-divider"></div>' +
+    '<div class="sc-sub">지점 진행사항</div>' +
+    '<div class="sc-chips">' + chips + '</div>';
+}
+
+function showDetailFromSummary(br) {
+  SD = DB.dates[0];
+  renderDates(); renderBranches();
+  showDetail(br);
 }
 
 function renderBranches() {
@@ -459,11 +537,12 @@ function initUI() {
     return;
   }
   document.getElementById('sync-txt').textContent = fmtSync(DB.generated_at);
-  var today = new Date().getFullYear() + '-' + String(new Date().getMonth()+1).padStart(2,'0') + '-' + String(new Date().getDate()).padStart(2,'0');
-  SD = DB.dates.includes(today) ? today : DB.dates[0];
+  SD = DB.dates[0];
   var sd = new Date(SD);
   CY = sd.getFullYear(); CM = sd.getMonth() + 1;
+  document.getElementById('summary-card').style.display = 'block';
   document.getElementById('date-panel').style.display = 'block';
+  renderSummary();
   renderMonths(); renderDates(); renderBranches();
 }
 
