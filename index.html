@@ -455,13 +455,18 @@ function _statusOf(maxDate, todayStr) {
 
 function aggregateErrors(level, days) {
   var valid = getValidDates();
-  var filtered = valid;
-  if (days === 1) {
-    filtered = valid.length ? [valid[0]] : [];
+  var anchor = (SD && valid.indexOf(SD) >= 0) ? SD : (valid.length ? valid[0] : null);
+  var filtered = [];
+  if (!anchor) { filtered = []; }
+  else if (days === 1) {
+    filtered = [anchor];
   } else if (days > 1) {
-    var d = new Date(); d.setDate(d.getDate() - days);
+    var d = new Date(anchor); d.setDate(d.getDate() - (days - 1));
     var cutoff = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-    filtered = valid.filter(function(x){ return x >= cutoff; });
+    filtered = valid.filter(function(x){ return x >= cutoff && x <= anchor; });
+  } else {
+    // 전체: anchor 이전(포함) 모든 데이터
+    filtered = valid.filter(function(x){ return x <= anchor; });
   }
   var groups = {};
   filtered.forEach(function(d){
@@ -563,11 +568,11 @@ function renderErrorDetail() {
   var ps = agg.period;
   var pTxt;
   if (!ps.length) pTxt = '집계 기간: 데이터 없음';
-  else if (ER_DAYS === 1) pTxt = '당일: ' + ps[0] + ' · 총 ' + agg.total + '건';
-  else if (ER_DAYS === 7) pTxt = '최근 7일: ' + ps[ps.length-1] + ' ~ ' + ps[0] + ' (' + ps.length + '일) · 총 ' + agg.total + '건';
-  else pTxt = '전체: ' + ps[ps.length-1] + ' ~ ' + ps[0] + ' (' + ps.length + '일) · 총 ' + agg.total + '건';
+  else if (ER_DAYS === 1) pTxt = '선택일: ' + ps[0] + ' · 총 ' + agg.total + '건';
+  else if (ER_DAYS === 7) pTxt = '선택일 기준 7일: ' + ps[ps.length-1] + ' ~ ' + ps[0] + ' (' + ps.length + '일) · 총 ' + agg.total + '건';
+  else pTxt = '선택일 이전 전체: ' + ps[ps.length-1] + ' ~ ' + ps[0] + ' (' + ps.length + '일) · 총 ' + agg.total + '건';
   document.getElementById('ed-period').textContent = pTxt;
-  document.getElementById('ed-sub').textContent = ER_DAYS === 1 ? '오늘' : ER_DAYS === 7 ? '최근 7일' : '전체 기간';
+  document.getElementById('ed-sub').textContent = ER_DAYS === 1 ? (SD || '선택일') : ER_DAYS === 7 ? '최근 7일' : '전체 기간';
 
   // 차트 (오늘 모드일 땐 숨김)
   var chartBox = document.getElementById('ed-chart-box');
@@ -699,7 +704,8 @@ function renderSummary() {
   if (!DB || !DB.dates || !DB.dates.length) return;
   var valid = getValidDates();
   if (!valid.length) { document.getElementById('summary-card').style.display = 'none'; return; }
-  var latest = valid[0];
+  var latest = (SD && DB.records[SD]) ? SD : valid[0];
+  var isLatest = (latest === valid[0]);
   var recs = DB.records[latest] || {};
   var branches = ['ISLAND','OCEAN','VALLEY','BUSAN','KIDS'];
   var doneAll = 0, total = 0;
@@ -756,7 +762,7 @@ function renderSummary() {
     '</div>';
   document.getElementById('summary-card').innerHTML =
     '<div class="sc-top">' +
-      '<div><div class="sc-head-lbl">최신 매출보고일</div>' +
+      '<div><div class="sc-head-lbl">' + (isLatest ? '최신 매출보고일' : '선택 날짜') + '</div>' +
       '<div class="sc-date">' + latest + '<span class="' + relCls + '">' + rel + '</span></div></div>' +
       '<div class="sc-total"><div class="sc-total-lbl">전체 지점</div>' +
       '<div class="sc-total-val">' + doneAll + ' / ' + total + ' 완료</div></div>' +
@@ -794,9 +800,9 @@ function renderBranches() {
   mb.innerHTML = html;
 }
 
-function selDate(d) { SD = d; renderDates(); renderBranches(); }
-function selMonth(m) { CM = m; EXP = false; var fd = filteredDates(); SD = fd.length ? fd[0] : ''; renderMonths(); renderDates(); renderBranches(); }
-function chgYear(dir) { CY += dir; EXP = false; renderMonths(); var fd = filteredDates(); SD = fd.length ? fd[0] : ''; renderDates(); renderBranches(); }
+function selDate(d) { SD = d; renderDates(); renderBranches(); renderSummary(); }
+function selMonth(m) { CM = m; EXP = false; var fd = filteredDates(); SD = fd.length ? fd[0] : ''; renderMonths(); renderDates(); renderBranches(); renderSummary(); }
+function chgYear(dir) { CY += dir; EXP = false; renderMonths(); var fd = filteredDates(); SD = fd.length ? fd[0] : ''; renderDates(); renderBranches(); renderSummary(); }
 function toggleExp() { EXP = !EXP; renderDates(); }
 
 function showDetail(br) {
