@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T13:04:01",
+  "generated_at": "2026-05-24T13:09:01",
   "dates": [
     "2026-05-24",
     "2026-05-23",
@@ -46,38 +46,24 @@
         "slack_status": "발송",
         "log_file": "logs/260524_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "08:10:38",
-        "duration_sec": 2424,
-        "error_count": 10,
-        "warning_count": 4,
+        "end_time": "07:37:13",
+        "duration_sec": 2217,
+        "error_count": 0,
+        "warning_count": 1,
         "error_summary": "",
-        "error_lines": [
-          "07:45:44 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:49:58 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:54:22 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:54:22 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-21)",
-          "07:54:22 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
-          "08:02:00 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:06:14 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:10:38 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:10:38 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-23)",
-          "08:10:38 [ERROR] [P1-5] 메일 발송 실패 — 2026-05-23"
-        ],
+        "error_lines": [],
         "warning_lines": [
-          "07:45:44 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-21)",
-          "07:49:58 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-21)",
-          "08:02:00 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-23)",
-          "08:06:14 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-23)"
+          "07:21:10 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
         ],
         "file_status": "완료",
-        "mail_status": "중단",
-        "kpi_status": "중단",
-        "slack_status": "중단",
-        "log_file": "logs/260523_OCEAN_P2P1.json"
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260523_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -120,24 +106,38 @@
         "slack_status": "발송",
         "log_file": "logs/260523_VALLEY_P2P1.json"
       },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:37:13",
-        "duration_sec": 2217,
-        "error_count": 0,
-        "warning_count": 1,
+        "end_time": "08:10:38",
+        "duration_sec": 2424,
+        "error_count": 10,
+        "warning_count": 4,
         "error_summary": "",
-        "error_lines": [],
+        "error_lines": [
+          "07:45:44 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:49:58 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:54:22 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:54:22 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-21)",
+          "07:54:22 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
+          "08:02:00 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:06:14 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:10:38 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:10:38 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-23)",
+          "08:10:38 [ERROR] [P1-5] 메일 발송 실패 — 2026-05-23"
+        ],
         "warning_lines": [
-          "07:21:10 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+          "07:45:44 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-21)",
+          "07:49:58 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-21)",
+          "08:02:00 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-23)",
+          "08:06:14 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-23)"
         ],
         "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260523_ISLAND_P2P1.json"
+        "mail_status": "중단",
+        "kpi_status": "중단",
+        "slack_status": "중단",
+        "log_file": "logs/260523_OCEAN_P2P1.json"
       }
     },
     "2026-05-22": {
@@ -160,6 +160,42 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260522_BUSAN_P2P1.json"
+      },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:25:42",
+        "duration_sec": 1526,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260522_ISLAND_P2P1.json"
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "end_time": "10:10:12",
+        "duration_sec": 7798,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "08:12:24 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260522_KIDS_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -194,25 +230,6 @@
         "slack_status": "중단",
         "log_file": "logs/260522_OCEAN_P2P1.json"
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "10:10:12",
-        "duration_sec": 7798,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "08:12:24 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260522_KIDS_P2P1.json"
-      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -235,23 +252,6 @@
         "kpi_status": "중단",
         "slack_status": "중단",
         "log_file": "logs/260522_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:25:42",
-        "duration_sec": 1526,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260522_ISLAND_P2P1.json"
       }
     },
     "2026-05-21": {
@@ -274,6 +274,25 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260521_BUSAN_P2P1.json"
+      },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:26:52",
+        "duration_sec": 1596,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:55 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260521_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -313,25 +332,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260521_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:26:52",
-        "duration_sec": 1596,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:55 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260521_ISLAND_P2P1.json"
       }
     },
     "2026-05-20": {
@@ -355,22 +355,24 @@
         "slack_status": "발송",
         "log_file": "logs/260520_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:46:54",
-        "duration_sec": 995,
+        "end_time": "07:26:44",
+        "duration_sec": 1587,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "07:20:53 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260520_OCEAN_P2P1.json"
+        "log_file": "logs/260520_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -391,6 +393,23 @@
         "slack_status": "발송",
         "log_file": "logs/260520_KIDS_P2P1.json"
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:46:54",
+        "duration_sec": 995,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260520_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -410,25 +429,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260520_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:26:44",
-        "duration_sec": 1587,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:53 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260520_ISLAND_P2P1.json"
       }
     },
     "2026-05-19": {
@@ -512,12 +512,12 @@
         "slack_status": "발송",
         "log_file": "logs/260518_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:44:51",
-        "duration_sec": 872,
+        "end_time": "07:27:19",
+        "duration_sec": 1623,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -527,7 +527,7 @@
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260518_OCEAN_P2P1.json"
+        "log_file": "logs/260518_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -545,6 +545,23 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260518_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:44:51",
+        "duration_sec": 872,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260518_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -565,23 +582,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260518_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:27:19",
-        "duration_sec": 1623,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260518_ISLAND_P2P1.json"
       }
     },
     "2026-05-17": {
@@ -605,22 +605,24 @@
         "slack_status": "발송",
         "log_file": "logs/260517_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:45:34",
-        "duration_sec": 915,
+        "end_time": "07:37:53",
+        "duration_sec": 2257,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "07:21:56 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260517_OCEAN_P2P1.json"
+        "log_file": "logs/260517_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -641,6 +643,23 @@
         "slack_status": "발송",
         "log_file": "logs/260517_KIDS_P2P1.json"
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:45:34",
+        "duration_sec": 915,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260517_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -660,25 +679,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260517_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:37:53",
-        "duration_sec": 2257,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:21:56 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260517_ISLAND_P2P1.json"
       }
     },
     "2026-05-16": {
@@ -702,12 +702,12 @@
         "slack_status": "발송",
         "log_file": "logs/260516_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:45:11",
-        "duration_sec": 893,
+        "end_time": "07:27:35",
+        "duration_sec": 1639,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -717,7 +717,7 @@
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260516_OCEAN_P2P1.json"
+        "log_file": "logs/260516_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -735,6 +735,23 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260516_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:45:11",
+        "duration_sec": 893,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260516_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -755,23 +772,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260516_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:27:35",
-        "duration_sec": 1639,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260516_ISLAND_P2P1.json"
       }
     },
     "2026-05-15": {
@@ -795,12 +795,12 @@
         "slack_status": "발송",
         "log_file": "logs/260515_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:45:09",
-        "duration_sec": 895,
+        "end_time": "07:27:20",
+        "duration_sec": 1624,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -810,7 +810,7 @@
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260515_OCEAN_P2P1.json"
+        "log_file": "logs/260515_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -831,6 +831,23 @@
         "slack_status": "발송",
         "log_file": "logs/260515_KIDS_P2P1.json"
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:45:09",
+        "duration_sec": 895,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260515_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -850,23 +867,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260515_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:27:20",
-        "duration_sec": 1624,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260515_ISLAND_P2P1.json"
       }
     },
     "2026-05-14": {
@@ -890,22 +890,24 @@
         "slack_status": "발송",
         "log_file": "logs/260514_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:45:01",
-        "duration_sec": 887,
+        "end_time": "08:07:59",
+        "duration_sec": 2264,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "07:52:10 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260514_OCEAN_P2P1.json"
+        "log_file": "logs/260514_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -923,6 +925,23 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260514_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:45:01",
+        "duration_sec": 887,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260514_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -943,25 +962,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260514_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "08:07:59",
-        "duration_sec": 2264,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:52:10 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260514_ISLAND_P2P1.json"
       }
     },
     "2026-05-13": {
@@ -985,12 +985,12 @@
         "slack_status": "발송",
         "log_file": "logs/260513_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:44:30",
-        "duration_sec": 851,
+        "end_time": "07:56:39",
+        "duration_sec": 1583,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -1000,7 +1000,7 @@
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260513_OCEAN_P2P1.json"
+        "log_file": "logs/260513_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -1018,6 +1018,23 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260513_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:44:30",
+        "duration_sec": 851,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260513_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -1038,23 +1055,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260513_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:56:39",
-        "duration_sec": 1583,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260513_ISLAND_P2P1.json"
       }
     },
     "2026-05-12": {
@@ -1078,12 +1078,12 @@
         "slack_status": "발송",
         "log_file": "logs/260512_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:44:11",
-        "duration_sec": 833,
+        "end_time": "07:56:49",
+        "duration_sec": 1594,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -1093,7 +1093,7 @@
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260512_OCEAN_P2P1.json"
+        "log_file": "logs/260512_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -1114,6 +1114,23 @@
         "slack_status": "발송",
         "log_file": "logs/260512_KIDS_P2P1.json"
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:44:11",
+        "duration_sec": 833,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260512_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -1133,23 +1150,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260512_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:56:49",
-        "duration_sec": 1594,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260512_ISLAND_P2P1.json"
       }
     },
     "2026-05-11": {
@@ -1173,12 +1173,12 @@
         "slack_status": "발송",
         "log_file": "logs/260511_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:44:31",
-        "duration_sec": 857,
+        "end_time": "07:56:49",
+        "duration_sec": 1593,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -1188,7 +1188,7 @@
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260511_OCEAN_P2P1.json"
+        "log_file": "logs/260511_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -1208,6 +1208,23 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260511_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:44:31",
+        "duration_sec": 857,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260511_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -1233,23 +1250,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260511_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:56:49",
-        "duration_sec": 1593,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260511_ISLAND_P2P1.json"
       }
     },
     "2026-05-10": {
@@ -1277,28 +1277,29 @@
         "slack_status": "발송",
         "log_file": "logs/260510_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "09:31:21",
-        "duration_sec": 7267,
-        "error_count": 2,
-        "warning_count": 2,
+        "end_time": "08:03:00",
+        "duration_sec": 1964,
+        "error_count": 0,
+        "warning_count": 6,
         "error_summary": "",
-        "error_lines": [
-          "08:52:11 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-10, 오류: (-2147467260, '작업이 중단되었습니다.', None, None))",
-          "09:31:10 [ERROR] 처리 중단 — 사유: 발송 실패 (날짜: 2026-05-10)"
-        ],
+        "error_lines": [],
         "warning_lines": [
-          "07:33:15 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "09:31:21 [WARNING] [P1-6] 전송 대상 없음 — Slack 보고 생략"
+          "07:42:51 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:45:33 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:51:46 [WARNING] 카카오워크 미수신 — 재발송 후 나머지 작업 진행",
+          "08:02:10 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "08:02:10 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "08:02:10 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
         ],
         "file_status": "완료",
         "mail_status": null,
-        "kpi_status": null,
-        "slack_status": "중단",
-        "log_file": "logs/260510_OCEAN_P2P1.json"
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260510_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -1323,6 +1324,29 @@
         "slack_status": "발송",
         "log_file": "logs/260510_KIDS_P2P1.json"
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "09:31:21",
+        "duration_sec": 7267,
+        "error_count": 2,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [
+          "08:52:11 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-10, 오류: (-2147467260, '작업이 중단되었습니다.', None, None))",
+          "09:31:10 [ERROR] 처리 중단 — 사유: 발송 실패 (날짜: 2026-05-10)"
+        ],
+        "warning_lines": [
+          "07:33:15 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "09:31:21 [WARNING] [P1-6] 전송 대상 없음 — Slack 보고 생략"
+        ],
+        "file_status": "완료",
+        "mail_status": null,
+        "kpi_status": null,
+        "slack_status": "중단",
+        "log_file": "logs/260510_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -1346,30 +1370,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260510_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "08:03:00",
-        "duration_sec": 1964,
-        "error_count": 0,
-        "warning_count": 6,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:42:51 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:45:33 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:51:46 [WARNING] 카카오워크 미수신 — 재발송 후 나머지 작업 진행",
-          "08:02:10 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "08:02:10 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "08:02:10 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": null,
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260510_ISLAND_P2P1.json"
       }
     },
     "2026-05-09": {
@@ -1397,27 +1397,29 @@
         "slack_status": "발송",
         "log_file": "logs/260509_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:43:38",
-        "duration_sec": 804,
+        "end_time": "08:07:42",
+        "duration_sec": 2246,
         "error_count": 0,
-        "warning_count": 4,
+        "warning_count": 6,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "07:33:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:43:05 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:43:05 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:43:05 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+          "07:42:37 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:45:34 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:51:35 [WARNING] 카카오워크 미수신 — 재발송 후 나머지 작업 진행",
+          "08:06:53 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "08:06:53 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "08:06:53 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
         ],
         "file_status": "완료",
         "mail_status": null,
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260509_OCEAN_P2P1.json"
+        "log_file": "logs/260509_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -1453,6 +1455,28 @@
         "slack_status": "발송",
         "log_file": "logs/260509_KIDS_P2P1.json"
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:43:38",
+        "duration_sec": 804,
+        "error_count": 0,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:33:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:43:05 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:43:05 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:43:05 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": null,
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260509_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -1476,30 +1500,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260509_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "08:07:42",
-        "duration_sec": 2246,
-        "error_count": 0,
-        "warning_count": 6,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:42:37 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:45:34 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:51:35 [WARNING] 카카오워크 미수신 — 재발송 후 나머지 작업 진행",
-          "08:06:53 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "08:06:53 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "08:06:53 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": null,
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260509_ISLAND_P2P1.json"
       }
     },
     "2026-05-08": {
@@ -1534,73 +1534,6 @@
         "slack_status": "중단",
         "log_file": "logs/260508_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:44:48",
-        "duration_sec": 874,
-        "error_count": 0,
-        "warning_count": 4,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:33:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:44:15 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:44:15 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:44:15 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": null,
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260508_OCEAN_P2P1.json"
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "08:23:58",
-        "duration_sec": 1424,
-        "error_count": 0,
-        "warning_count": 3,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "08:06:26 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "08:11:28 [WARNING] 카카오워크 미수신 — 재발송 후 나머지 작업 진행",
-          "08:23:58 [WARNING] [P1-6] 전송 대상 없음 — Slack 보고 생략"
-        ],
-        "file_status": null,
-        "mail_status": null,
-        "kpi_status": null,
-        "slack_status": "중단",
-        "log_file": "logs/260508_KIDS_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "07:30:58",
-        "duration_sec": 1842,
-        "error_count": 0,
-        "warning_count": 6,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:11:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:11:25 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:12:14 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
-          "07:30:10 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:30:10 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:30:10 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": null,
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260508_VALLEY_P2P1.json"
-      },
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
@@ -1627,6 +1560,73 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260508_ISLAND_P2P1.json"
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "end_time": "08:23:58",
+        "duration_sec": 1424,
+        "error_count": 0,
+        "warning_count": 3,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "08:06:26 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "08:11:28 [WARNING] 카카오워크 미수신 — 재발송 후 나머지 작업 진행",
+          "08:23:58 [WARNING] [P1-6] 전송 대상 없음 — Slack 보고 생략"
+        ],
+        "file_status": null,
+        "mail_status": null,
+        "kpi_status": null,
+        "slack_status": "중단",
+        "log_file": "logs/260508_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:44:48",
+        "duration_sec": 874,
+        "error_count": 0,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:33:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:44:15 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:44:15 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:44:15 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": null,
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260508_OCEAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:30:58",
+        "duration_sec": 1842,
+        "error_count": 0,
+        "warning_count": 6,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:11:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:11:25 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:12:14 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
+          "07:30:10 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:30:10 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:30:10 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": null,
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260508_VALLEY_P2P1.json"
       }
     },
     "2026-05-07": {
@@ -1657,6 +1657,50 @@
         "slack_status": "발송",
         "log_file": "logs/260507_BUSAN_P2P1.json"
       },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:57:05",
+        "duration_sec": 1611,
+        "error_count": 0,
+        "warning_count": 5,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:42:30 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:45:11 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:56:17 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:56:17 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:56:17 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": null,
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260507_ISLAND_P2P1.json"
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "error",
+        "end_time": "16:15:08",
+        "duration_sec": 14389,
+        "error_count": 0,
+        "warning_count": 3,
+        "error_summary": "4시간 타임아웃 — 강제 종료",
+        "error_lines": [],
+        "warning_lines": [
+          "12:28:30 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "12:28:30 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "12:28:30 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": null,
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260507_KIDS_P2P1.json"
+      },
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
@@ -1679,27 +1723,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260507_OCEAN_P2P1.json"
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "error",
-        "end_time": "16:15:08",
-        "duration_sec": 14389,
-        "error_count": 0,
-        "warning_count": 3,
-        "error_summary": "4시간 타임아웃 — 강제 종료",
-        "error_lines": [],
-        "warning_lines": [
-          "12:28:30 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "12:28:30 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "12:28:30 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": null,
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260507_KIDS_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -1724,29 +1747,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260507_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:57:05",
-        "duration_sec": 1611,
-        "error_count": 0,
-        "warning_count": 5,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:42:30 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:45:11 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:56:17 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:56:17 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:56:17 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": null,
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260507_ISLAND_P2P1.json"
       }
     },
     "2026-05-06": {
@@ -1771,27 +1771,28 @@
         "slack_status": null,
         "log_file": "logs/260506_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:43:16",
-        "duration_sec": 781,
+        "end_time": "07:59:24",
+        "duration_sec": 1748,
         "error_count": 0,
-        "warning_count": 4,
+        "warning_count": 5,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "07:33:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:43:09 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:43:09 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:43:09 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+          "07:43:47 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:46:29 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:58:33 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:58:33 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:58:33 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
         ],
         "file_status": "완료",
         "mail_status": null,
         "kpi_status": "완료",
         "slack_status": "발송",
-        "log_file": "logs/260506_OCEAN_P2P1.json"
+        "log_file": "logs/260506_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -1817,6 +1818,28 @@
         "slack_status": "발송",
         "log_file": "logs/260506_KIDS_P2P1.json"
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:43:16",
+        "duration_sec": 781,
+        "error_count": 0,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:33:14 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:43:09 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:43:09 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:43:09 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": null,
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260506_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -1840,29 +1863,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260506_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:59:24",
-        "duration_sec": 1748,
-        "error_count": 0,
-        "warning_count": 5,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:43:47 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:46:29 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:58:33 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:58:33 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:58:33 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
-        ],
-        "file_status": "완료",
-        "mail_status": null,
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260506_ISLAND_P2P1.json"
       }
     },
     "2026-05-05": {
@@ -1890,27 +1890,29 @@
         "slack_status": "발송",
         "log_file": "logs/260505_BUSAN_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:43:52",
-        "duration_sec": 817,
+        "end_time": "07:59:36",
+        "duration_sec": 1760,
         "error_count": 0,
-        "warning_count": 4,
+        "warning_count": 6,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "07:32:56 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:43:24 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:43:24 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:43:24 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+          "07:43:49 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:46:46 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:59:28 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:59:28 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:59:28 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행",
+          "07:59:36 [WARNING] [P1-6] 전송 대상 없음 — Slack 보고 생략"
         ],
         "file_status": "완료",
         "mail_status": null,
         "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260505_OCEAN_P2P1.json"
+        "slack_status": "중단",
+        "log_file": "logs/260505_ISLAND_P2P1.json"
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -1935,6 +1937,28 @@
         "slack_status": "발송",
         "log_file": "logs/260505_KIDS_P2P1.json"
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:43:52",
+        "duration_sec": 817,
+        "error_count": 0,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:32:56 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
+          "07:43:24 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
+          "07:43:24 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
+          "07:43:24 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행"
+        ],
+        "file_status": "완료",
+        "mail_status": null,
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260505_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -1958,30 +1982,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260505_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:59:36",
-        "duration_sec": 1760,
-        "error_count": 0,
-        "warning_count": 6,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:43:49 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:46:46 [WARNING] [로그아웃] 링크 클릭 실패, driver.quit()으로 대체: Message: ",
-          "07:59:28 [WARNING]   [HWND] inspector.HWND 변환 실패 (<unknown>.HWND) — SetForeground 건너뜀",
-          "07:59:28 [WARNING]   [Ctrl+Enter] HWND 미확보 — COM Send() 폴백으로 전환",
-          "07:59:28 [WARNING]   [Ctrl+Enter] 10초 후에도 작성창 유지 — COM Send() 폴백 실행",
-          "07:59:36 [WARNING] [P1-6] 전송 대상 없음 — Slack 보고 생략"
-        ],
-        "file_status": "완료",
-        "mail_status": null,
-        "kpi_status": "완료",
-        "slack_status": "중단",
-        "log_file": "logs/260505_ISLAND_P2P1.json"
       }
     }
   }
