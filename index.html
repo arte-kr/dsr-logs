@@ -774,7 +774,8 @@ function renderSummary() {
 }
 
 function showDetailFromSummary(br) {
-  var v = getValidDates(); SD = v[0] || DB.dates[0];
+  var v = getValidDates();
+  if (!SD || !DB.records[SD]) SD = v[0] || DB.dates[0];
   renderDates(); renderBranches();
   showDetail(br);
 }
