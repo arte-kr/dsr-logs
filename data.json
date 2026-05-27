@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-27T12:39:01",
+  "generated_at": "2026-05-27T12:44:01",
   "dates": [
     "2026-05-27",
     "2026-05-26",
@@ -82,6 +82,23 @@
         "slack_status": "발송",
         "log_file": "logs/260526_KIDS_P2P1.json"
       },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:25:09",
+        "duration_sec": 1493,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260526_ISLAND_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -101,23 +118,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260526_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:25:09",
-        "duration_sec": 1493,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260526_ISLAND_P2P1.json"
       }
     },
     "2026-05-25": {
@@ -175,6 +175,25 @@
         "slack_status": "발송",
         "log_file": "logs/260525_KIDS_P2P1.json"
       },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:31:21",
+        "duration_sec": 1865,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:19 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260525_ISLAND_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -194,25 +213,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260525_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:31:21",
-        "duration_sec": 1865,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:19 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260525_ISLAND_P2P1.json"
       }
     },
     "2026-05-24": {
@@ -301,6 +301,25 @@
         "slack_status": "발송",
         "log_file": "logs/260524_KIDS_P2P1.json"
       },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:31:22",
+        "duration_sec": 1866,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:24 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260524_ISLAND_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -320,25 +339,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260524_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:31:22",
-        "duration_sec": 1866,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:24 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260524_ISLAND_P2P1.json"
       }
     },
     "2026-05-23": {
@@ -413,6 +413,25 @@
         "slack_status": "발송",
         "log_file": "logs/260523_KIDS_P2P1.json"
       },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:37:13",
+        "duration_sec": 2217,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:21:10 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260523_ISLAND_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -432,25 +451,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260523_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:37:13",
-        "duration_sec": 2217,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:21:10 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260523_ISLAND_P2P1.json"
       }
     },
     "2026-05-22": {
@@ -526,6 +526,23 @@
         "slack_status": "발송",
         "log_file": "logs/260522_KIDS_P2P1.json"
       },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:25:42",
+        "duration_sec": 1526,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260522_ISLAND_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -548,23 +565,6 @@
         "kpi_status": "중단",
         "slack_status": "중단",
         "log_file": "logs/260522_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:25:42",
-        "duration_sec": 1526,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260522_ISLAND_P2P1.json"
       }
     },
     "2026-05-21": {
@@ -628,6 +628,25 @@
         "slack_status": "발송",
         "log_file": "logs/260521_KIDS_P2P1.json"
       },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:26:52",
+        "duration_sec": 1596,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:55 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260521_ISLAND_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -647,25 +666,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260521_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:26:52",
-        "duration_sec": 1596,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:55 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260521_ISLAND_P2P1.json"
       }
     },
     "2026-05-20": {
@@ -725,6 +725,25 @@
         "slack_status": "발송",
         "log_file": "logs/260520_KIDS_P2P1.json"
       },
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:26:44",
+        "duration_sec": 1587,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:53 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "log_file": "logs/260520_ISLAND_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -744,25 +763,6 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "log_file": "logs/260520_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:26:44",
-        "duration_sec": 1587,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:53 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "log_file": "logs/260520_ISLAND_P2P1.json"
       }
     },
     "2026-05-19": {
