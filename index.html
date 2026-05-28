@@ -62,6 +62,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .bcleft{flex:1;min-width:0}
 .bcname{font-size:14px;font-weight:600;color:#111;letter-spacing:-0.2px}
 .bccode{font-size:11px;color:#AAA;margin-top:2px}
+.retry-badge{display:inline-flex;align-items:center;gap:3px;background:#FAEEDA;color:#633806;font-size:10px;font-weight:500;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;letter-spacing:-0.2px}
+.retry-badge svg{width:10px;height:10px;stroke:#633806;stroke-width:2.2;fill:none}
 .bcright{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
 .bfrow{display:flex;gap:4px}
 .bf{font-size:11px;font-weight:600;padding:3px 0;border-radius:5px;width:38px;text-align:center;flex-shrink:0}
@@ -793,7 +795,7 @@ function renderBranches() {
     var r = DB.records[SD][br];
     if (!r) return;
     html += '<div class="bc" onclick="showDetail(\'' + br + '\')">' +
-      '<div class="bcleft"><div class="bcname">' + r.branch_code + '</div><div class="bccode">' + r.display_name + '</div></div>' +
+      '<div class="bcleft"><div class="bcname">' + r.branch_code + (r.is_retry ? '<span class="retry-badge" title="자동 재실행 후 완료"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>재실행</span>' : '') + '</div><div class="bccode">' + r.display_name + '</div></div>' +
       '<div class="bcright">' + badgesHtml(r) + '<div class="bctime">' + r.end_time + '</div></div>' +
       '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
       '</div>';
