@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T08:54:01",
+  "generated_at": "2026-05-29T08:59:02",
   "dates": [
     "2026-05-29",
     "2026-05-28",
@@ -12,8 +12,48 @@
     "2026-05-21"
   ],
   "records": {
-    "2026-05-29": {},
+    "2026-05-29": {
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "running",
+        "end_time": "—",
+        "duration_sec": 0,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": null,
+        "mail_status": null,
+        "kpi_status": null,
+        "slack_status": null,
+        "is_retry": false,
+        "log_file": "logs/260529_KIDS_P2P1.json"
+      }
+    },
     "2026-05-28": {
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:28:54",
+        "duration_sec": 1718,
+        "error_count": 0,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:23:57 [WARNING] 일별매출 row 1660 속성 변경 없음 (이미 표시 상태일 수 있음)",
+          "07:23:57 [WARNING] 일별매출 B1660 날씨 셀 패턴 미발견"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260528_ISLAND_P2P1.json"
+      },
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -39,45 +79,6 @@
         "slack_status": "중단",
         "is_retry": false,
         "log_file": "logs/260528_BUSAN_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:28:54",
-        "duration_sec": 1718,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:23:57 [WARNING] 일별매출 row 1660 속성 변경 없음 (이미 표시 상태일 수 있음)",
-          "07:23:57 [WARNING] 일별매출 B1660 날씨 셀 패턴 미발견"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260528_ISLAND_P2P1.json"
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:49:23",
-        "duration_sec": 1148,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260528_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -126,9 +127,47 @@
         "slack_status": "중단",
         "is_retry": false,
         "log_file": "logs/260528_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:49:23",
+        "duration_sec": 1148,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260528_OCEAN_P2P1.json"
       }
     },
     "2026-05-27": {
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:26:12",
+        "duration_sec": 1555,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:12 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260527_ISLAND_P2P1.json"
+      },
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -160,44 +199,6 @@
         "slack_status": "중단",
         "is_retry": false,
         "log_file": "logs/260527_BUSAN_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:26:12",
-        "duration_sec": 1555,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:12 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260527_ISLAND_P2P1.json"
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:48:41",
-        "duration_sec": 1107,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260527_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -243,9 +244,45 @@
         "slack_status": "중단",
         "is_retry": false,
         "log_file": "logs/260527_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:48:41",
+        "duration_sec": 1107,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260527_OCEAN_P2P1.json"
       }
     },
     "2026-05-26": {
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:25:09",
+        "duration_sec": 1493,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260526_ISLAND_P2P1.json"
+      },
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -266,42 +303,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260526_BUSAN_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:25:09",
-        "duration_sec": 1493,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260526_ISLAND_P2P1.json"
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:48:07",
-        "duration_sec": 1068,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260526_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -341,30 +342,27 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260526_KIDS_P2P1.json"
-      }
-    },
-    "2026-05-25": {
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "08:00:08",
-        "duration_sec": 895,
+        "end_time": "07:48:07",
+        "duration_sec": 1068,
         "error_count": 0,
-        "warning_count": 2,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "07:50:41 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:51:30 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260525_BUSAN_P2P1.json"
-      },
+        "log_file": "logs/260526_OCEAN_P2P1.json"
+      }
+    },
+    "2026-05-25": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
@@ -385,23 +383,26 @@
         "is_retry": false,
         "log_file": "logs/260525_ISLAND_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "07:48:58",
-        "duration_sec": 1119,
+        "end_time": "08:00:08",
+        "duration_sec": 895,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 2,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "07:50:41 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:51:30 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260525_OCEAN_P2P1.json"
+        "log_file": "logs/260525_BUSAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -441,30 +442,27 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260525_KIDS_P2P1.json"
-      }
-    },
-    "2026-05-24": {
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:59:33",
-        "duration_sec": 859,
+        "end_time": "07:48:58",
+        "duration_sec": 1119,
         "error_count": 0,
-        "warning_count": 2,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "07:50:45 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:51:34 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260524_BUSAN_P2P1.json"
-      },
+        "log_file": "logs/260525_OCEAN_P2P1.json"
+      }
+    },
+    "2026-05-24": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
@@ -485,39 +483,26 @@
         "is_retry": false,
         "log_file": "logs/260524_ISLAND_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "error",
-        "end_time": "08:10:39",
-        "duration_sec": 2425,
-        "error_count": 10,
-        "warning_count": 4,
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
+        "status": "success",
+        "end_time": "07:59:33",
+        "duration_sec": 859,
+        "error_count": 0,
+        "warning_count": 2,
         "error_summary": "",
-        "error_lines": [
-          "07:45:43 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:49:57 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:54:21 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:54:21 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-21)",
-          "07:54:21 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
-          "08:02:00 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-24, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:06:15 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-24, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:10:39 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-24, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:10:39 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-24)",
-          "08:10:39 [ERROR] [P1-5] 메일 발송 실패 — 2026-05-24"
-        ],
+        "error_lines": [],
         "warning_lines": [
-          "07:45:43 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-21)",
-          "07:49:57 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-21)",
-          "08:02:00 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-24)",
-          "08:06:15 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-24)"
+          "07:50:45 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:51:34 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
         ],
-        "file_status": "중단",
-        "mail_status": "중단",
-        "kpi_status": "중단",
-        "slack_status": "중단",
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260524_OCEAN_P2P1.json"
+        "log_file": "logs/260524_BUSAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -572,6 +557,40 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260524_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "error",
+        "end_time": "08:10:39",
+        "duration_sec": 2425,
+        "error_count": 10,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [
+          "07:45:43 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:49:57 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:54:21 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:54:21 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-21)",
+          "07:54:21 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
+          "08:02:00 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-24, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:06:15 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-24, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:10:39 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-24, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:10:39 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-24)",
+          "08:10:39 [ERROR] [P1-5] 메일 발송 실패 — 2026-05-24"
+        ],
+        "warning_lines": [
+          "07:45:43 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-21)",
+          "07:49:57 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-21)",
+          "08:02:00 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-24)",
+          "08:06:15 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-24)"
+        ],
+        "file_status": "중단",
+        "mail_status": "중단",
+        "kpi_status": "중단",
+        "slack_status": "중단",
+        "is_retry": false,
+        "log_file": "logs/260524_OCEAN_P2P1.json"
       }
     },
     "2026-05-23": {
@@ -594,40 +613,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260523_ISLAND_P2P1.json"
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "error",
-        "end_time": "08:10:38",
-        "duration_sec": 2424,
-        "error_count": 10,
-        "warning_count": 4,
-        "error_summary": "",
-        "error_lines": [
-          "07:45:44 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:49:58 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:54:22 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:54:22 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-21)",
-          "07:54:22 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
-          "08:02:00 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:06:14 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:10:38 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:10:38 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-23)",
-          "08:10:38 [ERROR] [P1-5] 메일 발송 실패 — 2026-05-23"
-        ],
-        "warning_lines": [
-          "07:45:44 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-21)",
-          "07:49:58 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-21)",
-          "08:02:00 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-23)",
-          "08:06:14 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-23)"
-        ],
-        "file_status": "중단",
-        "mail_status": "중단",
-        "kpi_status": "중단",
-        "slack_status": "중단",
-        "is_retry": false,
-        "log_file": "logs/260523_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -667,9 +652,61 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260523_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "error",
+        "end_time": "08:10:38",
+        "duration_sec": 2424,
+        "error_count": 10,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [
+          "07:45:44 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:49:58 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:54:22 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:54:22 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-21)",
+          "07:54:22 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
+          "08:02:00 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:06:14 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:10:38 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-23, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:10:38 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-23)",
+          "08:10:38 [ERROR] [P1-5] 메일 발송 실패 — 2026-05-23"
+        ],
+        "warning_lines": [
+          "07:45:44 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-21)",
+          "07:49:58 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-21)",
+          "08:02:00 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-23)",
+          "08:06:14 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-23)"
+        ],
+        "file_status": "중단",
+        "mail_status": "중단",
+        "kpi_status": "중단",
+        "slack_status": "중단",
+        "is_retry": false,
+        "log_file": "logs/260523_OCEAN_P2P1.json"
       }
     },
     "2026-05-22": {
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:25:42",
+        "duration_sec": 1526,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260522_ISLAND_P2P1.json"
+      },
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -690,58 +727,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260522_BUSAN_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:25:42",
-        "duration_sec": 1526,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260522_ISLAND_P2P1.json"
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "error",
-        "end_time": "08:10:38",
-        "duration_sec": 2424,
-        "error_count": 10,
-        "warning_count": 4,
-        "error_summary": "",
-        "error_lines": [
-          "07:45:45 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:49:59 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:54:23 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "07:54:23 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-21)",
-          "07:54:23 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
-          "08:02:00 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-22, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:06:14 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-22, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:10:38 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-22, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
-          "08:10:38 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-22)",
-          "08:10:38 [ERROR] [P1-5] 메일 발송 실패 — 2026-05-22"
-        ],
-        "warning_lines": [
-          "07:45:45 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-21)",
-          "07:49:59 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-21)",
-          "08:02:00 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-22)",
-          "08:06:14 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-22)"
-        ],
-        "file_status": "중단",
-        "mail_status": "중단",
-        "kpi_status": "중단",
-        "slack_status": "중단",
-        "is_retry": false,
-        "log_file": "logs/260522_OCEAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -786,6 +771,40 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260522_KIDS_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "error",
+        "end_time": "08:10:38",
+        "duration_sec": 2424,
+        "error_count": 10,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [
+          "07:45:45 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:49:59 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:54:23 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-21, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "07:54:23 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-21)",
+          "07:54:23 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
+          "08:02:00 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-22, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:06:14 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-22, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:10:38 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-05-22, 오류: (-2147418111, '피호출자가 호출을 거부했습니다.', None, None))",
+          "08:10:38 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-05-22)",
+          "08:10:38 [ERROR] [P1-5] 메일 발송 실패 — 2026-05-22"
+        ],
+        "warning_lines": [
+          "07:45:45 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-21)",
+          "07:49:59 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-21)",
+          "08:02:00 [WARNING] 발송 실패 (1/2) — 5초 후 재시도 (날짜: 2026-05-22)",
+          "08:06:14 [WARNING] 발송 실패 (2/2) — 15초 후 재시도 (날짜: 2026-05-22)"
+        ],
+        "file_status": "중단",
+        "mail_status": "중단",
+        "kpi_status": "중단",
+        "slack_status": "중단",
+        "is_retry": false,
+        "log_file": "logs/260522_OCEAN_P2P1.json"
       }
     },
     "2026-05-21": {
