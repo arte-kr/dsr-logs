@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T12:19:01",
+  "generated_at": "2026-06-18T12:24:01",
   "dates": [
     "2026-06-18",
     "2026-06-17",
@@ -27,23 +27,26 @@
   "records": {
     "2026-06-18": {},
     "2026-06-17": {
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "07:42:44",
-        "duration_sec": 749,
+        "end_time": "11:45:02",
+        "duration_sec": 14389,
         "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
+        "warning_count": 2,
+        "error_summary": "4시간 타임아웃 — 강제 종료",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "07:52:10 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:52:59 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260617_OCEAN_P2P1.json"
+        "log_file": "logs/260618_BUSAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -105,35 +108,12 @@
         "is_retry": false,
         "log_file": "logs/260618_KIDS_P2P1.json"
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
-        "status": "success",
-        "end_time": "11:45:02",
-        "duration_sec": 14389,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "4시간 타임아웃 — 강제 종료",
-        "error_lines": [],
-        "warning_lines": [
-          "07:52:10 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:52:59 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260618_BUSAN_P2P1.json"
-      }
-    },
-    "2026-06-16": {
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:44:22",
-        "duration_sec": 847,
+        "end_time": "07:42:44",
+        "duration_sec": 749,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -144,7 +124,30 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260616_OCEAN_P2P1.json"
+        "log_file": "logs/260617_OCEAN_P2P1.json"
+      }
+    },
+    "2026-06-16": {
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
+        "status": "success",
+        "end_time": "08:01:38",
+        "duration_sec": 985,
+        "error_count": 0,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:52:16 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:53:05 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260616_BUSAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -205,35 +208,12 @@
         "is_retry": false,
         "log_file": "logs/260616_KIDS_P2P1.json"
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
-        "status": "success",
-        "end_time": "08:01:38",
-        "duration_sec": 985,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:52:16 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:53:05 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260616_BUSAN_P2P1.json"
-      }
-    },
-    "2026-06-15": {
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:44:04",
-        "duration_sec": 828,
+        "end_time": "07:44:22",
+        "duration_sec": 847,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -244,7 +224,35 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260615_OCEAN_P2P1.json"
+        "log_file": "logs/260616_OCEAN_P2P1.json"
+      }
+    },
+    "2026-06-15": {
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
+        "status": "success",
+        "end_time": "08:01:58",
+        "duration_sec": 1005,
+        "error_count": 2,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [
+          "07:58:10 [ERROR] Excel COM 재계산 실패: Open.Close",
+          "07:58:10 [ERROR] 상세 traceback:"
+        ],
+        "warning_lines": [
+          "07:52:09 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:52:58 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
+          "07:58:15 [WARNING] Excel COM 재계산 실패 → 캐시값으로 검증 시도",
+          "07:58:24 [WARNING] 검증 오류 → 데이터 재반영 후 재검증 시도"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260615_BUSAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -304,54 +312,46 @@
         "is_retry": false,
         "log_file": "logs/260615_KIDS_P2P1.json"
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "08:01:58",
-        "duration_sec": 1005,
-        "error_count": 2,
-        "warning_count": 4,
+        "end_time": "07:44:04",
+        "duration_sec": 828,
+        "error_count": 0,
+        "warning_count": 0,
         "error_summary": "",
-        "error_lines": [
-          "07:58:10 [ERROR] Excel COM 재계산 실패: Open.Close",
-          "07:58:10 [ERROR] 상세 traceback:"
-        ],
-        "warning_lines": [
-          "07:52:09 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:52:58 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
-          "07:58:15 [WARNING] Excel COM 재계산 실패 → 캐시값으로 검증 시도",
-          "07:58:24 [WARNING] 검증 오류 → 데이터 재반영 후 재검증 시도"
-        ],
+        "error_lines": [],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260615_BUSAN_P2P1.json"
+        "log_file": "logs/260615_OCEAN_P2P1.json"
       }
     },
     "2026-06-14": {
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "07:43:20",
-        "duration_sec": 785,
+        "end_time": "08:01:29",
+        "duration_sec": 976,
         "error_count": 0,
         "warning_count": 2,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "07:42:43 [WARNING] [워치독] ⚠️ 매칭 실패 중 — 의심 창 1개 발견:",
-          "07:42:43 [WARNING]   - hwnd=983854 class='rctrl_renwnd32' title='받은 편지함 - ppoda@dstrict.com - Outlook'"
+          "07:52:11 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:53:00 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260614_OCEAN_P2P1.json"
+        "log_file": "logs/260614_BUSAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -411,46 +411,49 @@
         "is_retry": false,
         "log_file": "logs/260614_KIDS_P2P1.json"
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "08:01:29",
-        "duration_sec": 976,
+        "end_time": "07:43:20",
+        "duration_sec": 785,
         "error_count": 0,
         "warning_count": 2,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "07:52:11 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:53:00 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+          "07:42:43 [WARNING] [워치독] ⚠️ 매칭 실패 중 — 의심 창 1개 발견:",
+          "07:42:43 [WARNING]   - hwnd=983854 class='rctrl_renwnd32' title='받은 편지함 - ppoda@dstrict.com - Outlook'"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260614_BUSAN_P2P1.json"
+        "log_file": "logs/260614_OCEAN_P2P1.json"
       }
     },
     "2026-06-13": {
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "07:43:07",
-        "duration_sec": 771,
+        "end_time": "08:01:17",
+        "duration_sec": 963,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 2,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "07:52:08 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:52:57 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260613_OCEAN_P2P1.json"
+        "log_file": "logs/260613_BUSAN_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -488,35 +491,12 @@
         "is_retry": false,
         "log_file": "logs/260613_KIDS_P2P1.json"
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
-        "status": "success",
-        "end_time": "08:01:17",
-        "duration_sec": 963,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:52:08 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:52:57 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260613_BUSAN_P2P1.json"
-      }
-    },
-    "2026-06-12": {
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:43:15",
-        "duration_sec": 779,
+        "end_time": "07:43:07",
+        "duration_sec": 771,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -527,7 +507,30 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260612_OCEAN_P2P1.json"
+        "log_file": "logs/260613_OCEAN_P2P1.json"
+      }
+    },
+    "2026-06-12": {
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
+        "status": "success",
+        "end_time": "08:01:23",
+        "duration_sec": 970,
+        "error_count": 0,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:52:09 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:52:58 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260612_BUSAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -592,35 +595,12 @@
         "is_retry": false,
         "log_file": "logs/260612_KIDS_P2P1.json"
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
-        "status": "success",
-        "end_time": "08:01:23",
-        "duration_sec": 970,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:52:09 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:52:58 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260612_BUSAN_P2P1.json"
-      }
-    },
-    "2026-06-11": {
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:43:07",
-        "duration_sec": 768,
+        "end_time": "07:43:15",
+        "duration_sec": 779,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -631,7 +611,32 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260611_OCEAN_P2P1.json"
+        "log_file": "logs/260612_OCEAN_P2P1.json"
+      }
+    },
+    "2026-06-11": {
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
+        "status": "success",
+        "end_time": "13:08:05",
+        "duration_sec": 960,
+        "error_count": 0,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "12:58:24 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 260611_POS데이터.xls",
+          "12:59:01 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "12:59:50 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
+          "12:59:50 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 260611_신용카드.xlsx"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260611_BUSAN_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -690,28 +695,23 @@
         "is_retry": false,
         "log_file": "logs/260611_KIDS_P2P1.json"
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "13:08:05",
-        "duration_sec": 960,
+        "end_time": "07:43:07",
+        "duration_sec": 768,
         "error_count": 0,
-        "warning_count": 4,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "12:58:24 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 260611_POS데이터.xls",
-          "12:59:01 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "12:59:50 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
-          "12:59:50 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 260611_신용카드.xlsx"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260611_BUSAN_P2P1.json"
+        "log_file": "logs/260611_OCEAN_P2P1.json"
       }
     },
     "2026-06-10": {
