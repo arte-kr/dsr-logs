@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T11:49:01",
+  "generated_at": "2026-06-18T11:54:01",
   "dates": [
     "2026-06-18",
     "2026-06-17",
@@ -66,23 +66,26 @@
         "is_retry": false,
         "log_file": "logs/260617_KIDS_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:42:44",
-        "duration_sec": 749,
+        "end_time": "11:00:06",
+        "duration_sec": 14389,
         "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
+        "warning_count": 2,
+        "error_summary": "4시간 타임아웃 — 강제 종료",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "07:00:17 [WARNING] 좀비 Excel 정리 — PID 18984 강제 종료 (백그라운드·창 없음)",
+          "07:00:17 [WARNING] 좀비 Excel 정리 — PID 31552 강제 종료 (백그라운드·창 없음)"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260617_OCEAN_P2P1.json"
+        "log_file": "logs/260618_ISLAND_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -105,26 +108,23 @@
         "is_retry": false,
         "log_file": "logs/260618_VALLEY_P2P1.json"
       },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "11:00:06",
-        "duration_sec": 14389,
+        "end_time": "07:42:44",
+        "duration_sec": 749,
         "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "4시간 타임아웃 — 강제 종료",
+        "warning_count": 0,
+        "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "07:00:17 [WARNING] 좀비 Excel 정리 — PID 18984 강제 종료 (백그라운드·창 없음)",
-          "07:00:17 [WARNING] 좀비 Excel 정리 — PID 31552 강제 종료 (백그라운드·창 없음)"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260618_ISLAND_P2P1.json"
+        "log_file": "logs/260617_OCEAN_P2P1.json"
       }
     },
     "2026-06-16": {
@@ -169,12 +169,12 @@
         "is_retry": false,
         "log_file": "logs/260616_KIDS_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:44:22",
-        "duration_sec": 847,
+        "end_time": "07:28:33",
+        "duration_sec": 1697,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -185,7 +185,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260616_OCEAN_P2P1.json"
+        "log_file": "logs/260616_ISLAND_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -208,12 +208,12 @@
         "is_retry": false,
         "log_file": "logs/260616_VALLEY_P2P1.json"
       },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:28:33",
-        "duration_sec": 1697,
+        "end_time": "07:44:22",
+        "duration_sec": 847,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -224,7 +224,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260616_ISLAND_P2P1.json"
+        "log_file": "logs/260616_OCEAN_P2P1.json"
       }
     },
     "2026-06-15": {
@@ -272,12 +272,12 @@
         "is_retry": false,
         "log_file": "logs/260615_KIDS_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:44:04",
-        "duration_sec": 828,
+        "end_time": "07:28:10",
+        "duration_sec": 1674,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -288,7 +288,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260615_OCEAN_P2P1.json"
+        "log_file": "logs/260615_ISLAND_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -312,12 +312,12 @@
         "is_retry": false,
         "log_file": "logs/260615_VALLEY_P2P1.json"
       },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:28:10",
-        "duration_sec": 1674,
+        "end_time": "07:44:04",
+        "duration_sec": 828,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -328,7 +328,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260615_ISLAND_P2P1.json"
+        "log_file": "logs/260615_OCEAN_P2P1.json"
       }
     },
     "2026-06-14": {
@@ -371,26 +371,23 @@
         "is_retry": false,
         "log_file": "logs/260614_KIDS_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:43:20",
-        "duration_sec": 785,
+        "end_time": "07:27:47",
+        "duration_sec": 1651,
         "error_count": 0,
-        "warning_count": 2,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "07:42:43 [WARNING] [워치독] ⚠️ 매칭 실패 중 — 의심 창 1개 발견:",
-          "07:42:43 [WARNING]   - hwnd=983854 class='rctrl_renwnd32' title='받은 편지함 - ppoda@dstrict.com - Outlook'"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260614_OCEAN_P2P1.json"
+        "log_file": "logs/260614_ISLAND_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -414,23 +411,26 @@
         "is_retry": false,
         "log_file": "logs/260614_VALLEY_P2P1.json"
       },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:27:47",
-        "duration_sec": 1651,
+        "end_time": "07:43:20",
+        "duration_sec": 785,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 2,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "07:42:43 [WARNING] [워치독] ⚠️ 매칭 실패 중 — 의심 창 1개 발견:",
+          "07:42:43 [WARNING]   - hwnd=983854 class='rctrl_renwnd32' title='받은 편지함 - ppoda@dstrict.com - Outlook'"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260614_ISLAND_P2P1.json"
+        "log_file": "logs/260614_OCEAN_P2P1.json"
       }
     },
     "2026-06-13": {
@@ -473,24 +473,6 @@
         "is_retry": false,
         "log_file": "logs/260613_KIDS_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:43:07",
-        "duration_sec": 771,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260613_OCEAN_P2P1.json"
-      },
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
@@ -508,6 +490,24 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260613_ISLAND_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:43:07",
+        "duration_sec": 771,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260613_OCEAN_P2P1.json"
       }
     },
     "2026-06-12": {
@@ -553,12 +553,12 @@
         "is_retry": false,
         "log_file": "logs/260612_KIDS_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:43:15",
-        "duration_sec": 779,
+        "end_time": "07:28:11",
+        "duration_sec": 1675,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -569,7 +569,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260612_OCEAN_P2P1.json"
+        "log_file": "logs/260612_ISLAND_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -595,12 +595,12 @@
         "is_retry": false,
         "log_file": "logs/260613_VALLEY_P2P1.json"
       },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:28:11",
-        "duration_sec": 1675,
+        "end_time": "07:43:15",
+        "duration_sec": 779,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -611,7 +611,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260612_ISLAND_P2P1.json"
+        "log_file": "logs/260612_OCEAN_P2P1.json"
       }
     },
     "2026-06-11": {
@@ -656,12 +656,12 @@
         "is_retry": false,
         "log_file": "logs/260611_KIDS_P2P1.json"
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:43:07",
-        "duration_sec": 768,
+        "end_time": "07:28:01",
+        "duration_sec": 1666,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -672,7 +672,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260611_OCEAN_P2P1.json"
+        "log_file": "logs/260611_ISLAND_P2P1.json"
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -695,12 +695,12 @@
         "is_retry": false,
         "log_file": "logs/260612_VALLEY_P2P1.json"
       },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:28:01",
-        "duration_sec": 1666,
+        "end_time": "07:43:07",
+        "duration_sec": 768,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -711,7 +711,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260611_ISLAND_P2P1.json"
+        "log_file": "logs/260611_OCEAN_P2P1.json"
       }
     },
     "2026-06-10": {
