@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T08:34:01",
+  "generated_at": "2026-07-19T08:39:01",
   "dates": [
     "2026-07-19",
     "2026-07-18",
@@ -77,6 +77,27 @@
         "is_retry": false,
         "log_file": "logs/260718_BUSAN_P2P1.json"
       },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:50:27",
+        "duration_sec": 3011,
+        "error_count": 0,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:33 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:21:22 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260718_VALLEY_P2P1.json"
+      },
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
@@ -115,27 +136,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260718_ISLAND_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "07:50:27",
-        "duration_sec": 3011,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:33 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:21:22 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260718_VALLEY_P2P1.json"
       }
     },
     "2026-07-17": {
@@ -159,6 +159,48 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260717_BUSAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "error",
+        "end_time": "07:49:59",
+        "duration_sec": 2983,
+        "error_count": 17,
+        "warning_count": 5,
+        "error_summary": "",
+        "error_lines": [
+          "07:41:31 [ERROR] Excel COM 재계산 실패 (시도 1/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+          "07:41:31 [ERROR] 상세 traceback:",
+          "07:42:54 [ERROR] Excel COM 재계산 실패 (시도 2/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+          "07:42:54 [ERROR] 상세 traceback:",
+          "07:44:17 [ERROR] Excel COM 재계산 실패 (시도 3/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+          "07:44:17 [ERROR] 상세 traceback:",
+          "07:45:19 [ERROR] Excel COM 재계산 — 3회 시도 모두 실패",
+          "07:45:53 [ERROR] Excel COM 재계산 실패 (시도 1/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+          "07:45:53 [ERROR] 상세 traceback:",
+          "07:47:15 [ERROR] Excel COM 재계산 실패 (시도 2/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+          "07:47:15 [ERROR] 상세 traceback:",
+          "07:48:38 [ERROR] Excel COM 재계산 실패 (시도 3/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+          "07:48:38 [ERROR] 상세 traceback:",
+          "07:49:40 [ERROR] Excel COM 재계산 — 3회 시도 모두 실패",
+          "07:49:59 [ERROR] [STEP3] 재검증 후에도 오류 — ⚠️ STEP3: Excel COM 재계산 실패 + 캐시값 읽기 실패 — 파일 XML 손상 의심 (P1-1 생성 파일 확인 필요)",
+          "07:49:59 [ERROR] [2026-07-17] 검증 실패: [STEP3] 재검증 후에도 오류 — ⚠️ STEP3: Excel COM 재계산 실패 + 캐시값 읽기 실패 — 파일 XML 손상 의심 (P1-1 생성 파일 확인 필요)",
+          "07:49:59 [ERROR] 처리 실패 [2026-07-17]: [2026-07-17] 검증 실패: [STEP3] 재검증 후에도 오류 — ⚠️ STEP3: Excel COM 재계산 실패 + 캐시값 읽기 실패 — 파일 XML 손상 의심 (P1-1 생성 파일 확인 필요)"
+        ],
+        "warning_lines": [
+          "07:21:36 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:22:25 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
+          "07:45:19 [WARNING] Excel COM 재계산 실패 → 캐시값으로 검증 시도",
+          "07:45:38 [WARNING] 검증 오류 → 데이터 재반영 후 재검증 시도",
+          "07:49:40 [WARNING] Excel COM 재계산 실패 → 캐시값으로 검증 시도"
+        ],
+        "file_status": "중단",
+        "mail_status": "중단",
+        "kpi_status": "중단",
+        "slack_status": "중단",
+        "is_retry": false,
+        "log_file": "logs/260717_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -219,48 +261,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260717_ISLAND_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "error",
-        "end_time": "07:49:59",
-        "duration_sec": 2983,
-        "error_count": 17,
-        "warning_count": 5,
-        "error_summary": "",
-        "error_lines": [
-          "07:41:31 [ERROR] Excel COM 재계산 실패 (시도 1/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
-          "07:41:31 [ERROR] 상세 traceback:",
-          "07:42:54 [ERROR] Excel COM 재계산 실패 (시도 2/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
-          "07:42:54 [ERROR] 상세 traceback:",
-          "07:44:17 [ERROR] Excel COM 재계산 실패 (시도 3/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
-          "07:44:17 [ERROR] 상세 traceback:",
-          "07:45:19 [ERROR] Excel COM 재계산 — 3회 시도 모두 실패",
-          "07:45:53 [ERROR] Excel COM 재계산 실패 (시도 1/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
-          "07:45:53 [ERROR] 상세 traceback:",
-          "07:47:15 [ERROR] Excel COM 재계산 실패 (시도 2/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
-          "07:47:15 [ERROR] 상세 traceback:",
-          "07:48:38 [ERROR] Excel COM 재계산 실패 (시도 3/3): (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Workbooks 클래스 중 Open 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
-          "07:48:38 [ERROR] 상세 traceback:",
-          "07:49:40 [ERROR] Excel COM 재계산 — 3회 시도 모두 실패",
-          "07:49:59 [ERROR] [STEP3] 재검증 후에도 오류 — ⚠️ STEP3: Excel COM 재계산 실패 + 캐시값 읽기 실패 — 파일 XML 손상 의심 (P1-1 생성 파일 확인 필요)",
-          "07:49:59 [ERROR] [2026-07-17] 검증 실패: [STEP3] 재검증 후에도 오류 — ⚠️ STEP3: Excel COM 재계산 실패 + 캐시값 읽기 실패 — 파일 XML 손상 의심 (P1-1 생성 파일 확인 필요)",
-          "07:49:59 [ERROR] 처리 실패 [2026-07-17]: [2026-07-17] 검증 실패: [STEP3] 재검증 후에도 오류 — ⚠️ STEP3: Excel COM 재계산 실패 + 캐시값 읽기 실패 — 파일 XML 손상 의심 (P1-1 생성 파일 확인 필요)"
-        ],
-        "warning_lines": [
-          "07:21:36 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:22:25 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
-          "07:45:19 [WARNING] Excel COM 재계산 실패 → 캐시값으로 검증 시도",
-          "07:45:38 [WARNING] 검증 오류 → 데이터 재반영 후 재검증 시도",
-          "07:49:40 [WARNING] Excel COM 재계산 실패 → 캐시값으로 검증 시도"
-        ],
-        "file_status": "중단",
-        "mail_status": "중단",
-        "kpi_status": "중단",
-        "slack_status": "중단",
-        "is_retry": false,
-        "log_file": "logs/260717_VALLEY_P2P1.json"
       }
     },
     "2026-07-16": {
@@ -284,6 +284,27 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260716_BUSAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:45:05",
+        "duration_sec": 2689,
+        "error_count": 0,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:17 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:21:06 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260716_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -346,27 +367,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260716_ISLAND_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "07:45:05",
-        "duration_sec": 2689,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:17 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:21:06 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260716_VALLEY_P2P1.json"
       }
     },
     "2026-07-15": {
@@ -391,6 +391,28 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260715_BUSAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:44:21",
+        "duration_sec": 2645,
+        "error_count": 0,
+        "warning_count": 3,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:20:34 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:21:23 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
+          "07:39:31 [WARNING] 백그라운드 Excel(내가 띄운 PID 27204) 강제 종료 — 좀비 방지"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260715_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -452,28 +474,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260715_ISLAND_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "07:44:21",
-        "duration_sec": 2645,
-        "error_count": 0,
-        "warning_count": 3,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:20:34 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:21:23 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
-          "07:39:31 [WARNING] 백그라운드 Excel(내가 띄운 PID 27204) 강제 종료 — 좀비 방지"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260715_VALLEY_P2P1.json"
       }
     },
     "2026-07-14": {
@@ -498,6 +498,27 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260714_BUSAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:43:20",
+        "duration_sec": 2583,
+        "error_count": 0,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:19:37 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:20:26 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260714_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -556,27 +577,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260714_ISLAND_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "07:43:20",
-        "duration_sec": 2583,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:19:37 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:20:26 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260714_VALLEY_P2P1.json"
       }
     },
     "2026-07-13": {
@@ -600,6 +600,28 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260713_BUSAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "13:14:28",
+        "duration_sec": 2236,
+        "error_count": 0,
+        "warning_count": 3,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "12:53:24 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 260713_POS데이터.xls",
+          "12:54:05 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "12:54:54 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260713_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -663,28 +685,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260713_ISLAND_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "13:14:28",
-        "duration_sec": 2236,
-        "error_count": 0,
-        "warning_count": 3,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "12:53:24 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 260713_POS데이터.xls",
-          "12:54:05 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "12:54:54 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260713_VALLEY_P2P1.json"
       }
     },
     "2026-07-12": {
@@ -709,6 +709,27 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260712_BUSAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:43:00",
+        "duration_sec": 2564,
+        "error_count": 0,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "07:19:15 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "07:20:04 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260712_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -769,27 +790,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260712_ISLAND_P2P1.json"
-      },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "07:43:00",
-        "duration_sec": 2564,
-        "error_count": 0,
-        "warning_count": 2,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "07:19:15 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "07:20:04 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260712_VALLEY_P2P1.json"
       }
     },
     "2026-07-11": {
