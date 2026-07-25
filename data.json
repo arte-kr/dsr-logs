@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T13:49:01",
+  "generated_at": "2026-07-25T13:54:01",
   "dates": [
     "2026-07-25",
     "2026-07-24",
@@ -43,26 +43,6 @@
   "records": {
     "2026-07-25": {},
     "2026-07-24": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "12:00:03",
-        "duration_sec": 14389,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "4시간 타임아웃 — 강제 종료",
-        "error_lines": [],
-        "warning_lines": [
-          "08:16:57 [WARNING] 백그라운드 Excel(내가 띄운 PID 27024) 강제 종료 — 좀비 방지"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260725_KIDS_P2P1.json"
-      },
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -147,27 +127,29 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260725_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-23": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "08:21:30",
-        "duration_sec": 1276,
+        "end_time": "12:00:03",
+        "duration_sec": 14389,
         "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
+        "warning_count": 1,
+        "error_summary": "4시간 타임아웃 — 강제 종료",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "08:16:57 [WARNING] 백그라운드 Excel(내가 띄운 PID 27024) 강제 종료 — 좀비 방지"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260723_KIDS_P2P1.json"
-      },
+        "log_file": "logs/260725_KIDS_P2P1.json"
+      }
+    },
+    "2026-07-23": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -250,29 +232,27 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260723_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-22": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "08:21:16",
-        "duration_sec": 1262,
+        "end_time": "08:21:30",
+        "duration_sec": 1276,
         "error_count": 0,
-        "warning_count": 1,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "08:16:43 [WARNING] 백그라운드 Excel(내가 띄운 PID 19576) 강제 종료 — 좀비 방지"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260722_KIDS_P2P1.json"
-      },
+        "log_file": "logs/260723_KIDS_P2P1.json"
+      }
+    },
+    "2026-07-22": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -356,30 +336,29 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260722_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-21": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "08:27:27",
-        "duration_sec": 1633,
+        "end_time": "08:21:16",
+        "duration_sec": 1262,
         "error_count": 0,
-        "warning_count": 2,
+        "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "08:13:36 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행",
-          "08:22:57 [WARNING] 백그라운드 Excel(내가 띄운 PID 228) 강제 종료 — 좀비 방지"
+          "08:16:43 [WARNING] 백그라운드 Excel(내가 띄운 PID 19576) 강제 종료 — 좀비 방지"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260721_KIDS_P2P1.json"
-      },
+        "log_file": "logs/260722_KIDS_P2P1.json"
+      }
+    },
+    "2026-07-21": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -458,29 +437,30 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260721_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-20": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "08:21:13",
-        "duration_sec": 1259,
+        "end_time": "08:27:27",
+        "duration_sec": 1633,
         "error_count": 0,
-        "warning_count": 1,
+        "warning_count": 2,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "08:16:38 [WARNING] 백그라운드 Excel(내가 띄운 PID 20408) 강제 종료 — 좀비 방지"
+          "08:13:36 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행",
+          "08:22:57 [WARNING] 백그라운드 Excel(내가 띄운 PID 228) 강제 종료 — 좀비 방지"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260720_KIDS_P2P1.json"
-      },
+        "log_file": "logs/260721_KIDS_P2P1.json"
+      }
+    },
+    "2026-07-20": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -561,27 +541,29 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260720_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-19": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "08:21:38",
-        "duration_sec": 1284,
+        "end_time": "08:21:13",
+        "duration_sec": 1259,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "08:16:38 [WARNING] 백그라운드 Excel(내가 띄운 PID 20408) 강제 종료 — 좀비 방지"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260719_KIDS_P2P1.json"
-      },
+        "log_file": "logs/260720_KIDS_P2P1.json"
+      }
+    },
+    "2026-07-19": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -664,30 +646,27 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260719_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-18": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "08:57:11",
-        "duration_sec": 3417,
+        "end_time": "08:21:38",
+        "duration_sec": 1284,
         "error_count": 0,
-        "warning_count": 2,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "08:13:27 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행",
-          "08:52:49 [WARNING] 백그라운드 Excel(내가 띄운 PID 27460) 강제 종료 — 좀비 방지"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260718_KIDS_P2P1.json"
-      },
+        "log_file": "logs/260719_KIDS_P2P1.json"
+      }
+    },
+    "2026-07-18": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -768,6 +747,27 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260718_OCEAN_P2P1.json"
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "end_time": "08:57:11",
+        "duration_sec": 3417,
+        "error_count": 0,
+        "warning_count": 2,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "08:13:27 [WARNING] Slack편의점 미수신 — 재발송 후 나머지 작업 진행",
+          "08:52:49 [WARNING] 백그라운드 Excel(내가 띄운 PID 27460) 강제 종료 — 좀비 방지"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260718_KIDS_P2P1.json"
       }
     },
     "2026-07-17": {
