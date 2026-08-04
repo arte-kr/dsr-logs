@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T10:14:01",
+  "generated_at": "2026-08-04T10:19:01",
   "dates": [
     "2026-08-04",
     "2026-08-03",
@@ -243,29 +243,6 @@
       }
     },
     "2026-08-01": {
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
-        "status": "success",
-        "end_time": "14:11:06",
-        "duration_sec": 2770,
-        "error_count": 0,
-        "warning_count": 4,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "13:44:36 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
-          "13:45:25 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
-          "14:05:17 [WARNING] 일별POS_권종별: 당월 1일 시작 행 미발견 (serial=46235) → _mod_append_rows fallback",
-          "14:05:19 [WARNING] 일별POS_결제수단: 당월 1일 시작 행 미발견 (serial=46235) → _mod_append_rows fallback"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260801_VALLEY_P2P1.json"
-      },
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -291,9 +268,50 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260801_BUSAN_P2P1.json"
+      },
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "14:11:06",
+        "duration_sec": 2770,
+        "error_count": 0,
+        "warning_count": 4,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "13:44:36 [WARNING] [포토부스] iframe 로그인 실패 — 상위 프레임 폴백 (최대 10초 대기)",
+          "13:45:25 [WARNING] [포토부스] SSYS 새 창 미감지 — 30초 대기 후 진행",
+          "14:05:17 [WARNING] 일별POS_권종별: 당월 1일 시작 행 미발견 (serial=46235) → _mod_append_rows fallback",
+          "14:05:19 [WARNING] 일별POS_결제수단: 당월 1일 시작 행 미발견 (serial=46235) → _mod_append_rows fallback"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260801_VALLEY_P2P1.json"
       }
     },
     "2026-07-31": {
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:59:47",
+        "duration_sec": 1767,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260731_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -376,13 +394,15 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260731_KIDS_P2P1.json"
-      },
+      }
+    },
+    "2026-07-30": {
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:59:47",
-        "duration_sec": 1767,
+        "end_time": "07:55:29",
+        "duration_sec": 1514,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -393,10 +413,8 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260731_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-30": {
+        "log_file": "logs/260730_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -476,13 +494,15 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260730_KIDS_P2P1.json"
-      },
+      }
+    },
+    "2026-07-29": {
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:55:29",
-        "duration_sec": 1514,
+        "end_time": "07:57:13",
+        "duration_sec": 1618,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -493,10 +513,8 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260730_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-29": {
+        "log_file": "logs/260729_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -578,13 +596,15 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260729_KIDS_P2P1.json"
-      },
+      }
+    },
+    "2026-07-28": {
       "OCEAN": {
         "branch_code": "AMYS",
         "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "end_time": "07:57:13",
-        "duration_sec": 1618,
+        "end_time": "07:57:50",
+        "duration_sec": 1651,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -595,10 +615,8 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260729_OCEAN_P2P1.json"
-      }
-    },
-    "2026-07-28": {
+        "log_file": "logs/260728_OCEAN_P2P1.json"
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -679,24 +697,6 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260728_KIDS_P2P1.json"
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:57:50",
-        "duration_sec": 1651,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260728_OCEAN_P2P1.json"
       }
     },
     "2026-07-27": {
