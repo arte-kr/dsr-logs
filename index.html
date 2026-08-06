@@ -66,7 +66,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .retry-badge svg{width:10px;height:10px;stroke:#633806;stroke-width:2.2;fill:none}
 .bcright{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
 .bfrow{display:flex;gap:4px}
-.bf{font-size:11px;font-weight:600;padding:3px 0;border-radius:5px;width:38px;text-align:center;flex-shrink:0}
+.bf{font-size:11px;font-weight:600;padding:3px 6px;border-radius:5px;min-width:30px;text-align:center;flex-shrink:0;white-space:nowrap}
 .bf-ok{background:#EAF5DE;color:#3A7A10}
 .bf-stop{background:#FDECEA;color:#B33025}
 .bf-err{background:#FEF3E2;color:#905A08}
@@ -365,6 +365,13 @@ function filteredDates() {
   });
 }
 
+function stopLabel(r) {
+  var s = r.error_summary || '';
+  if (s.indexOf('강제종료') >= 0) return '강제종료';
+  if (s.indexOf('미실행') >= 0) return '미실행';
+  return '중단';
+}
+
 function badgesHtml(r) {
   var isOk   = r.status === 'success';
   var isStop = r.status === 'error';
@@ -384,7 +391,7 @@ function badgesHtml(r) {
   else { okCls = 'bf bf-off'; okTxt = '완료'; }
   return '<div class="bfrow">' +
     '<span class="' + okCls + '">' + okTxt + '</span>' +
-    '<span class="' + (isStop ? 'bf bf-stop' : 'bf bf-off') + '">중단</span>' +
+    '<span class="' + (isStop ? 'bf bf-stop' : 'bf bf-off') + '">' + (isStop ? stopLabel(r) : '중단') + '</span>' +
     '<span class="' + (hasErr ? 'bf bf-err' : 'bf bf-off') + '">오류</span>' +
     '</div>';
 }
@@ -737,7 +744,7 @@ function renderSummary() {
     if (r.slack_status === '발송') d++;
     var cls, val;
     if (r.status === 'running') { cls = 'sc-chip-run'; val = '실행중'; }
-    else if (r.status === 'error') { cls = 'sc-chip-stop'; val = '중단'; }
+    else if (r.status === 'error') { cls = 'sc-chip-stop'; val = stopLabel(r); }
     else if (d === 4) { cls = 'sc-chip-ok'; val = '완료'; }
     else { cls = 'sc-chip-warn'; val = d + '/4'; }
     return '<div class="sc-chip ' + cls + '" onclick="showDetailFromSummary(\'' + br + '\')">' +
