@@ -887,6 +887,7 @@ function showDetail(br) {
       else if (s.status === 'running') { stTxt = '실행중'; stCls = 'sv-run'; }
       else if (s.status === 'not_run') { stTxt = '미실행'; stCls = 'sv-warn'; }
       else { stTxt = '확인불가'; stCls = ''; }
+      var subHasErr = (s.error_count > 0 || s.warning_count > 0);
       var noteHtml = (s.status === 'error' || s.status === 'not_run') && s.error_summary
         ? '<div class="suberr">' + escapeHtml(s.error_summary) + '</div>' : '';
       return '<div class="subcard">' +
@@ -894,7 +895,9 @@ function showDetail(br) {
         '<div class="subdesc">이 지점 완료 확인 후 이어서 실행되는 별도 프로그램</div>' +
         '<div class="subgrid">' +
           '<div class="sbox"><div class="sl">상태</div><div class="sv ' + stCls + '">' + stTxt + '</div></div>' +
-          '<div class="sbox"><div class="sl">완료 시각</div><div class="sv">' + (s.end_time || '—') + '</div></div>' +
+          '<div class="sbox"><div class="sl">완료 / 중단 시각</div><div class="sv">' + (s.end_time || '—') + '</div></div>' +
+          '<div class="sbox"><div class="sl">소요 시간</div><div class="sv">' + fmtDur(s.duration_sec) + '</div></div>' +
+          '<div class="sbox"><div class="sl">오류 포함</div><div class="sv ' + (subHasErr ? 'sv-warn' : 'sv-ok') + '">' + (subHasErr ? '있음' : '없음') + '</div></div>' +
         '</div>' + noteHtml +
       '</div>';
     }).join('');
