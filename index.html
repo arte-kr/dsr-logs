@@ -95,6 +95,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .sv{font-size:13px;font-weight:600;color:#111}
 .sv-ok{color:#3A7A10}.sv-warn{color:#905A08}.sv-stop{color:#B33025}.sv-run{color:#1A5F9A}
 
+.subcard{background:#fff;border-radius:12px;border:1.5px solid #1D9E75;padding:13px 15px;margin-bottom:10px}
+.subtitle{font-size:12px;font-weight:600;color:#333;margin-bottom:2px;display:flex;align-items:center;gap:6px}
+.subtitle-dot{width:7px;height:7px;border-radius:50%;background:#1D9E75;flex-shrink:0}
+.subdesc{font-size:10px;color:#AAA;margin-bottom:10px}
+.subgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.suberr{font-size:11px;color:#888;margin-top:8px}
+
 .ecard{background:#fff;border-radius:12px;border:1px solid #EBEBEB;padding:13px 15px;margin-bottom:10px}
 .etitle{font-size:12px;font-weight:600;color:#333;margin-bottom:10px;display:flex;align-items:center;gap:6px}
 .etitle-dot{width:7px;height:7px;border-radius:50%;background:#E8920A;flex-shrink:0}
@@ -253,6 +260,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
         <div class="sbox" id="d-slack-box"><div class="sl">Slack 발송</div><div class="sv" id="d-slack"></div></div>
       </div>
     </div>
+    <div id="d-sub-wrap" style="display:none"></div>
     <div class="ecard" id="ecard">
       <div class="etitle"><div class="etitle-dot"></div><span id="etitle-txt"></span></div>
       <div id="elist"></div>
@@ -869,6 +877,32 @@ function showDetail(br) {
   var slackEl = document.getElementById('d-slack');
   slackEl.textContent = r.slack_status || '—';
   slackEl.className = r.slack_status === '발송' ? 'sv sv-ok' : r.slack_status === '중단' ? 'sv sv-stop' : 'sv';
+
+  var subWrap = document.getElementById('d-sub-wrap');
+  if (r.sub_status && r.sub_status.length) {
+    subWrap.innerHTML = r.sub_status.map(function(s) {
+      var stTxt, stCls;
+      if (s.status === 'success') { stTxt = '완료'; stCls = 'sv-ok'; }
+      else if (s.status === 'error') { stTxt = '오류'; stCls = 'sv-stop'; }
+      else if (s.status === 'running') { stTxt = '실행중'; stCls = 'sv-run'; }
+      else if (s.status === 'not_run') { stTxt = '미실행'; stCls = 'sv-warn'; }
+      else { stTxt = '확인불가'; stCls = ''; }
+      var noteHtml = (s.status === 'error' || s.status === 'not_run') && s.error_summary
+        ? '<div class="suberr">' + escapeHtml(s.error_summary) + '</div>' : '';
+      return '<div class="subcard">' +
+        '<div class="subtitle"><span class="subtitle-dot"></span>연동 · ' + escapeHtml(s.label) + ' 자동화</div>' +
+        '<div class="subdesc">이 지점 완료 확인 후 이어서 실행되는 별도 프로그램</div>' +
+        '<div class="subgrid">' +
+          '<div class="sbox"><div class="sl">상태</div><div class="sv ' + stCls + '">' + stTxt + '</div></div>' +
+          '<div class="sbox"><div class="sl">완료 시각</div><div class="sv">' + (s.end_time || '—') + '</div></div>' +
+        '</div>' + noteHtml +
+      '</div>';
+    }).join('');
+    subWrap.style.display = 'block';
+  } else {
+    subWrap.innerHTML = '';
+    subWrap.style.display = 'none';
+  }
 
   var ec = document.getElementById('ecard');
   if (hasErr) {
