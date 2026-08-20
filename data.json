@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T10:14:01",
+  "generated_at": "2026-08-20T10:19:01",
   "dates": [
     "2026-08-20",
     "2026-08-19",
@@ -69,26 +69,23 @@
   "records": {
     "2026-08-20": {},
     "2026-08-19": {
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "end_time": "08:01:24",
-        "duration_sec": 970,
-        "error_count": 2,
+        "end_time": "07:28:01",
+        "duration_sec": 1664,
+        "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
-        "error_lines": [
-          "07:56:08 [ERROR] Excel COM 재계산 실패 (시도 1/3): Open.Close",
-          "07:56:08 [ERROR] 상세 traceback:"
-        ],
+        "error_lines": [],
         "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260819_BUSAN_P2P1.json"
+        "log_file": "logs/260819_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -110,12 +107,12 @@
         "kpi_status": null,
         "slack_status": null
       },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "07:28:01",
-        "duration_sec": 1664,
+        "end_time": "08:18:58",
+        "duration_sec": 1124,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -126,7 +123,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260819_VALLEY_P2P1.json"
+        "log_file": "logs/260819_KIDS_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -158,32 +155,35 @@
           }
         ]
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "08:18:58",
-        "duration_sec": 1124,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260819_KIDS_P2P1.json"
-      }
-    },
-    "2026-08-18": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "08:00:49",
-        "duration_sec": 936,
+        "end_time": "08:01:24",
+        "duration_sec": 970,
+        "error_count": 2,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [
+          "07:56:08 [ERROR] Excel COM 재계산 실패 (시도 1/3): Open.Close",
+          "07:56:08 [ERROR] 상세 traceback:"
+        ],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260819_BUSAN_P2P1.json"
+      }
+    },
+    "2026-08-18": {
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:28:02",
+        "duration_sec": 1665,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -194,7 +194,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260818_BUSAN_P2P1.json"
+        "log_file": "logs/260818_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -214,12 +214,12 @@
         "is_retry": false,
         "log_file": "logs/260818_OCEAN_P2P1.json"
       },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "07:28:02",
-        "duration_sec": 1665,
+        "end_time": "08:19:05",
+        "duration_sec": 1131,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -230,7 +230,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260818_VALLEY_P2P1.json"
+        "log_file": "logs/260818_KIDS_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -262,32 +262,12 @@
           }
         ]
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "08:19:05",
-        "duration_sec": 1131,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260818_KIDS_P2P1.json"
-      }
-    },
-    "2026-08-17": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "08:00:46",
-        "duration_sec": 932,
+        "end_time": "08:00:49",
+        "duration_sec": 936,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -298,7 +278,27 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260817_BUSAN_P2P1.json"
+        "log_file": "logs/260818_BUSAN_P2P1.json"
+      }
+    },
+    "2026-08-17": {
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:28:05",
+        "duration_sec": 1668,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260817_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -318,12 +318,12 @@
         "is_retry": false,
         "log_file": "logs/260817_OCEAN_P2P1.json"
       },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "07:28:05",
-        "duration_sec": 1668,
+        "end_time": "10:33:48",
+        "duration_sec": 1148,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -334,7 +334,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260817_VALLEY_P2P1.json"
+        "log_file": "logs/260817_KIDS_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -366,32 +366,12 @@
           }
         ]
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "10:33:48",
-        "duration_sec": 1148,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260817_KIDS_P2P1.json"
-      }
-    },
-    "2026-08-16": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "11:22:17",
-        "duration_sec": 1521,
+        "end_time": "08:00:46",
+        "duration_sec": 932,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -402,7 +382,27 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260816_BUSAN_P2P1.json"
+        "log_file": "logs/260817_BUSAN_P2P1.json"
+      }
+    },
+    "2026-08-16": {
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:27:33",
+        "duration_sec": 1636,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260816_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -422,12 +422,12 @@
         "is_retry": false,
         "log_file": "logs/260816_OCEAN_P2P1.json"
       },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "07:27:33",
-        "duration_sec": 1636,
+        "end_time": "08:18:58",
+        "duration_sec": 1124,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -438,7 +438,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260816_VALLEY_P2P1.json"
+        "log_file": "logs/260816_KIDS_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -470,26 +470,6 @@
           }
         ]
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "08:18:58",
-        "duration_sec": 1124,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260816_KIDS_P2P1.json"
-      }
-    },
-    "2026-08-15": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -507,25 +487,9 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260816_BUSAN_P2P1.json"
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "end_time": "07:42:32",
-        "duration_sec": 737,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260815_OCEAN_P2P1.json"
-      },
+      }
+    },
+    "2026-08-15": {
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -546,6 +510,42 @@
         "slack_status": "발송",
         "is_retry": false,
         "log_file": "logs/260815_VALLEY_P2P1.json"
+      },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "end_time": "07:42:32",
+        "duration_sec": 737,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260815_OCEAN_P2P1.json"
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "end_time": "08:18:46",
+        "duration_sec": 1112,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260815_KIDS_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -577,32 +577,12 @@
           }
         ]
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "08:18:46",
-        "duration_sec": 1112,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260815_KIDS_P2P1.json"
-      }
-    },
-    "2026-08-14": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "08:00:46",
-        "duration_sec": 933,
+        "end_time": "11:22:17",
+        "duration_sec": 1521,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -613,7 +593,27 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260814_BUSAN_P2P1.json"
+        "log_file": "logs/260816_BUSAN_P2P1.json"
+      }
+    },
+    "2026-08-14": {
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:52:59",
+        "duration_sec": 3163,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260815_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -633,12 +633,12 @@
         "is_retry": false,
         "log_file": "logs/260814_OCEAN_P2P1.json"
       },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "07:52:59",
-        "duration_sec": 3163,
+        "end_time": "10:00:03",
+        "duration_sec": 7188,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -649,7 +649,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260815_VALLEY_P2P1.json"
+        "log_file": "logs/260814_KIDS_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -681,32 +681,12 @@
           }
         ]
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "end_time": "10:00:03",
-        "duration_sec": 7188,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "logs/260814_KIDS_P2P1.json"
-      }
-    },
-    "2026-08-13": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "08:00:41",
-        "duration_sec": 928,
+        "end_time": "08:00:46",
+        "duration_sec": 933,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -717,7 +697,27 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260813_BUSAN_P2P1.json"
+        "log_file": "logs/260814_BUSAN_P2P1.json"
+      }
+    },
+    "2026-08-13": {
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
+        "status": "success",
+        "end_time": "07:52:59",
+        "duration_sec": 3163,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "발송",
+        "is_retry": false,
+        "log_file": "logs/260815_VALLEY_P2P1.json"
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -737,12 +737,12 @@
         "is_retry": false,
         "log_file": "logs/260813_OCEAN_P2P1.json"
       },
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "end_time": "07:52:59",
-        "duration_sec": 3163,
+        "end_time": "08:18:40",
+        "duration_sec": 1107,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -753,7 +753,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260815_VALLEY_P2P1.json"
+        "log_file": "logs/260813_KIDS_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -788,12 +788,12 @@
           }
         ]
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "end_time": "08:18:40",
-        "duration_sec": 1107,
+        "end_time": "08:00:41",
+        "duration_sec": 928,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -804,7 +804,7 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260813_KIDS_P2P1.json"
+        "log_file": "logs/260813_BUSAN_P2P1.json"
       }
     },
     "2026-08-12": {
