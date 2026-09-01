@@ -93,7 +93,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .sbox{background:#F8F8F8;border-radius:8px;padding:10px 12px}
 .sl{font-size:11px;color:#AAA;margin-bottom:4px;font-weight:500}
 .sv{font-size:13px;font-weight:600;color:#111}
-.sv-ok{color:#3A7A10}.sv-warn{color:#905A08}.sv-stop{color:#B33025}.sv-run{color:#1A5F9A}
+.sv-ok{color:#3A7A10}.sv-warn{color:#905A08}.sv-stop{color:#B33025}.sv-run{color:#1A5F9A}.sv-skip{color:#8A8F98}
 
 .subcard{background:#fff;border-radius:12px;border:1.5px solid #1D9E75;padding:13px 15px;margin-bottom:10px}
 .subtitle{font-size:12px;font-weight:600;color:#333;margin-bottom:2px;display:flex;align-items:center;gap:6px}
@@ -380,6 +380,12 @@ function stopLabel(r) {
   return '중단';
 }
 
+// 항목이 "문제 없이 끝났는지": 정상 처리(완료/발송) 또는 설정상 의도된 스킵이면 true.
+// 미발송 설정으로 건너뛴 메일/Slack을 미완료(N/4)로 깎지 않기 위함.
+function itemDone(status, okVal) {
+  return status === okVal || status === '스킵';
+}
+
 function badgesHtml(r) {
   var isOk   = r.status === 'success';
   var isStop = r.status === 'error';
@@ -387,10 +393,10 @@ function badgesHtml(r) {
   var hasErr = (r.error_count > 0 || r.warning_count > 0);
   // 4개 항목 완료 카운트
   var done = 0;
-  if (r.file_status === '완료') done++;
-  if (r.mail_status === '완료') done++;
-  if (r.kpi_status === '완료') done++;
-  if (r.slack_status === '발송') done++;
+  if (itemDone(r.file_status, '완료')) done++;
+  if (itemDone(r.mail_status, '완료')) done++;
+  if (itemDone(r.kpi_status, '완료')) done++;
+  if (itemDone(r.slack_status, '발송')) done++;
   var isPartial = isOk && done < 4;
   var okCls, okTxt;
   if (isRun) { okCls = 'bf bf-run'; okTxt = '실행중'; }
@@ -730,10 +736,10 @@ function renderSummary() {
     var r = recs[br]; if (!r) return;
     total++;
     var d = 0;
-    if (r.file_status === '완료') d++;
-    if (r.mail_status === '완료') d++;
-    if (r.kpi_status === '완료') d++;
-    if (r.slack_status === '발송') d++;
+    if (itemDone(r.file_status, '완료')) d++;
+    if (itemDone(r.mail_status, '완료')) d++;
+    if (itemDone(r.kpi_status, '완료')) d++;
+    if (itemDone(r.slack_status, '발송')) d++;
     if (r.status === 'success' && d === 4) doneAll++;
   });
   var t = new Date(), td = t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
@@ -746,10 +752,10 @@ function renderSummary() {
     var r = recs[br];
     if (!r) return '<div class="sc-chip sc-chip-off"><div class="sc-chip-code">' + br + '</div><div class="sc-chip-val">—</div></div>';
     var d = 0;
-    if (r.file_status === '완료') d++;
-    if (r.mail_status === '완료') d++;
-    if (r.kpi_status === '완료') d++;
-    if (r.slack_status === '발송') d++;
+    if (itemDone(r.file_status, '완료')) d++;
+    if (itemDone(r.mail_status, '완료')) d++;
+    if (itemDone(r.kpi_status, '완료')) d++;
+    if (itemDone(r.slack_status, '발송')) d++;
     var cls, val;
     if (r.status === 'running') { cls = 'sc-chip-run'; val = '실행중'; }
     else if (r.status === 'error') { cls = 'sc-chip-stop'; val = stopLabel(r); }
@@ -834,10 +840,10 @@ function showDetail(br) {
 
   // 4개 항목 완료 카운트 (파일생성·메일발송·KPI업로드·Slack발송)
   var done4 = 0;
-  if (r.file_status  === '완료') done4++;
-  if (r.mail_status  === '완료') done4++;
-  if (r.kpi_status   === '완료') done4++;
-  if (r.slack_status === '발송') done4++;
+  if (itemDone(r.file_status,  '완료')) done4++;
+  if (itemDone(r.mail_status,  '완료')) done4++;
+  if (itemDone(r.kpi_status,   '완료')) done4++;
+  if (itemDone(r.slack_status, '발송')) done4++;
 
   var ds = document.getElementById('d-status');
   var summ2 = r.error_summary || '';
@@ -866,7 +872,7 @@ function showDetail(br) {
   // 메일 발송 상태
   var mailEl = document.getElementById('d-mail');
   mailEl.textContent = r.mail_status || '—';
-  mailEl.className = r.mail_status === '완료' ? 'sv sv-ok' : r.mail_status === '중단' ? 'sv sv-stop' : 'sv';
+  mailEl.className = r.mail_status === '완료' ? 'sv sv-ok' : r.mail_status === '스킵' ? 'sv sv-skip' : r.mail_status === '중단' ? 'sv sv-stop' : 'sv';
 
   // KPI 업로드 상태
   var kpiEl = document.getElementById('d-kpi');
@@ -876,7 +882,7 @@ function showDetail(br) {
   // Slack 발송 상태
   var slackEl = document.getElementById('d-slack');
   slackEl.textContent = r.slack_status || '—';
-  slackEl.className = r.slack_status === '발송' ? 'sv sv-ok' : r.slack_status === '중단' ? 'sv sv-stop' : 'sv';
+  slackEl.className = r.slack_status === '발송' ? 'sv sv-ok' : r.slack_status === '스킵' ? 'sv sv-skip' : r.slack_status === '중단' ? 'sv sv-stop' : 'sv';
 
   var subWrap = document.getElementById('d-sub-wrap');
   if (r.sub_status && r.sub_status.length) {
