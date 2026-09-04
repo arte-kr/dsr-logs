@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T10:19:01",
+  "generated_at": "2026-09-04T10:24:01",
   "dates": [
     "2026-09-04",
     "2026-09-03",
@@ -82,26 +82,7 @@
     "2026-06-18"
   ],
   "records": {
-    "2026-09-04": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "error",
-        "end_time": "—",
-        "duration_sec": 0,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "프로그램 강제종료",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "중단",
-        "mail_status": null,
-        "kpi_status": null,
-        "slack_status": null,
-        "is_retry": false,
-        "log_file": "logs/260904_KIDS_P2P1.json"
-      }
-    },
+    "2026-09-04": {},
     "2026-09-03": {
       "BUSAN": {
         "branch_code": "AMBS",
@@ -144,22 +125,22 @@
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
-        "status": "error",
-        "end_time": "—",
-        "duration_sec": 0,
-        "error_count": 1,
-        "warning_count": 0,
-        "error_summary": "프로그램 미실행",
-        "error_lines": [
-          "2026-09-03 처리 로그가 아직 없습니다."
+        "status": "success",
+        "end_time": "09:56:27",
+        "duration_sec": 68,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "09:55:22 [WARNING] manifest 항목 없음 + 편의점 데이터 없음 — P2-3 실행 여부 확인 필요"
         ],
-        "warning_lines": [],
-        "log_file": "",
-        "file_status": null,
+        "file_status": "중단",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "중단",
         "is_retry": false,
-        "mail_status": null,
-        "kpi_status": null,
-        "slack_status": null
+        "log_file": "logs/260904_KIDS_P2P1.json"
       },
       "ISLAND": {
         "branch_code": "AMJJ",
