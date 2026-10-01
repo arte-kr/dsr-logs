@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T10:09:01",
+  "generated_at": "2026-10-01T10:14:01",
   "dates": [
     "2026-10-01",
     "2026-09-30",
@@ -111,6 +111,36 @@
   "records": {
     "2026-10-01": {},
     "2026-09-30": {
+      "ISLAND": {
+        "branch_code": "AMJJ",
+        "display_name": "아르떼뮤지엄 제주",
+        "status": "success",
+        "end_time": "07:27:48",
+        "duration_sec": 1050,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": "logs/260930_ISLAND_P2P1.json",
+        "sub_status": [
+          {
+            "label": "플팝카페",
+            "status": "success",
+            "end_time": "08:14:01",
+            "duration_sec": 221,
+            "error_count": 0,
+            "warning_count": 0,
+            "error_summary": "",
+            "log_file_name": "260930_플팝카페_자동화.json"
+          }
+        ]
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
@@ -210,13 +240,15 @@
         "slack_status": null,
         "is_retry": true,
         "log_file": "logs/260930_VALLEY_P2P1.json"
-      },
+      }
+    },
+    "2026-09-29": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:27:48",
-        "duration_sec": 1050,
+        "end_time": "07:28:40",
+        "duration_sec": 1104,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -227,22 +259,20 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": false,
-        "log_file": "logs/260930_ISLAND_P2P1.json",
+        "log_file": "logs/260929_ISLAND_P2P1.json",
         "sub_status": [
           {
             "label": "플팝카페",
             "status": "success",
-            "end_time": "08:14:01",
-            "duration_sec": 221,
+            "end_time": "08:14:17",
+            "duration_sec": 236,
             "error_count": 0,
             "warning_count": 0,
             "error_summary": "",
-            "log_file_name": "260930_플팝카페_자동화.json"
+            "log_file_name": "260929_플팝카페_자동화.json"
           }
         ]
-      }
-    },
-    "2026-09-29": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
@@ -331,13 +361,15 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": "logs/260929_VALLEY_P2P1.json"
-      },
+      }
+    },
+    "2026-09-28": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:28:40",
-        "duration_sec": 1104,
+        "end_time": "07:29:36",
+        "duration_sec": 1160,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -348,22 +380,20 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": false,
-        "log_file": "logs/260929_ISLAND_P2P1.json",
+        "log_file": "logs/260928_ISLAND_P2P1.json",
         "sub_status": [
           {
             "label": "플팝카페",
             "status": "success",
-            "end_time": "08:14:17",
-            "duration_sec": 236,
+            "end_time": "08:14:00",
+            "duration_sec": 219,
             "error_count": 0,
             "warning_count": 0,
             "error_summary": "",
-            "log_file_name": "260929_플팝카페_자동화.json"
+            "log_file_name": "260928_플팝카페_자동화.json"
           }
         ]
-      }
-    },
-    "2026-09-28": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
@@ -437,13 +467,15 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": "logs/260928_VALLEY_P2P1.json"
-      },
+      }
+    },
+    "2026-09-27": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:29:36",
-        "duration_sec": 1160,
+        "end_time": "07:34:08",
+        "duration_sec": 1432,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -454,22 +486,20 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": false,
-        "log_file": "logs/260928_ISLAND_P2P1.json",
+        "log_file": "logs/260927_ISLAND_P2P1.json",
         "sub_status": [
           {
             "label": "플팝카페",
             "status": "success",
-            "end_time": "08:14:00",
-            "duration_sec": 219,
+            "end_time": "08:13:56",
+            "duration_sec": 215,
             "error_count": 0,
             "warning_count": 0,
             "error_summary": "",
-            "log_file_name": "260928_플팝카페_자동화.json"
+            "log_file_name": "260927_플팝카페_자동화.json"
           }
         ]
-      }
-    },
-    "2026-09-27": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
@@ -543,13 +573,15 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": "logs/260927_VALLEY_P2P1.json"
-      },
+      }
+    },
+    "2026-09-26": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:34:08",
-        "duration_sec": 1432,
+        "end_time": "07:29:34",
+        "duration_sec": 1157,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -560,22 +592,20 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": false,
-        "log_file": "logs/260927_ISLAND_P2P1.json",
+        "log_file": "logs/260926_ISLAND_P2P1.json",
         "sub_status": [
           {
             "label": "플팝카페",
             "status": "success",
-            "end_time": "08:13:56",
-            "duration_sec": 215,
+            "end_time": "08:14:04",
+            "duration_sec": 224,
             "error_count": 0,
             "warning_count": 0,
             "error_summary": "",
-            "log_file_name": "260927_플팝카페_자동화.json"
+            "log_file_name": "260926_플팝카페_자동화.json"
           }
         ]
-      }
-    },
-    "2026-09-26": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
@@ -649,13 +679,15 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": "logs/260926_VALLEY_P2P1.json"
-      },
+      }
+    },
+    "2026-09-25": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:29:34",
-        "duration_sec": 1157,
+        "end_time": "07:29:41",
+        "duration_sec": 1165,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -666,22 +698,20 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": false,
-        "log_file": "logs/260926_ISLAND_P2P1.json",
+        "log_file": "logs/260925_ISLAND_P2P1.json",
         "sub_status": [
           {
             "label": "플팝카페",
             "status": "success",
-            "end_time": "08:14:04",
-            "duration_sec": 224,
+            "end_time": "08:13:54",
+            "duration_sec": 213,
             "error_count": 0,
             "warning_count": 0,
             "error_summary": "",
-            "log_file_name": "260926_플팝카페_자동화.json"
+            "log_file_name": "260925_플팝카페_자동화.json"
           }
         ]
-      }
-    },
-    "2026-09-25": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
@@ -753,13 +783,15 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": "logs/260925_VALLEY_P2P1.json"
-      },
+      }
+    },
+    "2026-09-24": {
       "ISLAND": {
         "branch_code": "AMJJ",
         "display_name": "아르떼뮤지엄 제주",
         "status": "success",
-        "end_time": "07:29:41",
-        "duration_sec": 1165,
+        "end_time": "07:29:33",
+        "duration_sec": 1157,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -770,22 +802,20 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": false,
-        "log_file": "logs/260925_ISLAND_P2P1.json",
+        "log_file": "logs/260924_ISLAND_P2P1.json",
         "sub_status": [
           {
             "label": "플팝카페",
             "status": "success",
-            "end_time": "08:13:54",
-            "duration_sec": 213,
+            "end_time": "08:14:17",
+            "duration_sec": 236,
             "error_count": 0,
             "warning_count": 0,
             "error_summary": "",
-            "log_file_name": "260925_플팝카페_자동화.json"
+            "log_file_name": "260924_플팝카페_자동화.json"
           }
         ]
-      }
-    },
-    "2026-09-24": {
+      },
       "KIDS": {
         "branch_code": "AKJJ",
         "display_name": "아르떼키즈파크 제주",
@@ -857,36 +887,6 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": "logs/260924_VALLEY_P2P1.json"
-      },
-      "ISLAND": {
-        "branch_code": "AMJJ",
-        "display_name": "아르떼뮤지엄 제주",
-        "status": "success",
-        "end_time": "07:29:33",
-        "duration_sec": 1157,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": "logs/260924_ISLAND_P2P1.json",
-        "sub_status": [
-          {
-            "label": "플팝카페",
-            "status": "success",
-            "end_time": "08:14:17",
-            "duration_sec": 236,
-            "error_count": 0,
-            "warning_count": 0,
-            "error_summary": "",
-            "log_file_name": "260924_플팝카페_자동화.json"
-          }
-        ]
       }
     },
     "2026-09-23": {
