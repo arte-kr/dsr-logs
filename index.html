@@ -112,10 +112,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .etype-w{background:#FEF3E2;color:#905A08}
 .emsg{font-size:12px;color:#666;line-height:1.6}
 
-.logtog{background:#fff;border-radius:12px;border:1px solid #EBEBEB;padding:12px 15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
-.logtog span{font-size:12px;color:#888}
-.logtog svg{width:14px;height:14px;stroke:#BBB;fill:none;stroke-width:2}
-.loglines{background:#fff;border-radius:0 0 12px 12px;border:1px solid #EBEBEB;border-top:none;padding:12px 15px;font-size:11px;color:#888;font-family:'SF Mono','Consolas','Courier New',monospace;line-height:1.8;max-height:200px;overflow-y:auto;display:none;margin-bottom:4px;word-break:break-all}
 .log-err{color:#B33025}.log-warn{color:#905A08}.log-info{color:#1A5F9A}
 
 /* ERROR REPORT 요약 카드 + 상세 화면 */
@@ -265,11 +261,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
       <div class="etitle"><div class="etitle-dot"></div><span id="etitle-txt"></span></div>
       <div id="elist"></div>
     </div>
-    <div class="logtog" id="logtog" onclick="toggleLog()">
-      <span id="log-lbl">전체 로그 펼치기</span>
-      <svg viewBox="0 0 13 13"><path d="M2 4l4.5 4 4.5-4"/></svg>
-    </div>
-    <div class="loglines" id="loglines"></div>
   </div>
 </div>
 
@@ -925,42 +916,9 @@ function showDetail(br) {
     ec.style.display = 'none';
   }
 
-  document.getElementById('loglines').style.display = 'none';
-  document.getElementById('loglines').innerHTML = '';
-  document.getElementById('log-lbl').textContent = '전체 로그 펼치기';
-  LOG_OPEN = false;
-
   document.getElementById('main').classList.remove('active');
   document.getElementById('detail').classList.add('active');
   if (typeof updateFab === 'function') updateFab();
-}
-
-function toggleLog() {
-  var ll = document.getElementById('loglines');
-  var lb = document.getElementById('log-lbl');
-  if (!LOG_OPEN) {
-    lb.textContent = '불러오는 중...';
-    var r = DB && DB.records[SD] && DB.records[SD][CUR_BRANCH];
-    if (!r || !r.log_file) { lb.textContent = '전체 로그 없음'; return; }
-    fetch(REPO_BASE + '/' + r.log_file + '?t=' + Date.now())
-      .then(function(res) { return res.json(); })
-      .then(function(raw) {
-        var lines = (raw.log_lines || []);
-        if (!lines.length) { lb.textContent = '로그 없음'; return; }
-        ll.innerHTML = lines.map(function(l) {
-          var cls = l.indexOf('ERROR') >= 0 ? 'log-err' : l.indexOf('WARNING') >= 0 ? 'log-warn' : l.indexOf('[INFO]') >= 0 ? 'log-info' : '';
-          return '<div class="' + cls + '">' + l + '</div>';
-        }).join('');
-        ll.style.display = 'block';
-        lb.textContent = '전체 로그 접기';
-        LOG_OPEN = true;
-      })
-      .catch(function() { lb.textContent = '로그 파일을 불러올 수 없습니다'; });
-  } else {
-    ll.style.display = 'none';
-    lb.textContent = '전체 로그 펼치기';
-    LOG_OPEN = false;
-  }
 }
 
 function goBack() {
