@@ -187,6 +187,34 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .sc-er-lbl{font-size:10px;font-weight:700;letter-spacing:0.3px}
 .sc-er-val{font-size:13px;font-weight:700}
 
+/* ERROR 조치(보라) · 분류 · 처리 대기 */
+.d-rec{background:#7F77DD}
+.bf-rec{background:#EEEDFE;color:#3C3489;border:1px solid #AFA9EC}
+.rec-pill{display:inline-block;background:#EEEDFE;color:#3C3489;font-size:10px;font-weight:500;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;letter-spacing:-0.2px}
+.sc-chip-rec{background:#EEEDFE;color:#3C3489;border:1px solid #AFA9EC}
+.sv-rec{color:#3C3489}
+.stg-line{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:500;color:#B33025}
+.stg-line i{width:6px;height:6px;border-radius:50%;background:#D63B2F;flex-shrink:0}
+.stg-chip{display:inline-block;font-size:10px;font-weight:700;color:#444;background:#fff;border:0.5px solid #BDBDBD;border-radius:5px;padding:1px 6px}
+.stop-box{grid-column:1 / span 2;background:#FDECEA;border:1px solid #F09595}
+.stop-line{font-size:12px;color:#791F1F;margin-top:6px;line-height:1.5;word-break:break-all}
+.rcard{background:#EEEDFE;border:1px solid #AFA9EC;border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.rtitle{font-size:12px;font-weight:600;color:#3C3489;display:flex;align-items:center;gap:6px}
+.rdot{width:7px;height:7px;border-radius:50%;background:#7F77DD;flex-shrink:0}
+.rbody{font-size:12px;color:#3C3489;line-height:1.6;margin-top:6px}
+.rrows{background:#fff;border-radius:8px;padding:8px 10px;margin-top:8px;font-size:12px;color:#444;line-height:1.7}
+.rrow{display:flex;justify-content:space-between;gap:10px}
+.rrow span:first-child{color:#999;flex-shrink:0}
+.rtoggle{font-size:12px;color:#534AB7;margin-top:8px;cursor:pointer;font-weight:600}
+.rlines{background:#fff;border-radius:8px;padding:6px 10px;margin-top:6px}
+.bc-wait{background:#FAFAFA;border-style:dashed;cursor:default}
+.bc-wait .bcname{color:#888}
+.wait-pill{display:inline-block;background:#F0F0F0;color:#777;font-size:10px;font-weight:500;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle}
+.er-stage-wrap{padding:0 14px 6px}
+.er-stage-lbl{font-size:10px;color:#999;margin-bottom:5px}
+.er-sc{display:inline-block;font-size:11px;font-weight:600;padding:5px 10px;border-radius:14px;background:#fff;border:0.5px solid #E0E0E0;color:#666;cursor:pointer;margin:0 4px 4px 0}
+.er-sc-sel{background:#1D9E75;color:#fff;border-color:#1D9E75}
+
 /* 에러 메시지 */
 .err-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:30px 20px;text-align:center;gap:12px}
 .err-title{font-size:15px;font-weight:600;color:#333}
@@ -247,18 +275,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
       <div class="dcode-txt" id="d-code"></div>
       <div class="sgrid">
         <div class="sbox"><div class="sl">상태</div><div class="sv" id="d-status"></div></div>
-        <div class="sbox"><div class="sl">완료 / 중단 시각</div><div class="sv" id="d-time"></div></div>
+        <div class="sbox"><div class="sl">실행 시간</div><div class="sv" id="d-time"></div></div>
         <div class="sbox"><div class="sl">소요 시간</div><div class="sv" id="d-dur"></div></div>
         <div class="sbox"><div class="sl">오류 포함</div><div class="sv" id="d-haserr"></div></div>
+        <div class="sbox stop-box" id="d-stop-box" style="display:none">
+          <div class="sl" style="color:#B33025">중단 단계</div>
+          <div style="margin-top:4px"><span class="stg-chip" id="d-stop-stage"></span></div>
+          <div class="stop-line" id="d-stop-line"></div>
+        </div>
         <div class="sbox" id="d-file-box"><div class="sl">파일 생성</div><div class="sv" id="d-file"></div></div>
         <div class="sbox" id="d-mail-box"><div class="sl">메일 발송</div><div class="sv" id="d-mail"></div></div>
         <div class="sbox" id="d-kpi-box"><div class="sl">KPI 업로드</div><div class="sv" id="d-kpi"></div></div>
         <div class="sbox" id="d-slack-box"><div class="sl">Slack 발송</div><div class="sv" id="d-slack"></div></div>
       </div>
     </div>
+    <div id="d-rec-wrap" style="display:none"></div>
     <div id="d-sub-wrap" style="display:none"></div>
     <div class="ecard" id="ecard">
-      <div class="etitle"><div class="etitle-dot"></div><span id="etitle-txt"></span></div>
+      <div class="etitle" style="cursor:pointer" onclick="toggleElist()"><div class="etitle-dot"></div><span id="etitle-txt"></span><span id="el-arrow" style="margin-left:auto;color:#999"></span></div>
       <div id="elist"></div>
     </div>
   </div>
@@ -343,6 +377,7 @@ function getValidDates() {
 
 function dotCls(rec) {
   if (rec.status === 'error') return 'd-stop';
+  if (rec.error_recovered) return 'd-rec';
   if (rec.error_count > 0 || rec.warning_count > 0) return 'd-warn';
   if (rec.status === 'running') return 'd-run';
   return 'd-ok';
@@ -371,6 +406,122 @@ function stopLabel(r) {
   return '중단';
 }
 
+// ── 오류 분류(단계) · 실행 시간 · 처리 대기 · ERROR 조치 보조 ─────────────
+// 로그 문구의 키워드로 분류한다. 위에서부터 먼저 맞는 분류가 적용되고,
+// 어디에도 안 맞으면 분류 없음(칩 미표시). 로그 문구가 바뀌면 이 키워드도 같이 고칠 것.
+var STAGE_ETC = '기타';
+var STAGE_RULES = [
+  ['순차 처리·보강', ['보강 대상 파일이 오류 상태', '해당 파일을 직접 확인']],
+  ['메일 발송·캡처', ['[P1-5]', '[보강-메일]', '메일 발송', '발송 실패', 'SUMMARY 캡처', 'SUMMARY 이미지', '캡처 이미지']],
+  ['사이트 검증', ['P1-4', '사이트 검증 실패']],
+  ['엑셀 검증', ['STEP3', 'Excel COM', 'Microsoft Excel', '재검증', '검증 실패']],
+  ['데이터 수집·반영', ['[포토부스]', '[보조배터리]', '[테크런]', '실패 목록', 'manifest', 'POS_당일매출상세현황', '다운로드']],
+  ['파일 생성·접근', ['파일 생성 오류', '파일 열기 실패', 'Permission denied']]
+];
+var STAGE_LINE_MAX = 90;
+var REC_LINES_MAX = 10;
+
+function classifyLine(line) {
+  var s = String(line || '');
+  for (var i = 0; i < STAGE_RULES.length; i++) {
+    var keys = STAGE_RULES[i][1];
+    for (var j = 0; j < keys.length; j++) {
+      if (s.indexOf(keys[j]) >= 0) return STAGE_RULES[i][0];
+    }
+  }
+  return '';
+}
+
+function stageOfLines(lines) {
+  for (var i = 0; i < (lines || []).length; i++) {
+    var c = classifyLine(lines[i]);
+    if (c) return c;
+  }
+  return '';
+}
+
+function stageOf(r) { return stageOfLines(r.error_lines || []); }
+
+// 시각·[ERROR] 접두를 떼고 첫 번째로 분류되는 줄을 한 줄 요약으로 쓴다.
+function firstStageLine(lines) {
+  for (var i = 0; i < (lines || []).length; i++) {
+    if (!classifyLine(lines[i])) continue;
+    var t = String(lines[i]).replace(/^\d{2}:\d{2}:\d{2}\s+/, '').replace(/^\[ERROR\]\s*/, '').trim();
+    return t.length > STAGE_LINE_MAX ? t.substr(0, STAGE_LINE_MAX) + '…' : t;
+  }
+  return '';
+}
+
+function hasTime(t) { return !!t && t !== '—'; }
+
+// 메인 카드용(시:분) — 시작 시각이 없는 옛 기록은 기존처럼 종료 시각만 표시
+function runTimeShort(r) {
+  if (hasTime(r.start_time) && hasTime(r.end_time)) return r.start_time.substr(0, 5) + ' → ' + r.end_time.substr(0, 5);
+  if (hasTime(r.start_time)) return r.start_time.substr(0, 5) + ' 시작';
+  return r.end_time || '—';
+}
+
+// 상세용(시:분:초)
+function runTimeFull(r) {
+  if (hasTime(r.start_time) && hasTime(r.end_time)) return r.start_time + ' → ' + r.end_time;
+  if (hasTime(r.start_time)) return r.start_time + ' 시작';
+  return r.end_time || '—';
+}
+
+function fmtMD(iso) {
+  if (!iso || iso.length < 16) return '—';
+  return iso.substr(5, 2) + '/' + iso.substr(8, 2) + ' ' + iso.substr(11, 5);
+}
+
+// 같은 지점의 직전 실제 기록이 ERROR 이면(= 그 날짜에서 막혀 이후 날짜가 처리 안 된 상태) 대기 정보를 돌려준다.
+// '프로그램 미실행'은 업로더가 임시로 붙이는 표시라 건너뛴다.
+function waitInfo(br, sd) {
+  var dates = (DB && DB.dates) ? DB.dates : [];
+  for (var i = 0; i < dates.length; i++) {
+    var d = dates[i];
+    if (d >= sd) continue;
+    var rec = DB.records[d] && DB.records[d][br];
+    if (!rec || rec.error_summary === '프로그램 미실행') continue;
+    return rec.status === 'error' ? { date: d, rec: rec } : null;
+  }
+  return null;
+}
+
+function recCardHtml(rc, done4) {
+  var st = stageOfLines(rc.error_lines || []);
+  var lines = (rc.error_lines || []).slice(0, REC_LINES_MAX);
+  var linesHtml = lines.map(function(l) {
+    return '<div class="eitem"><span class="etype etype-e">ERROR</span><span class="emsg">' + escapeHtml(l) + '</span></div>';
+  }).join('');
+  return '<div class="rcard">' +
+    '<div class="rtitle"><span class="rdot"></span>ERROR 조치 기록</div>' +
+    '<div class="rbody">이 날짜는 ERROR로 중단됐다가 조치 후 정상 완료됐습니다. ' +
+      (done4 === 4 ? '현재 4개 항목은 모두 완료 상태입니다.' : '현재 ' + done4 + '/4개 항목이 완료 상태입니다.') + '</div>' +
+    '<div class="rrows">' +
+      '<div class="rrow"><span>중단 단계</span><span>' + (st || '—') + '</span></div>' +
+      '<div class="rrow"><span>최초 감지</span><span>' + fmtMD(rc.first_seen) + '</span></div>' +
+      '<div class="rrow"><span>완료 확인</span><span>' + fmtMD(rc.recovered_at) + '</span></div>' +
+    '</div>' +
+    (linesHtml ? '<div class="rtoggle" id="rec-toggle" onclick="toggleRecLines()">당시 ERROR 보기 ▾</div>' +
+      '<div class="rlines" id="rec-lines" style="display:none">' + linesHtml + '</div>' : '') +
+    '</div>';
+}
+
+function toggleRecLines() {
+  var box = document.getElementById('rec-lines'), tg = document.getElementById('rec-toggle');
+  if (!box || !tg) return;
+  var open = box.style.display === 'none';
+  box.style.display = open ? 'block' : 'none';
+  tg.textContent = open ? '당시 ERROR 닫기 ▴' : '당시 ERROR 보기 ▾';
+}
+
+function toggleElist() {
+  var el = document.getElementById('elist'), ar = document.getElementById('el-arrow');
+  var open = el.style.display === 'none';
+  el.style.display = open ? 'block' : 'none';
+  ar.textContent = open ? '▴' : '▾';
+}
+
 // 항목이 "문제 없이 끝났는지": 정상 처리(완료/발송) 또는 설정상 의도된 스킵이면 true.
 // 미발송 설정으로 건너뛴 메일/Slack을 미완료(N/4)로 깎지 않기 위함.
 function itemDone(status, okVal) {
@@ -391,7 +542,7 @@ function badgesHtml(r) {
   var isPartial = isOk && done < 4;
   var okCls, okTxt;
   if (isRun) { okCls = 'bf bf-run'; okTxt = '실행중'; }
-  else if (isOk && !isPartial) { okCls = 'bf bf-ok'; okTxt = '완료'; }
+  else if (isOk && !isPartial) { okCls = r.error_recovered ? 'bf bf-rec' : 'bf bf-ok'; okTxt = '완료'; }
   else if (isPartial) { okCls = 'bf bf-err'; okTxt = done + '/4'; }
   else { okCls = 'bf bf-off'; okTxt = '완료'; }
   return '<div class="bfrow">' +
@@ -447,6 +598,7 @@ var ER_STATUS_FILTER = 'open';
 var ER_LEVEL = 'error';
 var ER_EXPANDED = {};
 var ER_SHOW_ALL = false;
+var ER_STAGE = '';
 
 function normalizeMsg(s) {
   if (!s) return '';
@@ -491,7 +643,7 @@ function aggregateErrors(level, days) {
       lines.forEach(function(line){
         var norm = normalizeMsg(line);
         if (!norm) return;
-        if (!groups[norm]) groups[norm] = { key: norm, msg: line, count: 0, byBranch: {}, occurrences: [] };
+        if (!groups[norm]) groups[norm] = { key: norm, msg: line, count: 0, byBranch: {}, occurrences: [], stage: classifyLine(line) };
         groups[norm].count++;
         groups[norm].byBranch[r.branch_code] = (groups[norm].byBranch[r.branch_code] || 0) + 1;
         groups[norm].occurrences.push({ date: d, branch: r.branch_code, line: line });
@@ -539,7 +691,7 @@ function aggregateErrors(level, days) {
 function showErrorDetail(level) {
   if (level) ER_LEVEL = level;
   ER_DAYS = 1; ER_STATUS_FILTER = 'open';
-  ER_EXPANDED = {}; ER_SHOW_ALL = false;
+  ER_EXPANDED = {}; ER_SHOW_ALL = false; ER_STAGE = '';
   document.getElementById('main').classList.remove('active');
   document.getElementById('error-detail').classList.add('active');
   renderErrorDetail();
@@ -552,8 +704,24 @@ function goBackFromError() {
   if (typeof updateFab === 'function') updateFab();
 }
 
-function setErDays(n) { ER_DAYS = n; ER_STATUS_FILTER = 'open'; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
-function setErLevel(l) { ER_LEVEL = l; ER_STATUS_FILTER = 'open'; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+function setErDays(n) { ER_DAYS = n; ER_STATUS_FILTER = 'open'; ER_STAGE = ''; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+function setErLevel(l) { ER_LEVEL = l; ER_STATUS_FILTER = 'open'; ER_STAGE = ''; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+function setErStage(s) { ER_STAGE = (ER_STAGE === s) ? '' : s; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
+
+// 단계별 보기 칩 — 현재 목록(lst)에 실제로 있는 분류만 건수와 함께 보여준다.
+function buildStageChips(lst) {
+  if (!lst.length) return '';
+  var cnt = {};
+  lst.forEach(function(g) { var k = g.stage || STAGE_ETC; cnt[k] = (cnt[k] || 0) + 1; });
+  if (ER_STAGE && !cnt[ER_STAGE]) ER_STAGE = '';
+  var order = STAGE_RULES.map(function(x) { return x[0]; }).concat([STAGE_ETC]);
+  var chips = '<span class="er-sc' + (ER_STAGE === '' ? ' er-sc-sel' : '') + '" onclick="setErStage(ER_STAGE)">전체 ' + lst.length + '</span>';
+  order.forEach(function(k) {
+    if (!cnt[k]) return;
+    chips += '<span class="er-sc' + (ER_STAGE === k ? ' er-sc-sel' : '') + '" onclick="setErStage(\'' + k + '\')">' + k + ' ' + cnt[k] + '</span>';
+  });
+  return '<div class="er-stage-wrap"><div class="er-stage-lbl">단계별 보기</div>' + chips + '</div>';
+}
 function setErStatusFilter(s) { ER_STATUS_FILTER = s; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
 function toggleErExpand(k) { ER_EXPANDED[k] = !ER_EXPANDED[k]; renderErrorDetail(); }
 function toggleErShowAll() { ER_SHOW_ALL = !ER_SHOW_ALL; renderErrorDetail(); }
@@ -618,6 +786,10 @@ function renderErrorDetail() {
   } else {
     lst = agg.list.filter(function(g){ return g.status === ER_STATUS_FILTER; });
   }
+  var stageHtml = buildStageChips(lst);
+  if (ER_STAGE) {
+    lst = lst.filter(function(g){ return (g.stage || STAGE_ETC) === ER_STAGE; });
+  }
   if (!lst.length) {
     var stLbl = ER_STATUS_FILTER === 'open' ? '미해결' : ER_STATUS_FILTER === 'pending' ? '해결예정' : '해결';
     listEl.innerHTML = tabHtml + '<div class="er-empty">' + stLbl + ' ' + (ER_LEVEL==='error'?'ERROR':'WARNING') + '가 없습니다.</div>';
@@ -625,7 +797,7 @@ function renderErrorDetail() {
   }
   var limit = ER_SHOW_ALL ? lst.length : Math.min(5, lst.length);
   var levelCls = ER_LEVEL === 'warning' ? ' er-item-w' : '';
-  var html = tabHtml;
+  var html = tabHtml + stageHtml;
   for (var i = 0; i < limit; i++) {
     var g = lst[i];
     var brTxt = Object.keys(g.byBranch).map(function(b){ return b + ' ' + g.byBranch[b]; }).join(' · ');
@@ -641,6 +813,7 @@ function renderErrorDetail() {
       '<div class="er-item-msg">' + escapeHtml(g.msg) + '</div>' +
       '<div class="er-item-meta"><span class="er-item-cnt">' + g.count + '회</span>' +
       stHtml +
+      (g.stage ? '<span class="stg-chip">' + g.stage + '</span>' : '') +
       '<span class="er-item-sub">' + brTxt + ' · 최근 ' + g.maxDate + '</span>' +
       '<span class="er-item-arrow">' + arrow + '</span></div>';
     if (ER_EXPANDED[g.key]) {
@@ -741,7 +914,7 @@ function renderSummary() {
   else if (diffDays === 0) rel = '(오늘)';
   var chips = branches.map(function(br){
     var r = recs[br];
-    if (!r) return '<div class="sc-chip sc-chip-off"><div class="sc-chip-code">' + br + '</div><div class="sc-chip-val">—</div></div>';
+    if (!r) return '<div class="sc-chip sc-chip-off"><div class="sc-chip-code">' + br + '</div><div class="sc-chip-val">' + (waitInfo(br, latest) ? '대기' : '—') + '</div></div>';
     var d = 0;
     if (itemDone(r.file_status, '완료')) d++;
     if (itemDone(r.mail_status, '완료')) d++;
@@ -750,7 +923,7 @@ function renderSummary() {
     var cls, val;
     if (r.status === 'running') { cls = 'sc-chip-run'; val = '실행중'; }
     else if (r.status === 'error') { cls = 'sc-chip-stop'; val = stopLabel(r); }
-    else if (d === 4) { cls = 'sc-chip-ok'; val = '완료'; }
+    else if (d === 4) { cls = r.error_recovered ? 'sc-chip-rec' : 'sc-chip-ok'; val = '완료'; }
     else { cls = 'sc-chip-warn'; val = d + '/4'; }
     return '<div class="sc-chip ' + cls + '" onclick="showDetailFromSummary(\'' + br + '\')">' +
       '<div class="sc-chip-code">' + r.branch_code + '</div>' +
@@ -805,10 +978,20 @@ function renderBranches() {
   var html = '<div class="sec-label" id="sec-lbl">' + SD + ' 실행 현황</div>';
   branches.forEach(function(br) {
     var r = DB.records[SD][br];
-    if (!r) return;
+    if (!r) {
+      var w = waitInfo(br, SD);
+      if (w) {
+        html += '<div class="bc bc-wait">' +
+          '<div class="bcleft"><div class="bcname">' + w.rec.branch_code + '<span class="wait-pill">처리 대기</span></div><div class="bccode">' + w.rec.display_name + '</div></div>' +
+          '<div class="bcright"><div class="bctime">' + w.date + ' 오류로 대기 중</div></div>' +
+          '</div>';
+      }
+      return;
+    }
+    var stg = r.status === 'error' ? stageOf(r) : '';
     html += '<div class="bc" onclick="showDetail(\'' + br + '\')">' +
-      '<div class="bcleft"><div class="bcname">' + r.branch_code + (r.is_retry ? '<span class="retry-badge" title="자동 재실행 후 완료"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>재실행</span>' : '') + '</div><div class="bccode">' + r.display_name + '</div></div>' +
-      '<div class="bcright">' + badgesHtml(r) + '<div class="bctime">' + r.end_time + '</div></div>' +
+      '<div class="bcleft"><div class="bcname">' + r.branch_code + (r.status === 'success' && r.error_recovered ? '<span class="rec-pill">ERROR 조치</span>' : '') + (r.is_retry ? '<span class="retry-badge" title="자동 재실행 후 완료"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>재실행</span>' : '') + '</div><div class="bccode">' + r.display_name + '</div></div>' +
+      '<div class="bcright">' + badgesHtml(r) + (stg ? '<div class="stg-line"><i></i>' + stg + '</div>' : '') + '<div class="bctime">' + runTimeShort(r) + '</div></div>' +
       '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
       '</div>';
   });
@@ -826,7 +1009,8 @@ function showDetail(br) {
   CUR_BRANCH = br;
   document.getElementById('d-title').textContent = r.branch_code;
   document.getElementById('d-sub').textContent = SD + ' · ' + r.branch_code;
-  document.getElementById('d-name').textContent = r.branch_code;
+  document.getElementById('d-name').innerHTML = escapeHtml(r.branch_code) +
+    (r.status === 'success' && r.error_recovered ? '<span class="rec-pill">ERROR 조치</span>' : '');
   document.getElementById('d-code').textContent = r.display_name;
 
   // 4개 항목 완료 카운트 (파일생성·메일발송·KPI업로드·Slack발송)
@@ -839,7 +1023,8 @@ function showDetail(br) {
   var ds = document.getElementById('d-status');
   var summ2 = r.error_summary || '';
   if (r.status === 'success') {
-    if (done4 === 4) { ds.textContent = '완료'; ds.className = 'sv sv-ok'; }
+    if (done4 === 4 && r.error_recovered) { ds.textContent = '완료 (ERROR 조치)'; ds.className = 'sv sv-rec'; }
+    else if (done4 === 4) { ds.textContent = '완료'; ds.className = 'sv sv-ok'; }
     else { ds.textContent = '일부완료 (' + done4 + '/4)'; ds.className = 'sv sv-warn'; }
   }
   else if (r.status === 'error' && summ2.indexOf('강제종료') >= 0) { ds.textContent = '강제종료'; ds.className = 'sv sv-stop'; }
@@ -847,7 +1032,28 @@ function showDetail(br) {
   else if (r.status === 'error') { ds.textContent = '중단'; ds.className = 'sv sv-stop'; }
   else { ds.textContent = '실행 중'; ds.className = 'sv sv-run'; }
 
-  document.getElementById('d-time').textContent = r.end_time || '—';
+  document.getElementById('d-time').textContent = runTimeFull(r);
+
+  // 중단 단계(분류) — ERROR로 중단된 기록에서 분류되는 줄이 있을 때만 표시
+  var stg = r.status === 'error' ? stageOf(r) : '';
+  var stopBox = document.getElementById('d-stop-box');
+  if (stg) {
+    document.getElementById('d-stop-stage').textContent = stg;
+    document.getElementById('d-stop-line').textContent = firstStageLine(r.error_lines || []);
+    stopBox.style.display = '';
+  } else {
+    stopBox.style.display = 'none';
+  }
+
+  // ERROR 조치 기록(중단됐다가 나중에 정상 완료된 기록)
+  var recWrap = document.getElementById('d-rec-wrap');
+  if (r.status === 'success' && r.error_recovered) {
+    recWrap.innerHTML = recCardHtml(r.error_recovered, done4);
+    recWrap.style.display = 'block';
+  } else {
+    recWrap.innerHTML = '';
+    recWrap.style.display = 'none';
+  }
   document.getElementById('d-dur').textContent = fmtDur(r.duration_sec);
 
   var he = document.getElementById('d-haserr');
@@ -912,6 +1118,9 @@ function showDetail(br) {
     (r.error_lines || []).forEach(function(l) { eh += '<div class="eitem"><span class="etype etype-e">ERROR</span><span class="emsg">' + l + '</span></div>'; });
     (r.warning_lines || []).forEach(function(l) { eh += '<div class="eitem"><span class="etype etype-w">WARNING</span><span class="emsg">' + l + '</span></div>'; });
     document.getElementById('elist').innerHTML = eh;
+    // 중단 단계 박스가 있으면 원문은 접어서 보여준다(제목을 누르면 펼침)
+    document.getElementById('elist').style.display = stg ? 'none' : 'block';
+    document.getElementById('el-arrow').textContent = stg ? '▾' : '▴';
   } else {
     ec.style.display = 'none';
   }
