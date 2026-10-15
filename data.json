@@ -1496,7 +1496,18 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/261007_BUSAN_P2P1.json"
+        "log_file": "logs/261007_BUSAN_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-10-03T08:04:02",
+          "recovered_at": "2026-10-08T11:14:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "09:36:21 [ERROR] [P1-4 STEP6] 검증 실패 — POS매출 J1 = 오류 (당월전체/당월제외 수치 불일치)",
+            "09:36:21 [ERROR] [P1-4 STEP5] 중단 — 사유: [P1-4 STEP6] 검증 실패 — POS매출 J1 = 오류 (당월전체/당월제외 수치 불일치)",
+            "09:36:21 [ERROR] [2026-10-02] 사이트 검증 실패: [P1-4 STEP5] 중단 — 사유: [P1-4 STEP6] 검증 실패 — POS매출 J1 = 오류 (당월전체/당월제외 수치 불일치)",
+            "09:36:21 [ERROR] 처리 실패 [2026-10-02]: [2026-10-02] 사이트 검증 실패: [P1-4 STEP5] 중단 — 사유: [P1-4 STEP6] 검증 실패 — POS매출 J1 = 오류 (당월전체/당월제외 수치 불일치)"
+          ]
+        }
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -1779,7 +1790,24 @@
         "kpi_status": "완료",
         "slack_status": "중단",
         "is_retry": false,
-        "log_file": "logs/261001_KIDS_P2P1.json"
+        "log_file": "logs/261001_KIDS_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-10-01T08:04:02",
+          "recovered_at": "2026-10-01T09:29:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "08:57:12 [ERROR] [SUMMARY 캡처] 실패 — 사유: (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Range 클래스 중 CopyPicture 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+            "08:57:16 [ERROR]   [캡처 이미지] 'SUMMARY' 시트 캡처 실패 — 메일 발송 중단 (KPI 차단 / 다음 날짜 미진행)",
+            "08:57:34 [ERROR] [SUMMARY 캡처] 실패 — 사유: (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Range 클래스 중 CopyPicture 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+            "08:57:37 [ERROR]   [캡처 이미지] 'SUMMARY' 시트 캡처 실패 — 메일 발송 중단 (KPI 차단 / 다음 날짜 미진행)",
+            "08:58:05 [ERROR] [SUMMARY 캡처] 실패 — 사유: (-2147352567, '예외가 발생했습니다.', (0, 'Microsoft Excel', 'Range 클래스 중 CopyPicture 메서드에 오류가 있습니다.', 'xlmain11.chm', 0, -2146827284), None)",
+            "08:58:09 [ERROR]   [캡처 이미지] 'SUMMARY' 시트 캡처 실패 — 메일 발송 중단 (KPI 차단 / 다음 날짜 미진행)",
+            "08:58:09 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-09-30)",
+            "08:58:09 [ERROR] [보강-메일] 메일 발송 실패 — 보강 중단",
+            "08:58:09 [ERROR] ============================================================",
+            "08:58:09 [ERROR] 보강 대상 파일이 오류 상태입니다 — 신규 날짜 생성을 중단합니다."
+          ]
+        }
       }
     },
     "2026-09-29": {
@@ -1814,7 +1842,18 @@
         "kpi_status": "완료",
         "slack_status": "중단",
         "is_retry": false,
-        "log_file": "logs/260929_BUSAN_P2P1.json"
+        "log_file": "logs/260929_BUSAN_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-09-30T10:44:01",
+          "recovered_at": "2026-10-01T08:04:02",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "12:02:46 [ERROR] [P1-4 STEP6] 검증 실패 — POS매출 J1 = 오류 (당월전체/당월제외 수치 불일치)",
+            "12:02:46 [ERROR] [P1-4 STEP5] 중단 — 사유: [P1-4 STEP6] 검증 실패 — POS매출 J1 = 오류 (당월전체/당월제외 수치 불일치)",
+            "12:02:46 [ERROR] [2026-09-29] 사이트 검증 실패: [P1-4 STEP5] 중단 — 사유: [P1-4 STEP6] 검증 실패 — POS매출 J1 = 오류 (당월전체/당월제외 수치 불일치)",
+            "12:02:46 [ERROR] 처리 실패 [2026-09-29]: [2026-09-29] 사이트 검증 실패: [P1-4 STEP5] 중단 — 사유: [P1-4 STEP6] 검증 실패 — POS매출 J1 = 오류 (당월전체/당월제외 수치 불일치)"
+          ]
+        }
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -1852,7 +1891,16 @@
         "kpi_status": "완료",
         "slack_status": "중단",
         "is_retry": false,
-        "log_file": "logs/260930_KIDS_P2P1.json"
+        "log_file": "logs/260930_KIDS_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-09-30T08:04:03",
+          "recovered_at": "2026-09-30T09:54:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "08:11:40 [ERROR] [2026-09-29] P1-4 실행 오류: Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause.; For documentation on this error, please visit: http[경로]",
+            "08:11:40 [ERROR] 처리 실패 [2026-09-29]: [2026-09-29] P1-4 실행 오류: Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause.; For documentation on this error, please visit: http[경로]"
+          ]
+        }
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -3244,7 +3292,15 @@
             "error_summary": "",
             "log_file_name": "260916_플팝카페_자동화.json"
           }
-        ]
+        ],
+        "error_recovered": {
+          "first_seen": "2026-09-17T08:04:02",
+          "recovered_at": "2026-09-17T12:44:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "08:31:23 [ERROR] 편의점 반영 실패 — 2026-09-16: 'NoneType' object has no attribute 'Copy'"
+          ]
+        }
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -3436,7 +3492,15 @@
             "error_summary": "",
             "log_file_name": "260914_플팝카페_자동화.json"
           }
-        ]
+        ],
+        "error_recovered": {
+          "first_seen": "2026-09-15T08:09:01",
+          "recovered_at": "2026-09-15T09:09:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "08:36:05 [ERROR] 편의점 반영 실패 — 2026-09-14: 'NoneType' object has no attribute 'Copy'"
+          ]
+        }
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -3522,7 +3586,13 @@
             "error_summary": "",
             "log_file_name": "260913_플팝카페_자동화.json"
           }
-        ]
+        ],
+        "error_recovered": {
+          "first_seen": "2026-09-13T09:14:01",
+          "recovered_at": "2026-09-14T08:19:02",
+          "summary": "프로그램 강제종료",
+          "error_lines": []
+        }
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -3646,7 +3716,13 @@
             "error_summary": "선행 프로그램 미완료로 작업 중단 — 선행 로그 처리기간 불일치(기대=2026-09-12, 실제=None): 260912_ISLAND_P2P1.json",
             "log_file_name": "260912_플팝카페_자동화.json"
           }
-        ]
+        ],
+        "error_recovered": {
+          "first_seen": "2026-09-13T10:44:01",
+          "recovered_at": "2026-09-14T08:04:02",
+          "summary": "4시간 타임아웃 — 강제 종료",
+          "error_lines": []
+        }
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -4120,7 +4196,13 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": false,
-        "log_file": "logs/260907_KIDS_P2P1.json"
+        "log_file": "logs/260907_KIDS_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-09-07T10:04:01",
+          "recovered_at": "2026-09-08T08:19:02",
+          "summary": "프로그램 강제종료",
+          "error_lines": []
+        }
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -4699,7 +4781,15 @@
             "error_summary": "",
             "log_file_name": "260902_플팝카페_자동화.json"
           }
-        ]
+        ],
+        "error_recovered": {
+          "first_seen": "2026-09-03T08:04:01",
+          "recovered_at": "2026-09-03T09:04:01",
+          "summary": "",
+          "error_lines": [
+            "08:48:12 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-09-02, 오류: (-2147467260, '작업이 중단되었습니다.', None, None))"
+          ]
+        }
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -4881,7 +4971,19 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260831_VALLEY_P2P1.json"
+        "log_file": "logs/260831_VALLEY_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-09-01T08:04:02",
+          "recovered_at": "2026-09-01T12:14:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "09:43:55 [ERROR] [LSPOS신형] 예외 — argument of type 'NoneType' is not a container or iterable",
+            "09:45:03 [ERROR] [LSPOS신형] 예외 — argument of type 'NoneType' is not a container or iterable",
+            "09:46:10 [ERROR] [LSPOS신형] 예외 — argument of type 'NoneType' is not a container or iterable",
+            "09:46:12 [ERROR] [LSPOS] 로그인 실패 — 중단: 로그인 실패",
+            "09:49:12 [ERROR] 실패 목록: [('2026-08-31', '매출파일_권종별'), ('2026-08-31', 'POS_당일매출상세현황')]"
+          ]
+        }
       },
       "BUSAN": {
         "branch_code": "AMBS",
@@ -4931,7 +5033,19 @@
             "error_summary": "",
             "log_file_name": "260831_플팝카페_자동화.json"
           }
-        ]
+        ],
+        "error_recovered": {
+          "first_seen": "2026-09-01T08:04:02",
+          "recovered_at": "2026-09-01T10:34:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "07:29:06 [ERROR] [LSPOS구형] 예외 — Alert Text: 아이디/비밀번호를 확인해주세요!",
+            "07:31:13 [ERROR] [LSPOS구형] 예외 — Alert Text: 아이디/비밀번호를 확인해주세요!",
+            "07:33:21 [ERROR] [LSPOS구형] 예외 — Alert Text: 아이디/비밀번호를 확인해주세요!",
+            "07:33:23 [ERROR] [LSPOS(면공장)] 로그인 실패 — 중단: 로그인 실패",
+            "07:33:23 [ERROR] 실패 목록: [('2026-08-31', '매출파일_권종별'), ('2026-08-31', 'POS_당일매출상세현황')]"
+          ]
+        }
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -4949,7 +5063,19 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260831_OCEAN_P2P1.json"
+        "log_file": "logs/260831_OCEAN_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-09-01T08:04:02",
+          "recovered_at": "2026-09-01T12:09:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "09:32:08 [ERROR] [LSPOS신형] 예외 — argument of type 'NoneType' is not a container or iterable",
+            "09:33:15 [ERROR] [LSPOS신형] 예외 — argument of type 'NoneType' is not a container or iterable",
+            "09:34:22 [ERROR] [LSPOS신형] 예외 — argument of type 'NoneType' is not a container or iterable",
+            "09:34:24 [ERROR] [LSPOS] 로그인 실패 — 중단: 로그인 실패",
+            "09:34:24 [ERROR] 실패 목록: [('2026-08-31', '매출파일_권종별'), ('2026-08-31', 'POS_당일매출상세현황')]"
+          ]
+        }
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -5760,7 +5886,18 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260823_VALLEY_P2P1.json"
+        "log_file": "logs/260823_VALLEY_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-08-24T08:04:03",
+          "recovered_at": "2026-08-24T13:29:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "07:17:17 [ERROR] 시트 탐색 실패 (keyword=매출파일_권종별): (-2147023174, 'RPC 서버를 사용할 수 없습니다.', None, None)",
+            "07:17:23 [ERROR] 시트 탐색 실패 (keyword=매출파일_권종별): (-2147023174, 'RPC 서버를 사용할 수 없습니다.', None, None)",
+            "07:17:29 [ERROR] 시트 탐색 실패 (keyword=POS_당일매출상세현황): (-2147023174, 'RPC 서버를 사용할 수 없습니다.', None, None)",
+            "07:17:29 [ERROR] 처리 중 오류 발생 — 중단: (-2147023174, 'RPC 서버를 사용할 수 없습니다.', None, None)"
+          ]
+        }
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -6232,7 +6369,19 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": "logs/260820_OCEAN_P2P1.json"
+        "log_file": "logs/260820_OCEAN_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-08-20T09:44:01",
+          "recovered_at": "2026-08-20T11:09:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "07:42:22 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-08-19, 오류: (-2147352567, '예외가 발생했습니다.', (4096, 'Microsoft Outlook', '대화 상자가 열려 있기 때문에 Outlook에서 이 작업을 수행할 수 없습니다. 대화 상자를 닫고 다시 시도해 보세요.', None, 0, -2147467259), None))",
+            "07:42:39 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-08-19, 오류: (-2147352567, '예외가 발생했습니다.', (4096, 'Microsoft Outlook', '대화 상자가 열려 있기 때문에 Outlook에서 이 작업을 수행할 수 없습니다. 대화 상자를 닫고 다시 시도해 보세요.', None, 0, -2147467259), None))",
+            "07:43:06 [ERROR] 처리 중단 — 사유: 메일 발송 실패 (날짜: 2026-08-19, 오류: (-2147352567, '예외가 발생했습니다.', (4096, 'Microsoft Outlook', '대화 상자가 열려 있기 때문에 Outlook에서 이 작업을 수행할 수 없습니다. 대화 상자를 닫고 다시 시도해 보세요.', None, 0, -2147467259), None))",
+            "07:43:06 [ERROR] 처리 중단 — 사유: 발송 실패 (재시도 포함 3회 시도, 날짜: 2026-08-19)",
+            "07:43:07 [ERROR] [P1-5] 메일 발송 실패 — 2026-08-19"
+          ]
+        }
       }
     },
     "2026-08-18": {
