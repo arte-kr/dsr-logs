@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T13:24:01",
+  "generated_at": "2026-10-15T13:29:01",
   "dates": [
     "2026-10-15",
     "2026-10-14",
@@ -144,25 +144,22 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:00:29",
-        "duration_sec": 916,
-        "error_count": 2,
+        "start_time": "07:30:15",
+        "end_time": "07:40:37",
+        "duration_sec": 622,
+        "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
-        "error_lines": [
-          "07:55:13 [ERROR] Excel COM 재계산 실패 (시도 1/3): Open.Close",
-          "07:55:13 [ERROR] 상세 traceback:"
-        ],
+        "error_lines": [],
         "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -197,22 +194,25 @@
           }
         ]
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:15",
-        "end_time": "07:40:37",
-        "duration_sec": 622,
-        "error_count": 0,
+        "start_time": "07:45:13",
+        "end_time": "08:00:29",
+        "duration_sec": 916,
+        "error_count": 2,
         "warning_count": 0,
         "error_summary": "",
-        "error_lines": [],
+        "error_lines": [
+          "07:55:13 [ERROR] Excel COM 재계산 실패 (시도 1/3): Open.Close",
+          "07:55:13 [ERROR] 상세 traceback:"
+        ],
         "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -258,13 +258,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:00:09",
-        "duration_sec": 896,
+        "start_time": "07:30:19",
+        "end_time": "07:42:25",
+        "duration_sec": 725,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -273,7 +273,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -308,13 +308,13 @@
           }
         ]
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:19",
-        "end_time": "07:42:25",
-        "duration_sec": 725,
+        "start_time": "07:45:13",
+        "end_time": "08:00:09",
+        "duration_sec": 896,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -323,7 +323,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -369,13 +369,13 @@
         "is_retry": true,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "07:59:54",
-        "duration_sec": 880,
+        "start_time": "07:30:19",
+        "end_time": "07:41:19",
+        "duration_sec": 660,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -384,7 +384,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -419,13 +419,13 @@
           }
         ]
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:19",
-        "end_time": "07:41:19",
-        "duration_sec": 660,
+        "start_time": "07:45:13",
+        "end_time": "07:59:54",
+        "duration_sec": 880,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -434,7 +434,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -480,13 +480,13 @@
         "is_retry": true,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "07:59:54",
-        "duration_sec": 880,
+        "start_time": "07:30:16",
+        "end_time": "07:41:40",
+        "duration_sec": 684,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -495,7 +495,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -530,13 +530,13 @@
           }
         ]
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:16",
-        "end_time": "07:41:40",
-        "duration_sec": 684,
+        "start_time": "07:45:13",
+        "end_time": "07:59:54",
+        "duration_sec": 880,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -545,7 +545,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -589,27 +589,22 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:01:03",
-        "duration_sec": 949,
-        "error_count": 2,
-        "warning_count": 1,
+        "start_time": "07:30:16",
+        "end_time": "07:41:42",
+        "duration_sec": 685,
+        "error_count": 0,
+        "warning_count": 0,
         "error_summary": "",
-        "error_lines": [
-          "07:49:01 [ERROR] [포토부스] 메뉴 이동 실패: err:신용카드 메뉴 미발견",
-          "07:49:01 [ERROR] [포토부스] 메뉴 이동 실패"
-        ],
-        "warning_lines": [
-          "07:49:03 [WARNING] [포토부스] ⚠️ 초기 접속/로그인 실패 — 1/3 재시도 중..."
-        ],
+        "error_lines": [],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -644,22 +639,27 @@
           }
         ]
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:16",
-        "end_time": "07:41:42",
-        "duration_sec": 685,
-        "error_count": 0,
-        "warning_count": 0,
+        "start_time": "07:45:13",
+        "end_time": "08:01:03",
+        "duration_sec": 949,
+        "error_count": 2,
+        "warning_count": 1,
         "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
+        "error_lines": [
+          "07:49:01 [ERROR] [포토부스] 메뉴 이동 실패: err:신용카드 메뉴 미발견",
+          "07:49:01 [ERROR] [포토부스] 메뉴 이동 실패"
+        ],
+        "warning_lines": [
+          "07:49:03 [WARNING] [포토부스] ⚠️ 초기 접속/로그인 실패 — 1/3 재시도 중..."
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -706,27 +706,22 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:00:46",
-        "duration_sec": 932,
-        "error_count": 4,
+        "start_time": "07:30:16",
+        "end_time": "07:41:37",
+        "duration_sec": 680,
+        "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
-        "error_lines": [
-          "07:55:04 [ERROR] Excel COM 재계산 실패 (시도 1/3): Open.Close",
-          "07:55:04 [ERROR] 상세 traceback:",
-          "07:55:33 [ERROR] Excel COM 재계산 실패 (시도 2/3): Open.Close",
-          "07:55:33 [ERROR] 상세 traceback:"
-        ],
+        "error_lines": [],
         "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -761,22 +756,27 @@
           }
         ]
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:16",
-        "end_time": "07:41:37",
-        "duration_sec": 680,
-        "error_count": 0,
+        "start_time": "07:45:13",
+        "end_time": "08:00:46",
+        "duration_sec": 932,
+        "error_count": 4,
         "warning_count": 0,
         "error_summary": "",
-        "error_lines": [],
+        "error_lines": [
+          "07:55:04 [ERROR] Excel COM 재계산 실패 (시도 1/3): Open.Close",
+          "07:55:04 [ERROR] 상세 traceback:",
+          "07:55:33 [ERROR] Excel COM 재계산 실패 (시도 2/3): Open.Close",
+          "07:55:33 [ERROR] 상세 traceback:"
+        ],
         "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -820,13 +820,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "07:59:51",
-        "duration_sec": 878,
+        "start_time": "07:30:14",
+        "end_time": "07:39:56",
+        "duration_sec": 582,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -835,7 +835,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -870,13 +870,13 @@
           }
         ]
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:14",
-        "end_time": "07:39:56",
-        "duration_sec": 582,
+        "start_time": "07:45:13",
+        "end_time": "07:59:51",
+        "duration_sec": 878,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -885,7 +885,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
