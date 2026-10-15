@@ -415,7 +415,7 @@ var STAGE_RULES = [
   ['메일 발송·캡처', ['[P1-5]', '[보강-메일]', '메일 발송', '발송 실패', 'SUMMARY 캡처', 'SUMMARY 이미지', '캡처 이미지']],
   ['사이트 검증', ['P1-4', '사이트 검증 실패']],
   ['엑셀 검증', ['STEP3', 'Excel COM', 'Microsoft Excel', '재검증', '검증 실패']],
-  ['데이터 수집·반영', ['[포토부스]', '[보조배터리]', '[테크런]', '실패 목록', 'manifest', 'POS_당일매출상세현황', '다운로드']],
+  ['데이터 수집·반영', ['[포토부스]', '[보조배터리]', '[테크런]', '실패 목록', 'manifest', 'POS_당일매출상세현황', '다운로드', '편의점 반영 실패']],
   ['파일 생성·접근', ['파일 생성 오류', '파일 열기 실패', 'Permission denied']]
 ];
 var STAGE_LINE_MAX = 90;
@@ -495,8 +495,9 @@ function recCardHtml(rc, done4) {
   }).join('');
   return '<div class="rcard">' +
     '<div class="rtitle"><span class="rdot"></span>ERROR 조치 기록</div>' +
-    '<div class="rbody">이 날짜는 ERROR로 중단됐다가 조치 후 정상 완료됐습니다. ' +
-      (done4 === 4 ? '현재 4개 항목은 모두 완료 상태입니다.' : '현재 ' + done4 + '/4개 항목이 완료 상태입니다.') + '</div>' +
+    '<div class="rbody">' + (done4 === 4
+      ? '이 날짜는 ERROR로 중단됐다가 조치 후 정상 완료됐습니다. 현재 4개 항목은 모두 완료 상태입니다.'
+      : '이 날짜는 ERROR로 중단됐다가 재처리됐지만, 일부 항목만 완료 상태입니다 (현재 ' + done4 + '/4).') + '</div>' +
     '<div class="rrows">' +
       '<div class="rrow"><span>중단 단계</span><span>' + (st || '—') + '</span></div>' +
       '<div class="rrow"><span>최초 감지</span><span>' + fmtMD(rc.first_seen) + '</span></div>' +
