@@ -455,7 +455,22 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": true,
-        "log_file": ""
+        "log_file": "",
+        "error_recovered": {
+          "first_seen": "2026-10-13T08:04:02",
+          "recovered_at": "2026-10-14T08:04:03",
+          "summary": "4시간 타임아웃 — 강제 종료",
+          "error_lines": [
+            "07:15:26 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호를 입력하세요",
+            "07:15:26 [ERROR] [포토부스] 로그인 실패",
+            "07:16:36 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호를 입력하세요",
+            "07:16:36 [ERROR] [포토부스] 로그인 실패",
+            "07:17:46 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호를 입력하세요",
+            "07:17:46 [ERROR] [포토부스] 로그인 실패",
+            "07:17:48 [ERROR] [포토부스] 초기 접속/로그인 최종 실패 — 중단",
+            "07:19:19 [ERROR] 실패 목록: [('2026-10-12', 'AMGN,AMBS_POS_포토부스')]"
+          ]
+        }
       }
     },
     "2026-10-11": {
@@ -566,7 +581,22 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": true,
-        "log_file": ""
+        "log_file": "",
+        "error_recovered": {
+          "first_seen": "2026-10-12T08:04:02",
+          "recovered_at": "2026-10-12T10:14:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "07:15:24 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호를 입력하세요",
+            "07:15:24 [ERROR] [포토부스] 로그인 실패",
+            "07:16:34 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호를 입력하세요",
+            "07:16:34 [ERROR] [포토부스] 로그인 실패",
+            "07:17:44 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호를 입력하세요",
+            "07:17:44 [ERROR] [포토부스] 로그인 실패",
+            "07:17:46 [ERROR] [포토부스] 초기 접속/로그인 최종 실패 — 중단",
+            "07:19:19 [ERROR] 실패 목록: [('2026-10-11', 'AMGN,AMBS_POS_포토부스')]"
+          ]
+        }
       }
     },
     "2026-10-10": {
@@ -887,7 +917,18 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": ""
+        "log_file": "",
+        "error_recovered": {
+          "first_seen": "2026-10-08T09:54:02",
+          "recovered_at": "2026-10-09T08:04:02",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "09:49:57 [ERROR] [보강-메일] 2026-10-02 파일 검증 실패 — 잘못된 파일이므로 발송하지 않고 보강 중단: ⚠️ STEP3 오류: POS매출 L1 오류 (금액 불일치) (값=오류)",
+            "09:49:57 [ERROR] ============================================================",
+            "09:49:57 [ERROR] 보강 대상 파일이 오류 상태입니다 — 신규 날짜 생성을 중단합니다.",
+            "09:49:57 [ERROR] 해당 파일을 직접 확인·수정한 뒤 프로그램을 다시 실행해주세요."
+          ]
+        }
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -906,7 +947,16 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": false,
-        "log_file": ""
+        "log_file": "",
+        "error_recovered": {
+          "first_seen": "2026-10-09T08:04:02",
+          "recovered_at": "2026-10-10T08:04:02",
+          "summary": "4시간 타임아웃 — 강제 종료",
+          "error_lines": [
+            "07:06:00 [ERROR] [보조배터리] 로그인 POST 실패 — HTTPSConnectionPool(host='everyportable.co.kr', port=443): Read timed out. (read timeout=15)",
+            "07:06:00 [ERROR] 실패 목록: [('2026-10-08', 'AMGN_POS_보조배터리')]"
+          ]
+        }
       }
     },
     "2026-10-07": {
@@ -1404,7 +1454,18 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": true,
-        "log_file": "logs/261007_BUSAN_P2P1.json"
+        "log_file": "logs/261007_BUSAN_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-10-03T08:04:02",
+          "recovered_at": "2026-10-08T11:14:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "08:02:02 [ERROR] [보강-메일] 2026-10-02 파일 검증 실패 — 잘못된 파일이므로 발송하지 않고 보강 중단: ⚠️ STEP3 오류: POS매출 L1 오류 (금액 불일치) (값=오류) | SUMMARY G1 오류 (합계 불일치) (값=오류)",
+            "08:02:02 [ERROR] ============================================================",
+            "08:02:02 [ERROR] 보강 대상 파일이 오류 상태입니다 — 신규 날짜 생성을 중단합니다.",
+            "08:02:02 [ERROR] 해당 파일을 직접 확인·수정한 뒤 프로그램을 다시 실행해주세요."
+          ]
+        }
       },
       "OCEAN": {
         "branch_code": "AMYS",
@@ -1750,7 +1811,22 @@
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": true,
-        "log_file": "logs/260930_BUSAN_P2P1.json"
+        "log_file": "logs/260930_BUSAN_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-10-01T08:04:02",
+          "recovered_at": "2026-10-01T12:09:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "08:01:28 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호 만료([수치]개월주기) 및 임시 비밀번호 입니다. 변경 후 사용하시기 바랍니다.",
+            "08:01:28 [ERROR] [포토부스] 로그인 실패",
+            "08:02:38 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호 만료([수치]개월주기) 및 임시 비밀번호 입니다. 변경 후 사용하시기 바랍니다.",
+            "08:02:38 [ERROR] [포토부스] 로그인 실패",
+            "08:03:50 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호 만료([수치]개월주기) 및 임시 비밀번호 입니다. 변경 후 사용하시기 바랍니다.",
+            "08:03:50 [ERROR] [포토부스] 로그인 실패",
+            "08:03:52 [ERROR] [포토부스] 초기 접속/로그인 최종 실패 — 중단",
+            "08:05:09 [ERROR] 실패 목록: [('2026-09-30', 'AMGN,AMBS_POS_포토부스')]"
+          ]
+        }
       },
       "VALLEY": {
         "branch_code": "AMGN",
@@ -1770,7 +1846,22 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": true,
-        "log_file": "logs/260930_VALLEY_P2P1.json"
+        "log_file": "logs/260930_VALLEY_P2P1.json",
+        "error_recovered": {
+          "first_seen": "2026-10-01T08:04:02",
+          "recovered_at": "2026-10-01T12:19:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "07:15:26 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호 만료([수치]개월주기) 및 임시 비밀번호 입니다. 변경 후 사용하시기 바랍니다.",
+            "07:15:27 [ERROR] [포토부스] 로그인 실패",
+            "07:16:38 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호 만료([수치]개월주기) 및 임시 비밀번호 입니다. 변경 후 사용하시기 바랍니다.",
+            "07:16:38 [ERROR] [포토부스] 로그인 실패",
+            "07:17:49 [ERROR] [포토부스] 로그인 예외: Alert Text: 비밀번호 만료([수치]개월주기) 및 임시 비밀번호 입니다. 변경 후 사용하시기 바랍니다.",
+            "07:17:49 [ERROR] [포토부스] 로그인 실패",
+            "07:17:51 [ERROR] [포토부스] 초기 접속/로그인 최종 실패 — 중단",
+            "07:19:19 [ERROR] 실패 목록: [('2026-09-30', 'AMGN,AMBS_POS_포토부스')]"
+          ]
+        }
       },
       "KIDS": {
         "branch_code": "AKJJ",
