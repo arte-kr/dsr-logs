@@ -205,7 +205,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .stg-line{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:500;color:#B33025}
 .stg-line i{width:6px;height:6px;border-radius:50%;background:#D63B2F;flex-shrink:0}
 .stg-chip{display:inline-block;font-size:10px;font-weight:700;color:#444;background:#fff;border:0.5px solid #BDBDBD;border-radius:5px;padding:1px 6px}
-.stop-box{grid-column:1 / span 2;background:#FDECEA;border:1px solid #F09595}
+.stop-card{background:#FDECEA;border:1px solid #F09595;border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.sbox-wide{grid-column:1 / span 2}
+.dsteps{display:flex;align-items:flex-start;margin:12px 0;padding-bottom:12px;border-bottom:1px solid #F0F0F0}
+.dst{flex:1;min-width:0;text-align:center;position:relative}
+.dst::before{content:"";position:absolute;top:30px;left:-50%;right:50%;height:2px;background:#E2E2E2}
+.dst:first-child::before{display:none}
+.dst-lk::before{background:#5FA02E!important}
+.dst-nm{font-size:10px;color:#444;line-height:1.2;height:14px;white-space:nowrap;margin-bottom:5px}
+.dst-ic{width:24px;height:24px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.dst-ic svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dst-tx{font-size:10px;font-weight:600;margin-top:4px}
+.dst-o .dst-ic{background:#EAF5DE;color:#2E9A5E}.dst-o .dst-tx{color:#3A7A10}
+.dst-x .dst-ic{background:#FDECEA;color:#D8453A}.dst-x .dst-tx{color:#B33025}
+.dst-w .dst-ic,.dst-k .dst-ic{background:#F0F0F0;color:#9A9FA6}.dst-w .dst-tx,.dst-k .dst-tx{color:#8A8F98}
+.dst-p .dst-ic{background:#E3F0FB;color:#1A5F9A}.dst-p .dst-tx{color:#1A5F9A}
 .stop-line{font-size:12px;color:#791F1F;margin-top:6px;line-height:1.5;word-break:break-all}
 .rcard{background:#EEEDFE;border:1px solid #AFA9EC;border-radius:12px;padding:12px 14px;margin-bottom:10px}
 .rtitle{font-size:12px;font-weight:600;color:#3C3489;display:flex;align-items:center;gap:6px}
@@ -282,24 +296,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
     <div class="dhead">
       <div class="dname" id="d-name"></div>
       <div class="dcode-txt" id="d-code"></div>
+      <div id="d-steps"></div>
       <div class="sgrid">
         <div class="sbox"><div class="sl">상태</div><div class="sv" id="d-status"></div></div>
-        <div class="sbox"><div class="sl">실행 시간</div><div class="sv" id="d-time"></div></div>
         <div class="sbox"><div class="sl">소요 시간</div><div class="sv" id="d-dur"></div></div>
-        <div class="sbox"><div class="sl">오류 포함</div><div class="sv" id="d-haserr"></div></div>
-        <div class="sbox" id="d-file-box"><div class="sl">파일 생성</div><div class="sv" id="d-file"></div></div>
-        <div class="sbox" id="d-mail-box"><div class="sl">메일 발송</div><div class="sv" id="d-mail"></div></div>
-        <div class="sbox" id="d-kpi-box"><div class="sl">KPI 업로드</div><div class="sv" id="d-kpi"></div></div>
-        <div class="sbox" id="d-slack-box"><div class="sl">Slack 발송</div><div class="sv" id="d-slack"></div></div>
-        <div class="sbox stop-box" id="d-stop-box" style="display:none">
-          <div class="sl" style="color:#B33025">중단 단계</div>
-          <div style="margin-top:4px"><span class="stg-chip" id="d-stop-stage"></span></div>
-          <div class="stop-line" id="d-stop-line"></div>
-        </div>
+        <div class="sbox sbox-wide"><div class="sl">실행 시간</div><div class="sv" id="d-time"></div></div>
       </div>
     </div>
-    <div id="d-rec-wrap" style="display:none"></div>
     <div id="d-sub-wrap" style="display:none"></div>
+    <div class="stop-card" id="d-stop-box" style="display:none">
+      <div class="sl" style="color:#B33025">중단 단계</div>
+      <div style="margin-top:4px"><span class="stg-chip" id="d-stop-stage"></span></div>
+      <div class="stop-line" id="d-stop-line"></div>
+    </div>
+    <div id="d-rec-wrap" style="display:none"></div>
     <div class="ecard" id="ecard">
       <div class="etitle" style="cursor:pointer" onclick="toggleElist()"><div class="etitle-dot"></div><span id="etitle-txt"></span><span id="el-arrow" style="margin-left:auto;color:#999"></span></div>
       <div id="elist"></div>
@@ -1036,6 +1046,57 @@ function selMonth(m) { CM = m; EXP = false; var fd = filteredDates(); SD = fd.le
 function chgYear(dir) { CY += dir; EXP = false; renderMonths(); var fd = filteredDates(); SD = fd.length ? fd[0] : ''; renderDates(); renderBranches(); renderSummary(); }
 function toggleExp() { EXP = !EXP; renderDates(); }
 
+// ── 상세 화면: 진행 단계(파일생성·메일발송·KPI·Slack·외부연동) ───────────────
+var STEP_NAMES = ['파일생성', '메일발송', 'KPI 업로드', 'Slack 발송', '외부연동'];
+var STEP_TXT = { o:'완료', x:'중단', w:'대기', k:'스킵', p:'진행중' };
+var STEP_SVG = {
+  o:'<path d="M3 8.5l3.2 3.2L13 5"/>', x:'<path d="M4 4l8 8M12 4l-8 8"/>', k:'<path d="M4 8h8"/>',
+  w:'<circle cx="8" cy="8" r="5.8"/><path d="M8 5v3.4l2 1.2"/>', p:'<path d="M8 2.2a5.8 5.8 0 1 0 5.8 5.8"/>'
+};
+function extState(r, date) {
+  var ss = (r.sub_status || []).map(function(x){ return x.status; });
+  if (!ss.length) return 'k';
+  if (ss.indexOf('error') >= 0) return 'x';
+  if (ss.indexOf('running') >= 0) return 'p';
+  if (ss.indexOf('not_run') >= 0) return isRecentDate(date) ? 'w' : 'x';
+  return ss.every(function(v){ return v === 'success'; }) ? 'o' : 'w';
+}
+// 5단계 상태 코드(o 완료 · x 중단 · w 대기 · k 스킵 · p 진행중). 값이 없는 항목은 대기로 둔다.
+function stepStates(r, date) {
+  if (isNotRun(r)) return ['w','w','w','w','w'];
+  var st = [
+    r.file_status === '완료' ? 'o' : r.file_status === '중단' ? 'x' : null,
+    r.mail_status === '완료' ? 'o' : r.mail_status === '스킵' ? 'k' : r.mail_status === '중단' ? 'x' : null,
+    r.kpi_status === '완료' ? 'o' : r.kpi_status === '중단' ? 'x' : null,
+    r.slack_status === '발송' ? 'o' : r.slack_status === '스킵' ? 'k' : r.slack_status === '중단' ? 'x' : null
+  ];
+  var fn = st.indexOf(null);
+  if (fn >= 0 && r.status === 'running') st[fn] = 'p';
+  else if (fn >= 0 && r.status === 'error' && st.indexOf('x') < 0) st[fn] = 'x';
+  st = st.map(function(v){ return v || 'w'; });
+  st.push(extState(r, date));
+  return st;
+}
+function stepsHtml(st) {
+  return '<div class="dsteps">' + st.map(function(c, i) {
+    var lk = i > 0 && (st[i-1] === 'o' || st[i-1] === 'k') && (c === 'o' || c === 'k') ? ' dst-lk' : '';
+    return '<div class="dst dst-' + c + lk + '"><div class="dst-nm">' + STEP_NAMES[i] + '</div>' +
+      '<div class="dst-ic"><svg viewBox="0 0 16 16">' + STEP_SVG[c] + '</svg></div><div class="dst-tx">' + STEP_TXT[c] + '</div></div>';
+  }).join('') + '</div>';
+}
+// 중단 단계 카드 내용 {chip, line} — 중단이 아니면 null. 본 프로그램 실패가 우선이고, 그게 아니면 외부연동 실패.
+function stopInfoOf(r, dst, stg, sts) {
+  if (dst.k !== 'stop') return null;
+  var coreOk = sts.slice(0, 4).every(function(c){ return c === 'o' || c === 'k'; });
+  if (!coreOk || r.status === 'error') {
+    var i = sts.indexOf('x'); if (i < 0) i = sts.indexOf('w');
+    var nm = ['파일 생성', '메일 발송', 'KPI 업로드', 'Slack 발송'][i] || '';
+    return { chip: stg || nm, line: stg ? firstStageLine(r.error_lines || []) : (r.error_summary || '') };
+  }
+  var bad = (r.sub_status || []).filter(function(x){ return x.status === 'error' || x.status === 'not_run'; })[0] || {};
+  return { chip: '외부연동', line: bad.error_summary || (bad.status === 'not_run' ? '외부연동 실행 기록이 없습니다.' : '외부연동 프로그램에서 오류가 발생했습니다.') };
+}
+
 function showDetail(br) {
   var r = DB && DB.records[SD] && DB.records[SD][br];
   if (!r && DB && DB.records[SD] && !waitInfo(br, SD)) r = stubRec(br);
@@ -1071,13 +1132,18 @@ function showDetail(br) {
 
   document.getElementById('d-time').textContent = runTimeFull(r);
 
-  // 중단 단계(분류) — ERROR로 중단된 기록에서 분류되는 줄이 있을 때만 표시
   var nr = isNotRun(r);
   var stg = r.status === 'error' && !nr ? stageOf(r) : '';
+  var sts = stepStates(r, SD);
+  document.getElementById('d-steps').innerHTML = stepsHtml(sts);
+
+  // 중단 단계 카드 — 본 프로그램 중단(분류·원문 한 줄) 또는 외부연동 실패(간략 사유)
   var stopBox = document.getElementById('d-stop-box');
-  if (stg) {
-    document.getElementById('d-stop-stage').textContent = stg;
-    document.getElementById('d-stop-line').textContent = firstStageLine(r.error_lines || []);
+  var si = stopInfoOf(r, dst, stg, sts);
+  if (si && (si.chip || si.line)) {
+    document.getElementById('d-stop-stage').textContent = si.chip;
+    document.getElementById('d-stop-stage').style.display = si.chip ? '' : 'none';
+    document.getElementById('d-stop-line').textContent = si.line;
     stopBox.style.display = '';
   } else {
     stopBox.style.display = 'none';
@@ -1093,53 +1159,27 @@ function showDetail(br) {
     recWrap.style.display = 'none';
   }
   document.getElementById('d-dur').textContent = fmtDur(r.duration_sec);
-
-  var he = document.getElementById('d-haserr');
   var hasErr = !nr && (r.error_count > 0 || r.warning_count > 0);
-  he.textContent = hasErr ? '있음' : '없음';
-  he.className = 'sv ' + (hasErr ? 'sv-warn' : 'sv-ok');
 
-  // 파일 생성 상태
-  var fileEl = document.getElementById('d-file');
-  fileEl.textContent = r.file_status || '—';
-  fileEl.className = r.file_status === '완료' ? 'sv sv-ok' : r.file_status === '중단' ? 'sv sv-stop' : 'sv';
-
-  // 메일 발송 상태
-  var mailEl = document.getElementById('d-mail');
-  mailEl.textContent = r.mail_status || '—';
-  mailEl.className = r.mail_status === '완료' ? 'sv sv-ok' : r.mail_status === '스킵' ? 'sv sv-skip' : r.mail_status === '중단' ? 'sv sv-stop' : 'sv';
-
-  // KPI 업로드 상태
-  var kpiEl = document.getElementById('d-kpi');
-  kpiEl.textContent = r.kpi_status || '—';
-  kpiEl.className = r.kpi_status === '완료' ? 'sv sv-ok' : r.kpi_status === '중단' ? 'sv sv-stop' : 'sv';
-
-  // Slack 발송 상태
-  var slackEl = document.getElementById('d-slack');
-  slackEl.textContent = r.slack_status || '—';
-  slackEl.className = r.slack_status === '발송' ? 'sv sv-ok' : r.slack_status === '스킵' ? 'sv sv-skip' : r.slack_status === '중단' ? 'sv sv-stop' : 'sv';
-
+  // 외부연동 카드: 상태 · 소요 시간 · 완료/중단 시각(연동 기록에는 시작 시각이 없음)
   var subWrap = document.getElementById('d-sub-wrap');
   if (r.sub_status && r.sub_status.length) {
-    subWrap.innerHTML = r.sub_status.map(function(s) {
-      var stTxt, stCls;
-      if (s.status === 'success') { stTxt = '완료'; stCls = 'sv-ok'; }
-      else if (s.status === 'error') { stTxt = '오류'; stCls = 'sv-stop'; }
-      else if (s.status === 'running') { stTxt = '실행중'; stCls = 'sv-run'; }
-      else if (s.status === 'not_run') { stTxt = '미실행'; stCls = 'sv-warn'; }
+    subWrap.innerHTML = r.sub_status.map(function(x) {
+      var subHasErr = (x.error_count > 0 || x.warning_count > 0);
+      var stTxt, stCls, tLbl = '완료 / 중단 시각';
+      if (x.status === 'success') { stTxt = subHasErr ? '완료 (오류 있었음)' : '완료'; stCls = subHasErr ? 'sv-warn' : 'sv-ok'; tLbl = '완료 시각'; }
+      else if (x.status === 'error') { stTxt = '중단'; stCls = 'sv-stop'; tLbl = '중단 시각'; }
+      else if (x.status === 'running') { stTxt = '실행중'; stCls = 'sv-run'; }
+      else if (x.status === 'not_run') { stTxt = '미실행'; stCls = 'sv-nr'; }
       else { stTxt = '확인불가'; stCls = ''; }
-      var subHasErr = (s.error_count > 0 || s.warning_count > 0);
-      var noteHtml = (s.status === 'error' || s.status === 'not_run') && s.error_summary
-        ? '<div class="suberr">' + escapeHtml(s.error_summary) + '</div>' : '';
       return '<div class="subcard">' +
-        '<div class="subtitle"><span class="subtitle-dot"></span>연동 · ' + escapeHtml(s.label) + ' 자동화</div>' +
+        '<div class="subtitle"><span class="subtitle-dot"></span>연동 · ' + escapeHtml(x.label) + ' 자동화</div>' +
         '<div class="subdesc">이 지점 완료 확인 후 이어서 실행되는 별도 프로그램</div>' +
         '<div class="subgrid">' +
           '<div class="sbox"><div class="sl">상태</div><div class="sv ' + stCls + '">' + stTxt + '</div></div>' +
-          '<div class="sbox"><div class="sl">완료 / 중단 시각</div><div class="sv">' + (s.end_time || '—') + '</div></div>' +
-          '<div class="sbox"><div class="sl">소요 시간</div><div class="sv">' + fmtDur(s.duration_sec) + '</div></div>' +
-          '<div class="sbox"><div class="sl">오류 포함</div><div class="sv ' + (subHasErr ? 'sv-warn' : 'sv-ok') + '">' + (subHasErr ? '있음' : '없음') + '</div></div>' +
-        '</div>' + noteHtml +
+          '<div class="sbox"><div class="sl">소요 시간</div><div class="sv">' + fmtDur(x.duration_sec) + '</div></div>' +
+          '<div class="sbox sbox-wide"><div class="sl">' + tLbl + '</div><div class="sv">' + (x.end_time || '—') + '</div></div>' +
+        '</div>' +
       '</div>';
     }).join('');
     subWrap.style.display = 'block';
