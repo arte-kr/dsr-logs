@@ -913,8 +913,8 @@ function renderSummary() {
   var branches = ['ISLAND','OCEAN','VALLEY','BUSAN','KIDS'];
   var doneAll = 0, total = 0;
   branches.forEach(function(br){
+    total++;  // 기록 없는 지점(미실행·대기)도 분모에 포함
     var r = recs[br]; if (!r) return;
-    total++;
     var d = 0;
     if (itemDone(r.file_status, '완료')) d++;
     if (itemDone(r.mail_status, '완료')) d++;
