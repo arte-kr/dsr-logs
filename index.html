@@ -205,6 +205,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .stg-line{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:500;color:#B33025}
 .stg-line i{width:6px;height:6px;border-radius:50%;background:#D63B2F;flex-shrink:0}
 .stg-chip{display:inline-block;font-size:10px;font-weight:700;color:#444;background:#fff;border:0.5px solid #BDBDBD;border-radius:5px;padding:1px 6px}
+.dstrip{display:flex;gap:5px;margin-top:10px}
+.dchip{flex:1;min-width:0;border:1px solid #E8E8E8;border-radius:9px;padding:5px 0 6px;text-align:center;font-size:11px;color:#444;cursor:pointer;background:#fff}
+.dchip small{display:block;font-size:9px;color:#999;margin-bottom:2px}
+.dchip i{display:block;width:7px;height:7px;border-radius:50%;margin:4px auto 0}
+.dchip-sel{border:1.5px solid #1D9E75;background:#F0FBF6;font-weight:600}
 .stop-card{background:#FDECEA;border:1px solid #F09595;border-radius:12px;padding:12px 14px;margin-bottom:10px}
 .sbox-wide{grid-column:1 / span 2}
 .dsteps{display:flex;align-items:flex-start;margin:12px 0;padding-bottom:12px;border-bottom:1px solid #F0F0F0}
@@ -291,6 +296,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
         <div class="topbar-desc" id="d-sub">2026-05-01</div>
       </div>
     </div>
+    <div class="dstrip" id="d-strip"></div>
   </div>
   <div class="detail-content">
     <div class="dhead">
@@ -1103,6 +1109,28 @@ function stopInfoOf(r, dst, stg, sts) {
   return { chip: '외부연동', line: bad.error_summary || (bad.status === 'not_run' ? '외부연동 실행 기록이 없습니다.' : '외부연동 프로그램에서 오류가 발생했습니다.') };
 }
 
+// 상세 화면 날짜 이동 스트립 — 최근 7일(선택 날짜가 더 오래됐으면 그 날짜 중심 7일), 칩 점 색 = 그 날짜 이 지점의 상태
+var STRIP_DAYS = 7;
+var STRIP_DOT = { ok:'#52A800', wn:'#E8920A', rc:'#7F77DD', stop:'#D63B2F', nr:'#CCC', run:'#2B7BB9' };
+function renderDateStrip(br) {
+  var dates = getValidDates(), idx = dates.indexOf(SD);
+  var from = idx < STRIP_DAYS ? 0 : Math.min(idx - 3, dates.length - STRIP_DAYS);
+  var wk = ['일','월','화','수','목','금','토'];
+  document.getElementById('d-strip').innerHTML = dates.slice(from, from + STRIP_DAYS).map(function(d) {
+    var rec = DB.records[d] && DB.records[d][br];
+    var k = rec ? branchState(rec, d).k : 'nr';
+    return '<div class="dchip' + (d === SD ? ' dchip-sel' : '') + '" onclick="gotoDetailDate(\'' + br + '\',\'' + d + '\')">' +
+      '<small>' + wk[new Date(d + 'T00:00:00').getDay()] + '</small>' + d.substr(5, 2) + '/' + d.substr(8, 2) + '<i style="background:' + STRIP_DOT[k] + '"></i></div>';
+  }).join('');
+}
+function gotoDetailDate(br, d) {
+  if (d === SD) return;
+  SD = d;
+  renderDates(); renderBranches(); renderSummary();
+  showDetail(br);
+  window.scrollTo(0, 0);
+}
+
 function showDetail(br) {
   var r = DB && DB.records[SD] && DB.records[SD][br];
   if (!r && DB && DB.records[SD] && !waitInfo(br, SD)) r = stubRec(br);
@@ -1220,6 +1248,7 @@ function showDetail(br) {
     ec.style.display = 'none';
   }
 
+  renderDateStrip(br);
   document.getElementById('main').classList.remove('active');
   document.getElementById('detail').classList.add('active');
   navPush();
