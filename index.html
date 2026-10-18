@@ -93,7 +93,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .sbox{background:#F8F8F8;border-radius:8px;padding:10px 12px}
 .sl{font-size:11px;color:#AAA;margin-bottom:4px;font-weight:500}
 .sv{font-size:13px;font-weight:600;color:#111}
-.sv-ok{color:#3A7A10}.sv-warn{color:#905A08}.sv-stop{color:#B33025}.sv-run{color:#1A5F9A}.sv-skip{color:#8A8F98}
+.sv-ok{color:#3A7A10}.sv-warn{color:#905A08}.sv-stop{color:#B33025}.sv-run{color:#1A5F9A}.sv-skip{color:#8A8F98}.sv-nr{color:#777}
+.bf-nr{background:#EEEEEE;color:#666}
 
 .subcard{background:#fff;border-radius:12px;border:1.5px solid #1D9E75;padding:13px 15px;margin-bottom:10px}
 .subtitle{font-size:12px;font-weight:600;color:#333;margin-bottom:2px;display:flex;align-items:center;gap:6px}
@@ -169,16 +170,32 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .sc-total-val{font-size:15px;font-weight:700;color:#0F6E56;margin-top:2px}
 .sc-divider{height:1px;background:#F0F0F0;margin:10px 0 8px}
 .sc-sub{font-size:10px;font-weight:500;color:#999;letter-spacing:0.3px;margin-bottom:7px}
-.sc-chips{display:flex;gap:4px;flex-wrap:wrap}
-.sc-chip{flex:1;min-width:48px;height:54px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform .1s;padding:4px 2px}
+.sc-chips{display:flex;gap:4px}
+.sc-chip{flex:1;min-width:0;border-radius:8px;display:flex;flex-direction:column;cursor:pointer;transition:transform .1s;padding:6px 2px 7px;border-top:3px solid transparent}
 .sc-chip:active{transform:scale(0.96)}
-.sc-chip-ok{background:#EAF5DE;color:#3A7A10}
-.sc-chip-warn{background:#FEF3E2;color:#905A08}
-.sc-chip-stop{background:#FDECEA;color:#B33025}
-.sc-chip-run{background:#E3F0FB;color:#1A5F9A}
-.sc-chip-off{background:#F3F3F3;color:#999}
-.sc-chip-code{font-size:11px;font-weight:700;line-height:1}
-.sc-chip-val{font-size:12px;font-weight:700;margin-top:6px;line-height:1}
+.sc-chip-ok{background:#EAF5DE;color:#3A7A10;border-top-color:#5FA02E}
+.sc-chip-warn{background:#FEF3E2;color:#905A08;border-top-color:#E8A33A}
+.sc-chip-stop{background:#FDECEA;color:#B33025;border-top-color:#D8453A}
+.sc-chip-run{background:#E3F0FB;color:#1A5F9A;border-top-color:#4A90D0}
+.sc-chip-off{background:#F3F3F3;color:#777;border-top-color:#B0B4BA}
+.sc-chip-code{font-size:10px;white-space:nowrap;text-align:center;line-height:1.2;margin-bottom:5px}
+.sc-chip-code b{font-weight:700}
+.sc-chip-code span{font-weight:400;opacity:.85}
+.sc-chip-val{font-size:12px;font-weight:700;margin-top:4px;line-height:1;text-align:center}
+.sc-it{display:flex;justify-content:space-between;align-items:center;padding:2px 4px;font-size:11px;color:#333}
+.sc-it em{font-style:normal;display:none;align-items:center;gap:2px;font-size:12px}
+.sc-it svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sc-lb-f{display:none}
+.sc-ic-o{color:#2E9A5E}.sc-ic-x{color:#D8453A}.sc-ic-w,.sc-ic-k{color:#9A9FA6}.sc-ic-p{color:#1A5F9A}
+.sc-grp{display:none;gap:4px;margin-bottom:4px;font-size:11px;color:#777}
+@media (min-width:600px){
+  .sc-grp{display:flex}
+  .sc-chip-code{font-size:13px}
+  .sc-it,.sc-it em{font-size:12px}
+  .sc-it em{display:flex}
+  .sc-it > svg{display:none}
+  .sc-lb-s{display:none}.sc-lb-f{display:inline}
+}
 .sc-er-row{display:flex;gap:6px;margin-top:7px}
 .sc-er-chip{flex:1;padding:9px 12px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:0.5px solid transparent;transition:transform .1s}
 .sc-er-chip:active{transform:scale(0.97)}
@@ -376,6 +393,7 @@ function getValidDates() {
 }
 
 function dotCls(rec) {
+  if (isNotRun(rec)) return 'd-gray';
   if (rec.status === 'error') return 'd-stop';
   if (rec.error_recovered) return 'd-rec';
   if (rec.error_count > 0 || rec.warning_count > 0) return 'd-warn';
@@ -404,6 +422,49 @@ function stopLabel(r) {
   if (s.indexOf('강제종료') >= 0) return '강제종료';
   if (s.indexOf('미실행') >= 0) return '미실행';
   return '중단';
+}
+
+// 미실행은 업로더가 임시로 error로 붙이는 표시일 뿐 실제 오류가 아니므로 중단·ERROR와 분리한다.
+function isNotRun(r) { return r.status === 'error' && stopLabel(r) === '미실행'; }
+
+// ── 지점 진행사항 칩 ──────────────────────────────────────────────
+var BR_INFO = { ISLAND:['AMJJ','제주'], OCEAN:['AMYS','여수'], VALLEY:['AMGN','강릉'], BUSAN:['AMBS','부산'], KIDS:['AKJJ','키즈'] };
+var ITEM_LABELS = [['파일','파일생성'], ['메일','메일발송'], ['슬랙','슬랙발송'], ['외부','외부연동']];
+var ITEM_TXT = { o:'완료', w:'대기', p:'진행중', x:'중단', k:'스킵' };
+var ITEM_SVG = {
+  o:'<path d="M3 8.5l3.2 3.2L13 5"/>',
+  x:'<path d="M4 4l8 8M12 4l-8 8"/>',
+  k:'<path d="M4 8h8"/>',
+  w:'<circle cx="8" cy="8" r="5.8"/><path d="M8 5v3.4l2 1.2"/>',
+  p:'<path d="M8 2.2a5.8 5.8 0 1 0 5.8 5.8"/>'
+};
+// 파일·메일·슬랙·외부연동 4개의 상태 코드(o 완료 · w 대기 · p 진행중 · x 중단 · k 스킵)
+function itemStates(r) {
+  if (isNotRun(r)) return ['w','w','w','w'];
+  var st = [
+    r.file_status === '완료' ? 'o' : r.file_status === '중단' ? 'x' : null,
+    r.mail_status === '완료' ? 'o' : r.mail_status === '스킵' ? 'k' : r.mail_status === '중단' ? 'x' : null,
+    r.slack_status === '발송' ? 'o' : r.slack_status === '스킵' ? 'k' : r.slack_status === '중단' ? 'x' : null
+  ];
+  var subs = r.sub_status || [];
+  var ext = 'k';
+  if (subs.length) {
+    var ss = subs.map(function(s){ return s.status; });
+    ext = ss.indexOf('error') >= 0 ? 'x' : ss.indexOf('running') >= 0 ? 'p' : ss.indexOf('not_run') >= 0 ? 'w' : ss.every(function(v){ return v === 'success'; }) ? 'o' : 'w';
+  }
+  st.push(ext);
+  // 값이 없는 항목: 실행중이면 첫 항목만 진행중, 중단이면 첫 항목을 중단 지점으로, 나머지는 대기
+  var firstNull = st.slice(0, 3).indexOf(null);
+  if (firstNull >= 0 && r.status === 'running') st[firstNull] = 'p';
+  else if (firstNull >= 0 && r.status === 'error' && st.indexOf('x') < 0) st[firstNull] = 'x';
+  return st.map(function(v){ return v || 'w'; });
+}
+function svgIcon(c) { return '<svg viewBox="0 0 16 16" class="sc-ic-' + c + '">' + ITEM_SVG[c] + '</svg>'; }
+function chipItemsHtml(st) {
+  return st.map(function(c, i) {
+    return '<div class="sc-it"><span><span class="sc-lb-s">' + ITEM_LABELS[i][0] + '</span><span class="sc-lb-f">' + ITEM_LABELS[i][1] + '</span></span>' +
+      svgIcon(c) + '<em class="sc-ic-' + c + '">' + svgIcon(c) + ITEM_TXT[c] + '</em></div>';
+  }).join('');
 }
 
 // ── 오류 분류(단계) · 실행 시간 · 처리 대기 · ERROR 조치 보조 ─────────────
@@ -531,9 +592,10 @@ function itemDone(status, okVal) {
 
 function badgesHtml(r) {
   var isOk   = r.status === 'success';
-  var isStop = r.status === 'error';
+  var isNr   = isNotRun(r);
+  var isStop = r.status === 'error' && !isNr;
   var isRun  = r.status === 'running';
-  var hasErr = (r.error_count > 0 || r.warning_count > 0);
+  var hasErr = !isNr && (r.error_count > 0 || r.warning_count > 0);
   // 4개 항목 완료 카운트
   var done = 0;
   if (itemDone(r.file_status, '완료')) done++;
@@ -548,7 +610,7 @@ function badgesHtml(r) {
   else { okCls = 'bf bf-off'; okTxt = '완료'; }
   return '<div class="bfrow">' +
     '<span class="' + okCls + '">' + okTxt + '</span>' +
-    '<span class="' + (isStop ? 'bf bf-stop' : 'bf bf-off') + '">' + (isStop ? stopLabel(r) : '중단') + '</span>' +
+    '<span class="' + (isStop ? 'bf bf-stop' : isNr ? 'bf bf-nr' : 'bf bf-off') + '">' + (isStop ? stopLabel(r) : isNr ? '미실행' : '중단') + '</span>' +
     '<span class="' + (hasErr ? 'bf bf-err' : 'bf bf-off') + '">오류</span>' +
     '</div>';
 }
@@ -915,7 +977,9 @@ function renderSummary() {
   else if (diffDays === 0) rel = '(오늘)';
   var chips = branches.map(function(br){
     var r = recs[br];
-    if (!r) return '<div class="sc-chip sc-chip-off"><div class="sc-chip-code">' + br + '</div><div class="sc-chip-val">' + (waitInfo(br, latest) ? '대기' : '—') + '</div></div>';
+    var info = BR_INFO[br];
+    if (!r) return '<div class="sc-chip sc-chip-off"><div class="sc-chip-code"><b>' + info[0] + '</b><span> · ' + info[1] + '</span></div>' +
+      chipItemsHtml(['w','w','w','w']) + '<div class="sc-chip-val">' + (waitInfo(br, latest) ? '대기' : '—') + '</div></div>';
     var d = 0;
     if (itemDone(r.file_status, '완료')) d++;
     if (itemDone(r.mail_status, '완료')) d++;
@@ -923,17 +987,20 @@ function renderSummary() {
     if (itemDone(r.slack_status, '발송')) d++;
     var cls, val;
     if (r.status === 'running') { cls = 'sc-chip-run'; val = '실행중'; }
+    else if (isNotRun(r)) { cls = 'sc-chip-off'; val = '미실행'; }
     else if (r.status === 'error') { cls = 'sc-chip-stop'; val = stopLabel(r); }
     else if (d === 4) { cls = r.error_recovered ? 'sc-chip-rec' : 'sc-chip-ok'; val = '완료'; }
     else { cls = 'sc-chip-warn'; val = d + '/4'; }
     return '<div class="sc-chip ' + cls + '" onclick="showDetailFromSummary(\'' + br + '\')">' +
-      '<div class="sc-chip-code">' + r.branch_code + '</div>' +
+      '<div class="sc-chip-code"><b>' + r.branch_code + '</b><span> · ' + info[1] + '</span></div>' +
+      chipItemsHtml(itemStates(r)) +
       '<div class="sc-chip-val">' + val + '</div></div>';
   }).join('');
-  // 최신일 기준 ERROR/WARNING 건수
+  // 최신일 기준 ERROR/WARNING 건수 (미실행은 실제 오류가 아니므로 제외)
   var ec = 0, wc = 0;
   Object.keys(recs).forEach(function(br){
     var r = recs[br];
+    if (isNotRun(r)) return;
     ec += r.error_count || 0;
     wc += r.warning_count || 0;
   });
@@ -957,6 +1024,7 @@ function renderSummary() {
     '</div>' +
     '<div class="sc-divider"></div>' +
     '<div class="sc-sub">지점 진행사항</div>' +
+    '<div class="sc-grp"><div style="flex:4">아르떼뮤지엄</div><div style="flex:1">아르떼키즈파크</div></div>' +
     '<div class="sc-chips">' + chips + '</div>' +
     erHtml;
 }
@@ -989,7 +1057,7 @@ function renderBranches() {
       }
       return;
     }
-    var stg = r.status === 'error' ? stageOf(r) : '';
+    var stg = r.status === 'error' && !isNotRun(r) ? stageOf(r) : '';
     html += '<div class="bc" onclick="showDetail(\'' + br + '\')">' +
       '<div class="bcleft"><div class="bcname">' + r.branch_code + (r.status === 'success' && r.error_recovered ? '<span class="rec-pill">ERROR 조치</span>' : '') + (r.is_retry ? '<span class="retry-badge" title="자동 재실행 후 완료"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>재실행</span>' : '') + '</div><div class="bccode">' + r.display_name + '</div></div>' +
       '<div class="bcright">' + badgesHtml(r) + (stg ? '<div class="stg-line"><i></i>' + stg + '</div>' : '') + '<div class="bctime">' + runTimeShort(r) + '</div></div>' +
@@ -1029,14 +1097,15 @@ function showDetail(br) {
     else { ds.textContent = '일부완료 (' + done4 + '/4)'; ds.className = 'sv sv-warn'; }
   }
   else if (r.status === 'error' && summ2.indexOf('강제종료') >= 0) { ds.textContent = '강제종료'; ds.className = 'sv sv-stop'; }
-  else if (r.status === 'error' && summ2.indexOf('미실행') >= 0) { ds.textContent = '미실행'; ds.className = 'sv sv-stop'; }
+  else if (isNotRun(r)) { ds.textContent = '미실행'; ds.className = 'sv sv-nr'; }
   else if (r.status === 'error') { ds.textContent = '중단'; ds.className = 'sv sv-stop'; }
   else { ds.textContent = '실행 중'; ds.className = 'sv sv-run'; }
 
   document.getElementById('d-time').textContent = runTimeFull(r);
 
   // 중단 단계(분류) — ERROR로 중단된 기록에서 분류되는 줄이 있을 때만 표시
-  var stg = r.status === 'error' ? stageOf(r) : '';
+  var nr = isNotRun(r);
+  var stg = r.status === 'error' && !nr ? stageOf(r) : '';
   var stopBox = document.getElementById('d-stop-box');
   if (stg) {
     document.getElementById('d-stop-stage').textContent = stg;
@@ -1058,7 +1127,7 @@ function showDetail(br) {
   document.getElementById('d-dur').textContent = fmtDur(r.duration_sec);
 
   var he = document.getElementById('d-haserr');
-  var hasErr = r.error_count > 0 || r.warning_count > 0;
+  var hasErr = !nr && (r.error_count > 0 || r.warning_count > 0);
   he.textContent = hasErr ? '있음' : '없음';
   he.className = 'sv ' + (hasErr ? 'sv-warn' : 'sv-ok');
 
@@ -1112,7 +1181,18 @@ function showDetail(br) {
   }
 
   var ec = document.getElementById('ecard');
-  if (hasErr) {
+  var ecDot = ec.querySelector('.etitle-dot');
+  ecDot.style.background = '';
+  if (nr) {
+    // 미실행: 오류가 아니므로 ERROR 카드 대신 회색 안내만 보여준다
+    ec.style.display = 'block';
+    ecDot.style.background = '#B0B4BA';
+    document.getElementById('etitle-txt').textContent = '아직 실행 기록이 없습니다';
+    document.getElementById('el-arrow').textContent = '';
+    var elNr = document.getElementById('elist');
+    elNr.innerHTML = '<div class="eitem"><span class="emsg">' + escapeHtml(SD) + ' 처리 로그가 아직 없습니다. 로그가 올라오면 자동으로 실제 상태로 바뀝니다.</span></div>';
+    elNr.style.display = 'block';
+  } else if (hasErr) {
     ec.style.display = 'block';
     document.getElementById('etitle-txt').textContent = 'ERROR ' + r.error_count + '건 · WARNING ' + r.warning_count + '건';
     var eh = '';
