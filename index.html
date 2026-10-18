@@ -514,6 +514,15 @@ function runTimeShort(r) {
 }
 
 // 상세용(시:분:초)
+// 연동 기록에는 시작 시각이 없어 종료 시각(시:분:초)에서 소요 초를 빼서 역산한다. 종료·소요 중 하나라도 없으면 '' 반환.
+function subRunTime(x) {
+  var m = /^(\d{2}):(\d{2}):(\d{2})$/.exec(x.end_time || '');
+  if (!m || !(x.duration_sec > 0)) return '';
+  var t = ((+m[1] * 3600 + +m[2] * 60 + +m[3] - x.duration_sec) % 86400 + 86400) % 86400;
+  var p = function(n) { return String(n).padStart(2, '0'); };
+  return p(Math.floor(t / 3600)) + ':' + p(Math.floor(t % 3600 / 60)) + ':' + p(t % 60) + ' → ' + x.end_time;
+}
+
 function runTimeFull(r) {
   if (hasTime(r.start_time) && hasTime(r.end_time)) return r.start_time + ' → ' + r.end_time;
   if (hasTime(r.start_time)) return r.start_time + ' 시작';
@@ -1178,7 +1187,7 @@ function showDetail(br) {
         '<div class="subgrid">' +
           '<div class="sbox"><div class="sl">상태</div><div class="sv ' + stCls + '">' + stTxt + '</div></div>' +
           '<div class="sbox"><div class="sl">소요 시간</div><div class="sv">' + fmtDur(x.duration_sec) + '</div></div>' +
-          '<div class="sbox sbox-wide"><div class="sl">' + tLbl + '</div><div class="sv">' + (x.end_time || '—') + '</div></div>' +
+          '<div class="sbox sbox-wide"><div class="sl">' + (subRunTime(x) ? '실행 시간' : tLbl) + '</div><div class="sv">' + (subRunTime(x) || x.end_time || '—') + '</div></div>' +
         '</div>' +
       '</div>';
     }).join('');
