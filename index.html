@@ -746,14 +746,11 @@ function showErrorDetail(level) {
   document.getElementById('main').classList.remove('active');
   document.getElementById('error-detail').classList.add('active');
   renderErrorDetail();
+  navPush();
   if (typeof updateFab === 'function') updateFab();
 }
 
-function goBackFromError() {
-  document.getElementById('error-detail').classList.remove('active');
-  document.getElementById('main').classList.add('active');
-  if (typeof updateFab === 'function') updateFab();
-}
+function goBackFromError() { goBack(); }
 
 function setErDays(n) { ER_DAYS = n; ER_STATUS_FILTER = 'open'; ER_STAGE = ''; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
 function setErLevel(l) { ER_LEVEL = l; ER_STATUS_FILTER = 'open'; ER_STAGE = ''; ER_EXPANDED = {}; ER_SHOW_ALL = false; renderErrorDetail(); }
@@ -1225,13 +1222,27 @@ function showDetail(br) {
 
   document.getElementById('main').classList.remove('active');
   document.getElementById('detail').classList.add('active');
+  navPush();
   if (typeof updateFab === 'function') updateFab();
 }
 
-function goBack() {
+// 브라우저/마우스 뒤로가기 지원 — 상세·ERROR 화면에 들어갈 때 이력 한 칸을 쌓고, 뒤로가기(popstate) 시 메인으로 돌아온다.
+var NAV_PUSHED = false;
+function navPush() {
+  if (NAV_PUSHED) return;
+  history.pushState({ dsr: 1 }, '');
+  NAV_PUSHED = true;
+}
+function closeToMain() {
   document.getElementById('detail').classList.remove('active');
+  document.getElementById('error-detail').classList.remove('active');
   document.getElementById('main').classList.add('active');
   if (typeof updateFab === 'function') updateFab();
+}
+window.addEventListener('popstate', function() { NAV_PUSHED = false; closeToMain(); });
+
+function goBack() {
+  if (NAV_PUSHED) history.back(); else closeToMain();
 }
 
 function initUI() {
