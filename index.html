@@ -70,6 +70,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .bf-ok{background:#EAF5DE;color:#3A7A10}
 .bf-stop{background:#FDECEA;color:#B33025}
 .bf-err{background:#FEF3E2;color:#905A08}
+.bf-wn{background:#FEF3E2;color:#905A08;border:1px solid #E8A33A}
 .bf-run{background:#E3F0FB;color:#1A5F9A}
 .bf-off{background:#F3F3F3;color:#C0C0C0}
 .bctime{font-size:11px;color:#AAA}
@@ -383,21 +384,14 @@ function getValidDates() {
   return DB.dates.filter(function(d){ return d < td; });
 }
 
-function dotCls(rec) {
-  if (isNotRun(rec)) return 'd-gray';
-  if (rec.status === 'error') return 'd-stop';
-  if (rec.error_recovered) return 'd-rec';
-  if (rec.error_count > 0 || rec.warning_count > 0) return 'd-warn';
-  if (rec.status === 'running') return 'd-run';
-  return 'd-ok';
-}
+function dotCls(rec, date) { return STATE_DOT[branchState(rec, date).k]; }
 
 function dotsHtml(dateStr) {
   if (!DB || !DB.records[dateStr]) return '';
   var branches = ['ISLAND','OCEAN','VALLEY','BUSAN','KIDS'];
   return branches.map(function(br) {
     var r = DB.records[dateStr][br];
-    return '<div class="dd ' + (r ? dotCls(r) : 'd-gray') + '"></div>';
+    return '<div class="dd ' + (r ? dotCls(r, dateStr) : 'd-gray') + '"></div>';
   }).join('');
 }
 
@@ -417,6 +411,34 @@ function stopLabel(r) {
 
 // 미실행은 업로더가 임시로 error로 붙이는 표시일 뿐 실제 오류가 아니므로 중단·ERROR와 분리한다.
 function isNotRun(r) { return r.status === 'error' && stopLabel(r) === '미실행'; }
+
+// 어제 이후 날짜인지 (외부연동이 아직 안 돌았을 수 있는 날짜)
+function isRecentDate(d) {
+  var p = getTodayStr().split('-'), y = new Date(+p[0], +p[1] - 1, +p[2] - 1);
+  return d >= y.getFullYear() + '-' + String(y.getMonth() + 1).padStart(2, '0') + '-' + String(y.getDate()).padStart(2, '0');
+}
+
+// 지점 상태 판정 — 칩·날짜 점·목록 배지·상세가 모두 이 결과를 쓴다.
+// 5개(파일·메일·KPI·슬랙·외부연동) 중 하나라도 미완료면 중단, 전부 완료면 오류 이력에 따라 완료 색만 달라진다.
+// k: ok 초록 완료 · wn 주황 완료(ERROR/WARNING 있었음) · rc 보라 완료(ERROR 조치) · stop 중단 · nr 미실행 · run 실행중
+function branchState(r, date) {
+  if (isNotRun(r)) return { k: 'nr', t: '미실행' };
+  if (r.status === 'running') return { k: 'run', t: '실행중' };
+  if (r.status === 'error') return { k: 'stop', t: stopLabel(r) };
+  var core = itemDone(r.file_status, '완료') && itemDone(r.mail_status, '완료') && itemDone(r.kpi_status, '완료') && itemDone(r.slack_status, '발송');
+  var ss = (r.sub_status || []).map(function(s){ return s.status; });
+  var extFail = ss.indexOf('error') >= 0;
+  var extWait = !extFail && (ss.indexOf('running') >= 0 || ss.indexOf('not_run') >= 0);
+  if (extWait && !isRecentDate(date)) extFail = true;
+  if (!core || extFail) return { k: 'stop', t: '중단' };
+  if (extWait) return { k: 'run', t: '실행중' };
+  if (r.error_recovered) return { k: 'rc', t: '완료' };
+  if (r.error_count > 0 || r.warning_count > 0) return { k: 'wn', t: '완료' };
+  return { k: 'ok', t: '완료' };
+}
+var STATE_DOT  = { ok:'d-ok', wn:'d-warn', rc:'d-rec', stop:'d-stop', nr:'d-gray', run:'d-run' };
+var STATE_CHIP = { ok:'sc-chip-ok', wn:'sc-chip-warn', rc:'sc-chip-rec', stop:'sc-chip-stop', nr:'sc-chip-off', run:'sc-chip-run' };
+var STATE_BADGE = { ok:'bf bf-ok', wn:'bf bf-wn', rc:'bf bf-rec', run:'bf bf-run' };
 
 // 그 날짜 기록이 없는 지점을 상세 화면에서도 열 수 있게 만드는 임시 레코드(업로더의 미실행 레코드와 같은 모양)
 var BR_INFO = { ISLAND:['AMJJ','제주'], OCEAN:['AMYS','여수'], VALLEY:['AMGN','강릉'], BUSAN:['AMBS','부산'], KIDS:['AKJJ','키즈'] };
@@ -549,27 +571,15 @@ function itemDone(status, okVal) {
   return status === okVal || status === '스킵';
 }
 
-function badgesHtml(r) {
-  var isOk   = r.status === 'success';
-  var isNr   = isNotRun(r);
-  var isStop = r.status === 'error' && !isNr;
-  var isRun  = r.status === 'running';
+function badgesHtml(r, date) {
+  var st = branchState(r, date);
+  var isStop = st.k === 'stop', isNr = st.k === 'nr';
   var hasErr = !isNr && (r.error_count > 0 || r.warning_count > 0);
-  // 4개 항목 완료 카운트
-  var done = 0;
-  if (itemDone(r.file_status, '완료')) done++;
-  if (itemDone(r.mail_status, '완료')) done++;
-  if (itemDone(r.kpi_status, '완료')) done++;
-  if (itemDone(r.slack_status, '발송')) done++;
-  var isPartial = isOk && done < 4;
-  var okCls, okTxt;
-  if (isRun) { okCls = 'bf bf-run'; okTxt = '실행중'; }
-  else if (isOk && !isPartial) { okCls = r.error_recovered ? 'bf bf-rec' : 'bf bf-ok'; okTxt = '완료'; }
-  else if (isPartial) { okCls = 'bf bf-err'; okTxt = done + '/4'; }
-  else { okCls = 'bf bf-off'; okTxt = '완료'; }
+  var okCls = STATE_BADGE[st.k] || 'bf bf-off';
+  var okTxt = st.k === 'run' ? '실행중' : '완료';
   return '<div class="bfrow">' +
     '<span class="' + okCls + '">' + okTxt + '</span>' +
-    '<span class="' + (isStop ? 'bf bf-stop' : isNr ? 'bf bf-nr' : 'bf bf-off') + '">' + (isStop ? stopLabel(r) : isNr ? '미실행' : '중단') + '</span>' +
+    '<span class="' + (isStop ? 'bf bf-stop' : isNr ? 'bf bf-nr' : 'bf bf-off') + '">' + (isStop ? st.t : isNr ? '미실행' : '중단') + '</span>' +
     '<span class="' + (hasErr ? 'bf bf-err' : 'bf bf-off') + '">오류</span>' +
     '</div>';
 }
@@ -921,12 +931,7 @@ function renderSummary() {
   branches.forEach(function(br){
     total++;  // 기록 없는 지점(미실행·대기)도 분모에 포함
     var r = recs[br]; if (!r) return;
-    var d = 0;
-    if (itemDone(r.file_status, '완료')) d++;
-    if (itemDone(r.mail_status, '완료')) d++;
-    if (itemDone(r.kpi_status, '완료')) d++;
-    if (itemDone(r.slack_status, '발송')) d++;
-    if (r.status === 'success' && d === 4) doneAll++;
+    if (['ok','wn','rc'].indexOf(branchState(r, latest).k) >= 0) doneAll++;
   });
   var t = new Date(), td = t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
   var diffDays = Math.round((new Date(td) - new Date(latest)) / 86400000);
@@ -942,17 +947,7 @@ function renderSummary() {
       return '<div class="sc-chip sc-chip-off"' + (waiting ? '' : ' onclick="showDetailFromSummary(\'' + br + '\')"') + '><div class="sc-chip-code"><b>' + info[0] + '</b><span> · ' + info[1] + '</span></div>' +
         '<div class="sc-chip-val">' + (waiting ? '대기' : '미실행') + '</div></div>';
     }
-    var d = 0;
-    if (itemDone(r.file_status, '완료')) d++;
-    if (itemDone(r.mail_status, '완료')) d++;
-    if (itemDone(r.kpi_status, '완료')) d++;
-    if (itemDone(r.slack_status, '발송')) d++;
-    var cls, val;
-    if (r.status === 'running') { cls = 'sc-chip-run'; val = '실행중'; }
-    else if (isNotRun(r)) { cls = 'sc-chip-off'; val = '미실행'; }
-    else if (r.status === 'error') { cls = 'sc-chip-stop'; val = stopLabel(r); }
-    else if (d === 4) { cls = r.error_recovered ? 'sc-chip-rec' : 'sc-chip-ok'; val = '완료'; }
-    else { cls = 'sc-chip-warn'; val = d + '/4'; }
+    var stt = branchState(r, latest), cls = STATE_CHIP[stt.k], val = stt.t;
     return '<div class="sc-chip ' + cls + '" onclick="showDetailFromSummary(\'' + br + '\')">' +
       '<div class="sc-chip-code"><b>' + r.branch_code + '</b><span> · ' + info[1] + '</span></div>' +
       '<div class="sc-chip-val">' + val + '</div></div>';
@@ -1020,7 +1015,7 @@ function renderBranches() {
         var sr = stubRec(br);
         html += '<div class="bc" onclick="showDetail(\'' + br + '\')">' +
           '<div class="bcleft"><div class="bcname">' + sr.branch_code + '</div><div class="bccode">' + sr.display_name + '</div></div>' +
-          '<div class="bcright">' + badgesHtml(sr) + '<div class="bctime">—</div></div>' +
+          '<div class="bcright">' + badgesHtml(sr, SD) + '<div class="bctime">—</div></div>' +
           '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
           '</div>';
       }
@@ -1029,7 +1024,7 @@ function renderBranches() {
     var stg = r.status === 'error' && !isNotRun(r) ? stageOf(r) : '';
     html += '<div class="bc" onclick="showDetail(\'' + br + '\')">' +
       '<div class="bcleft"><div class="bcname">' + r.branch_code + (r.status === 'success' && r.error_recovered ? '<span class="rec-pill">ERROR 조치</span>' : '') + (r.is_retry ? '<span class="retry-badge" title="자동 재실행 후 완료"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>재실행</span>' : '') + '</div><div class="bccode">' + r.display_name + '</div></div>' +
-      '<div class="bcright">' + badgesHtml(r) + (stg ? '<div class="stg-line"><i></i>' + stg + '</div>' : '') + '<div class="bctime">' + runTimeShort(r) + '</div></div>' +
+      '<div class="bcright">' + badgesHtml(r, SD) + (stg ? '<div class="stg-line"><i></i>' + stg + '</div>' : '') + '<div class="bctime">' + runTimeShort(r) + '</div></div>' +
       '<svg class="carr" viewBox="0 0 14 14"><path d="M5 2l4 5-4 5"/></svg>' +
       '</div>';
   });
@@ -1061,10 +1056,13 @@ function showDetail(br) {
 
   var ds = document.getElementById('d-status');
   var summ2 = r.error_summary || '';
+  var dst = branchState(r, SD);
   if (r.status === 'success') {
-    if (done4 === 4 && r.error_recovered) { ds.textContent = '완료 (ERROR 조치)'; ds.className = 'sv sv-rec'; }
-    else if (done4 === 4) { ds.textContent = '완료'; ds.className = 'sv sv-ok'; }
-    else { ds.textContent = '일부완료 (' + done4 + '/4)'; ds.className = 'sv sv-warn'; }
+    if (dst.k === 'rc') { ds.textContent = '완료 (ERROR 조치)'; ds.className = 'sv sv-rec'; }
+    else if (dst.k === 'wn') { ds.textContent = '완료 (오류 있었음)'; ds.className = 'sv sv-warn'; }
+    else if (dst.k === 'ok') { ds.textContent = '완료'; ds.className = 'sv sv-ok'; }
+    else if (dst.k === 'run') { ds.textContent = '실행 중'; ds.className = 'sv sv-run'; }
+    else { ds.textContent = '중단'; ds.className = 'sv sv-stop'; }
   }
   else if (r.status === 'error' && summ2.indexOf('강제종료') >= 0) { ds.textContent = '강제종료'; ds.className = 'sv sv-stop'; }
   else if (isNotRun(r)) { ds.textContent = '미실행'; ds.className = 'sv sv-nr'; }
