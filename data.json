@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T09:34:01",
+  "generated_at": "2026-10-30T09:39:01",
   "dates": [
     "2026-10-30",
     "2026-10-29",
@@ -140,13 +140,13 @@
   "records": {
     "2026-10-30": {},
     "2026-10-29": {
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:18",
-        "end_time": "07:50:38",
-        "duration_sec": 1220,
+        "start_time": "07:45:13",
+        "end_time": "08:00:17",
+        "duration_sec": 904,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -155,7 +155,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -197,13 +197,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:00:17",
-        "duration_sec": 904,
+        "start_time": "07:30:18",
+        "end_time": "07:50:38",
+        "duration_sec": 1220,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -212,7 +212,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -249,23 +249,25 @@
       }
     },
     "2026-10-28": {
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:17",
-        "end_time": "07:50:28",
-        "duration_sec": 1211,
+        "start_time": "08:04:40",
+        "end_time": "08:06:15",
+        "duration_sec": 95,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "08:04:45 [WARNING] manifest 항목 없음 + 편의점 데이터 없음 — P2-3 실행 여부 확인 필요"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
+        "slack_status": "발송",
+        "is_retry": true,
         "log_file": ""
       },
       "KIDS": {
@@ -308,25 +310,23 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "start_time": "08:04:40",
-        "end_time": "08:06:15",
-        "duration_sec": 95,
+        "start_time": "07:30:17",
+        "end_time": "07:50:28",
+        "duration_sec": 1211,
         "error_count": 0,
-        "warning_count": 1,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "08:04:45 [WARNING] manifest 항목 없음 + 편의점 데이터 없음 — P2-3 실행 여부 확인 필요"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": true,
+        "slack_status": "스킵",
+        "is_retry": false,
         "log_file": ""
       },
       "ISLAND": {
@@ -362,24 +362,42 @@
       }
     },
     "2026-10-27": {
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:18",
-        "end_time": "07:51:50",
-        "duration_sec": 1292,
+        "start_time": "11:03:20",
+        "end_time": "11:18:09",
+        "duration_sec": 888,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 2,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "11:05:56 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 261027_POS데이터.xls",
+          "11:08:17 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 261027_신용카드.xlsx"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
-        "log_file": ""
+        "log_file": "",
+        "error_recovered": {
+          "first_seen": "2026-10-28T08:09:01",
+          "recovered_at": "2026-10-28T11:19:01",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "07:52:57 [ERROR] [캡슐머신] 로그인 예외: HTTPConnectionPool(host='localhost', port=61626): Read timed out. (read timeout=120)",
+            "07:52:57 [ERROR] [캡슐머신] 로그인 실패",
+            "07:57:12 [ERROR] [캡슐머신] 로그인 예외: HTTPConnectionPool(host='localhost', port=59656): Read timed out. (read timeout=120)",
+            "07:57:12 [ERROR] [캡슐머신] 로그인 실패",
+            "08:03:55 [ERROR] [캡슐머신] 로그인 예외: HTTPConnectionPool(host='localhost', port=57274): Read timed out. (read timeout=120)",
+            "08:03:55 [ERROR] [캡슐머신] 로그인 실패",
+            "08:04:43 [ERROR] [캡슐머신] 로그인 최종 실패 — 중단",
+            "08:04:43 [ERROR] 실패 목록: [('2026-10-27', 'AMGN,AMBS_POS_캡슐머신')]"
+          ]
+        }
       },
       "KIDS": {
         "branch_code": "AKJJ",
@@ -434,42 +452,24 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "start_time": "11:03:20",
-        "end_time": "11:18:09",
-        "duration_sec": 888,
+        "start_time": "07:30:18",
+        "end_time": "07:51:50",
+        "duration_sec": 1292,
         "error_count": 0,
-        "warning_count": 2,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "11:05:56 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 261027_POS데이터.xls",
-          "11:08:17 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 261027_신용카드.xlsx"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
-        "log_file": "",
-        "error_recovered": {
-          "first_seen": "2026-10-28T08:09:01",
-          "recovered_at": "2026-10-28T11:19:01",
-          "summary": "P2→P1 처리 중단 — 종료코드 1",
-          "error_lines": [
-            "07:52:57 [ERROR] [캡슐머신] 로그인 예외: HTTPConnectionPool(host='localhost', port=61626): Read timed out. (read timeout=120)",
-            "07:52:57 [ERROR] [캡슐머신] 로그인 실패",
-            "07:57:12 [ERROR] [캡슐머신] 로그인 예외: HTTPConnectionPool(host='localhost', port=59656): Read timed out. (read timeout=120)",
-            "07:57:12 [ERROR] [캡슐머신] 로그인 실패",
-            "08:03:55 [ERROR] [캡슐머신] 로그인 예외: HTTPConnectionPool(host='localhost', port=57274): Read timed out. (read timeout=120)",
-            "08:03:55 [ERROR] [캡슐머신] 로그인 실패",
-            "08:04:43 [ERROR] [캡슐머신] 로그인 최종 실패 — 중단",
-            "08:04:43 [ERROR] 실패 목록: [('2026-10-27', 'AMGN,AMBS_POS_캡슐머신')]"
-          ]
-        }
+        "log_file": ""
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -504,13 +504,13 @@
       }
     },
     "2026-10-26": {
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:18",
-        "end_time": "07:50:10",
-        "duration_sec": 1192,
+        "start_time": "07:45:13",
+        "end_time": "08:00:44",
+        "duration_sec": 931,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -519,7 +519,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -561,13 +561,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:00:44",
-        "duration_sec": 931,
+        "start_time": "07:30:18",
+        "end_time": "07:50:10",
+        "duration_sec": 1192,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -576,7 +576,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -613,13 +613,13 @@
       }
     },
     "2026-10-25": {
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:17",
-        "end_time": "07:50:14",
-        "duration_sec": 1196,
+        "start_time": "07:45:13",
+        "end_time": "08:01:09",
+        "duration_sec": 955,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -628,7 +628,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -670,13 +670,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:01:09",
-        "duration_sec": 955,
+        "start_time": "07:30:17",
+        "end_time": "07:50:14",
+        "duration_sec": 1196,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -685,7 +685,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -722,13 +722,13 @@
       }
     },
     "2026-10-24": {
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:17",
-        "end_time": "07:49:41",
-        "duration_sec": 1163,
+        "start_time": "07:45:14",
+        "end_time": "08:00:33",
+        "duration_sec": 919,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -737,7 +737,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -779,13 +779,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "start_time": "07:45:14",
-        "end_time": "08:00:33",
-        "duration_sec": 919,
+        "start_time": "07:30:17",
+        "end_time": "07:49:41",
+        "duration_sec": 1163,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -794,7 +794,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -831,13 +831,13 @@
       }
     },
     "2026-10-23": {
-      "VALLEY": {
-        "branch_code": "AMGN",
-        "display_name": "아르떼뮤지엄 강릉",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:30:18",
-        "end_time": "07:49:52",
-        "duration_sec": 1174,
+        "start_time": "07:45:13",
+        "end_time": "08:01:47",
+        "duration_sec": 993,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -846,7 +846,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -898,13 +898,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
+      "VALLEY": {
+        "branch_code": "AMGN",
+        "display_name": "아르떼뮤지엄 강릉",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:01:47",
-        "duration_sec": 993,
+        "start_time": "07:30:18",
+        "end_time": "07:49:52",
+        "duration_sec": 1174,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -913,7 +913,7 @@
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "발송",
+        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
