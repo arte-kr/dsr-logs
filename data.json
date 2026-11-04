@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T09:24:01",
+  "generated_at": "2026-11-04T09:29:01",
   "dates": [
     "2026-11-04",
     "2026-11-03",
@@ -145,13 +145,13 @@
   "records": {
     "2026-11-04": {},
     "2026-11-03": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "08:00:13",
-        "end_time": "08:15:30",
-        "duration_sec": 917,
+        "start_time": "08:00:16",
+        "end_time": "08:11:03",
+        "duration_sec": 647,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -183,13 +183,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "start_time": "08:00:16",
-        "end_time": "08:11:03",
-        "duration_sec": 647,
+        "start_time": "08:00:13",
+        "end_time": "08:15:30",
+        "duration_sec": 917,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -259,18 +259,22 @@
       }
     },
     "2026-11-02": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "08:00:13",
-        "end_time": "08:15:32",
-        "duration_sec": 918,
+        "start_time": "13:16:54",
+        "end_time": "13:33:03",
+        "duration_sec": 969,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 3,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "13:24:03 [WARNING]   열 숨김 해제: col 76이 범위 중간(75-77) → 건너뜀",
+          "13:24:03 [WARNING] 일별POS_권종별: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback",
+          "13:24:04 [WARNING] 일별POS_결제수단: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
@@ -297,22 +301,18 @@
         "is_retry": false,
         "log_file": ""
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "start_time": "13:16:54",
-        "end_time": "13:33:03",
-        "duration_sec": 969,
+        "start_time": "08:00:13",
+        "end_time": "08:15:32",
+        "duration_sec": 918,
         "error_count": 0,
-        "warning_count": 3,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "13:24:03 [WARNING]   열 숨김 해제: col 76이 범위 중간(75-77) → 건너뜀",
-          "13:24:03 [WARNING] 일별POS_권종별: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback",
-          "13:24:04 [WARNING] 일별POS_결제수단: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
@@ -380,20 +380,21 @@
       }
     },
     "2026-11-01": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "15:23:01",
-        "end_time": "15:38:09",
-        "duration_sec": 907,
+        "start_time": "13:16:54",
+        "end_time": "13:33:03",
+        "duration_sec": 969,
         "error_count": 0,
-        "warning_count": 2,
+        "warning_count": 3,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "15:31:02 [WARNING] 일별POS_권종별: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback",
-          "15:31:03 [WARNING] 일별POS_결제수단: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback"
+          "13:24:03 [WARNING]   열 숨김 해제: col 76이 범위 중간(75-77) → 건너뜀",
+          "13:24:03 [WARNING] 일별POS_권종별: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback",
+          "13:24:04 [WARNING] 일별POS_결제수단: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback"
         ],
         "file_status": "완료",
         "mail_status": "완료",
@@ -424,21 +425,20 @@
         "is_retry": false,
         "log_file": ""
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "start_time": "13:16:54",
-        "end_time": "13:33:03",
-        "duration_sec": 969,
+        "start_time": "15:23:01",
+        "end_time": "15:38:09",
+        "duration_sec": 907,
         "error_count": 0,
-        "warning_count": 3,
+        "warning_count": 2,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "13:24:03 [WARNING]   열 숨김 해제: col 76이 범위 중간(75-77) → 건너뜀",
-          "13:24:03 [WARNING] 일별POS_권종별: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback",
-          "13:24:04 [WARNING] 일별POS_결제수단: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback"
+          "15:31:02 [WARNING] 일별POS_권종별: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback",
+          "15:31:03 [WARNING] 일별POS_결제수단: 당월 1일 시작 행 미발견 (serial=46327) → _mod_append_rows fallback"
         ],
         "file_status": "완료",
         "mail_status": "완료",
@@ -505,13 +505,13 @@
       }
     },
     "2026-10-31": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "08:00:13",
-        "end_time": "08:15:46",
-        "duration_sec": 932,
+        "start_time": "08:00:15",
+        "end_time": "08:09:24",
+        "duration_sec": 549,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -543,13 +543,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:09:24",
-        "duration_sec": 549,
+        "start_time": "08:00:13",
+        "end_time": "08:15:46",
+        "duration_sec": 932,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -614,13 +614,13 @@
       }
     },
     "2026-10-30": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "08:00:13",
-        "end_time": "08:15:46",
-        "duration_sec": 932,
+        "start_time": "08:00:15",
+        "end_time": "08:09:34",
+        "duration_sec": 558,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -652,13 +652,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:09:34",
-        "duration_sec": 558,
+        "start_time": "08:00:13",
+        "end_time": "08:15:46",
+        "duration_sec": 932,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -723,13 +723,13 @@
       }
     },
     "2026-10-29": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:15:52",
-        "duration_sec": 937,
+        "start_time": "08:00:15",
+        "end_time": "08:09:32",
+        "duration_sec": 556,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -761,13 +761,13 @@
         "is_retry": false,
         "log_file": ""
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:09:32",
-        "duration_sec": 556,
+        "start_time": "08:00:14",
+        "end_time": "08:15:52",
+        "duration_sec": 937,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -832,20 +832,18 @@
       }
     },
     "2026-10-28": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
         "status": "success",
-        "start_time": "08:00:13",
-        "end_time": "09:33:40",
-        "duration_sec": 5607,
+        "start_time": "08:00:15",
+        "end_time": "08:11:09",
+        "duration_sec": 653,
         "error_count": 0,
-        "warning_count": 1,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "08:03:05 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 261027_POS데이터.xls"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
@@ -872,18 +870,20 @@
         "is_retry": false,
         "log_file": ""
       },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
         "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:11:09",
-        "duration_sec": 653,
+        "start_time": "08:00:13",
+        "end_time": "09:33:40",
+        "duration_sec": 5607,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "08:03:05 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 261027_POS데이터.xls"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
