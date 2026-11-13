@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T09:04:01",
+  "generated_at": "2026-11-13T09:09:01",
   "dates": [
     "2026-11-13",
     "2026-11-12",
@@ -185,25 +185,6 @@
           }
         ]
       },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:13",
-        "end_time": "08:41:03",
-        "duration_sec": 2449,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
-      },
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
@@ -262,6 +243,25 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:13",
+        "end_time": "08:41:03",
+        "duration_sec": 2449,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
       }
     },
     "2026-11-11": {
@@ -295,25 +295,6 @@
             "log_file_name": "261111_플팝카페_자동화.json"
           }
         ]
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:15:34",
-        "duration_sec": 920,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
       },
       "BUSAN": {
         "branch_code": "AMBS",
@@ -360,6 +341,25 @@
         "start_time": "07:30:18",
         "end_time": "07:48:13",
         "duration_sec": 1075,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:15:34",
+        "duration_sec": 920,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -418,37 +418,6 @@
             "07:12:43 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
             "07:12:45 [ERROR] [LSPOS(면공장)] 로그인 실패 — 중단: 로그인 실패",
             "07:12:45 [ERROR] 실패 목록: [('2026-11-10', '매출파일_권종별'), ('2026-11-10', 'POS_당일매출상세현황'), ('2026-11-10', '매출파일_권종별'), ('2026-11-10', 'POS_당일매출상세현황')]"
-          ]
-        }
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "11:45:32",
-        "end_time": "12:01:14",
-        "duration_sec": 942,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": "",
-        "error_recovered": {
-          "first_seen": "2026-11-11T08:14:02",
-          "recovered_at": "2026-11-11T12:05:36",
-          "summary": "P2→P1 처리 중단 — 종료코드 1",
-          "error_lines": [
-            "08:01:40 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "08:04:00 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "08:06:20 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "08:06:22 [ERROR] [LSPOS] 로그인 실패 — 중단: 로그인 실패",
-            "08:08:08 [ERROR] 실패 목록: [('2026-11-10', '매출파일_권종별'), ('2026-11-10', 'POS_당일매출상세현황')]"
           ]
         }
       },
@@ -522,6 +491,37 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "11:45:32",
+        "end_time": "12:01:14",
+        "duration_sec": 942,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": "",
+        "error_recovered": {
+          "first_seen": "2026-11-11T08:14:02",
+          "recovered_at": "2026-11-11T12:05:36",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "08:01:40 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "08:04:00 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "08:06:20 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "08:06:22 [ERROR] [LSPOS] 로그인 실패 — 중단: 로그인 실패",
+            "08:08:08 [ERROR] 실패 목록: [('2026-11-10', '매출파일_권종별'), ('2026-11-10', 'POS_당일매출상세현황')]"
+          ]
+        }
       }
     },
     "2026-11-09": {
@@ -555,25 +555,6 @@
             "log_file_name": "261109_플팝카페_자동화.json"
           }
         ]
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:16:02",
-        "duration_sec": 948,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
       },
       "BUSAN": {
         "branch_code": "AMBS",
@@ -631,6 +612,25 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:16:02",
+        "duration_sec": 948,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
       }
     },
     "2026-11-08": {
@@ -664,25 +664,6 @@
             "log_file_name": "261108_플팝카페_자동화.json"
           }
         ]
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:16:04",
-        "duration_sec": 950,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
       },
       "BUSAN": {
         "branch_code": "AMBS",
@@ -743,6 +724,25 @@
         "slack_status": "스킵",
         "is_retry": true,
         "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:16:04",
+        "duration_sec": 950,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
       }
     },
     "2026-11-07": {
@@ -776,25 +776,6 @@
             "log_file_name": "261107_플팝카페_자동화.json"
           }
         ]
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:13",
-        "end_time": "08:15:58",
-        "duration_sec": 944,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
       },
       "BUSAN": {
         "branch_code": "AMBS",
@@ -855,6 +836,25 @@
         "slack_status": "스킵",
         "is_retry": true,
         "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:13",
+        "end_time": "08:15:58",
+        "duration_sec": 944,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
       }
     },
     "2026-11-06": {
@@ -888,25 +888,6 @@
             "log_file_name": "261106_플팝카페_자동화.json"
           }
         ]
-      },
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:16:18",
-        "duration_sec": 964,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
       },
       "BUSAN": {
         "branch_code": "AMBS",
@@ -960,6 +941,25 @@
         "warning_lines": [
           "07:36:20 [WARNING] [보조배터리] 로그인 POST 실패 (1/3) — HTTPSConnectionPool(host='everyportable.co.kr', port=443): Read timed out. (read timeout=30)"
         ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:16:18",
+        "duration_sec": 964,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
