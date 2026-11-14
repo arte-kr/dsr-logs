@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T08:39:01",
+  "generated_at": "2026-11-15T08:44:01",
   "dates": [
     "2026-11-15",
     "2026-11-14",
@@ -156,45 +156,24 @@
   "records": {
     "2026-11-15": {},
     "2026-11-14": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
+      "BUSAN": {
+        "branch_code": "AMBS",
+        "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:16:07",
-        "duration_sec": 952,
+        "start_time": "07:45:14",
+        "end_time": "08:00:05",
+        "duration_sec": 891,
         "error_count": 0,
         "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "08:08:51 [WARNING] 날씨 API 오류 (<urlopen error _ssl.c:1063: The handshake operation timed out>) → 기본값 '맑음'"
+          "07:54:44 [WARNING] 날씨 API 오류 (<urlopen error [WinError 10054] 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다>) → 기본값 '맑음'"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:10:51",
-        "duration_sec": 636,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "08:04:40 [WARNING] 날씨 API 오류 (<urlopen error _ssl.c:1063: The handshake operation timed out>) → 기본값 '맑음'"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
+        "slack_status": "발송",
         "is_retry": false,
         "log_file": ""
       },
@@ -229,6 +208,48 @@
           }
         ]
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "start_time": "08:00:15",
+        "end_time": "08:10:51",
+        "duration_sec": 636,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "08:04:40 [WARNING] 날씨 API 오류 (<urlopen error _ssl.c:1063: The handshake operation timed out>) → 기본값 '맑음'"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:16:07",
+        "duration_sec": 952,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "08:08:51 [WARNING] 날씨 API 오류 (<urlopen error _ssl.c:1063: The handshake operation timed out>) → 기본값 '맑음'"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -247,67 +268,27 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
-      },
+      }
+    },
+    "2026-11-13": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
         "start_time": "07:45:14",
-        "end_time": "08:00:05",
-        "duration_sec": 891,
+        "end_time": "08:00:11",
+        "duration_sec": 897,
         "error_count": 0,
         "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "07:54:44 [WARNING] 날씨 API 오류 (<urlopen error [WinError 10054] 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다>) → 기본값 '맑음'"
+          "07:54:50 [WARNING] 날씨 API 오류 (<urlopen error _ssl.c:1063: The handshake operation timed out>) → 기본값 '맑음'"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "is_retry": false,
-        "log_file": ""
-      }
-    },
-    "2026-11-13": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:15:31",
-        "duration_sec": 917,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:10:59",
-        "duration_sec": 644,
-        "error_count": 0,
-        "warning_count": 1,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [
-          "08:04:45 [WARNING] 날씨 API 오류 (<urlopen error _ssl.c:1063: The handshake operation timed out>) → 기본값 '맑음'"
-        ],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -344,6 +325,46 @@
           }
         ]
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "start_time": "08:00:15",
+        "end_time": "08:10:59",
+        "duration_sec": 644,
+        "error_count": 0,
+        "warning_count": 1,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [
+          "08:04:45 [WARNING] 날씨 API 오류 (<urlopen error _ssl.c:1063: The handshake operation timed out>) → 기본값 '맑음'"
+        ],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:15:31",
+        "duration_sec": 917,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -362,65 +383,27 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
-      },
+      }
+    },
+    "2026-11-12": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
         "start_time": "07:45:14",
-        "end_time": "08:00:11",
-        "duration_sec": 897,
+        "end_time": "08:19:28",
+        "duration_sec": 2054,
         "error_count": 0,
         "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
         "warning_lines": [
-          "07:54:50 [WARNING] 날씨 API 오류 (<urlopen error _ssl.c:1063: The handshake operation timed out>) → 기본값 '맑음'"
+          "07:54:52 [WARNING] 날씨 API 오류 (<urlopen error [WinError 10054] 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다>) → 기본값 '맑음'"
         ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "is_retry": false,
-        "log_file": ""
-      }
-    },
-    "2026-11-12": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:13",
-        "end_time": "08:41:03",
-        "duration_sec": 2449,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:10:54",
-        "duration_sec": 638,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -455,6 +438,44 @@
           }
         ]
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "start_time": "08:00:15",
+        "end_time": "08:10:54",
+        "duration_sec": 638,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:13",
+        "end_time": "08:41:03",
+        "duration_sec": 2449,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -473,65 +494,25 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
-      },
+      }
+    },
+    "2026-11-11": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:45:14",
-        "end_time": "08:19:28",
-        "duration_sec": 2054,
+        "start_time": "07:45:13",
+        "end_time": "08:00:03",
+        "duration_sec": 889,
         "error_count": 0,
-        "warning_count": 1,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "07:54:52 [WARNING] 날씨 API 오류 (<urlopen error [WinError 10054] 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다>) → 기본값 '맑음'"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "is_retry": false,
-        "log_file": ""
-      }
-    },
-    "2026-11-11": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:15:34",
-        "duration_sec": 920,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:09:52",
-        "duration_sec": 577,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -566,6 +547,44 @@
           }
         ]
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "start_time": "08:00:15",
+        "end_time": "08:09:52",
+        "duration_sec": 577,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:15:34",
+        "duration_sec": 920,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -584,77 +603,41 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
-      },
+      }
+    },
+    "2026-11-10": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:00:03",
-        "duration_sec": 889,
+        "start_time": "11:28:17",
+        "end_time": "11:43:25",
+        "duration_sec": 907,
         "error_count": 0,
-        "warning_count": 0,
+        "warning_count": 1,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [],
+        "warning_lines": [
+          "11:33:29 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 261110_신용카드.xlsx"
+        ],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
         "is_retry": false,
-        "log_file": ""
-      }
-    },
-    "2026-11-10": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "11:45:32",
-        "end_time": "12:01:14",
-        "duration_sec": 942,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
         "log_file": "",
         "error_recovered": {
-          "first_seen": "2026-11-11T08:14:02",
+          "first_seen": "2026-11-11T08:04:02",
           "recovered_at": "2026-11-11T12:05:36",
           "summary": "P2→P1 처리 중단 — 종료코드 1",
           "error_lines": [
-            "08:01:40 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "08:04:00 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "08:06:20 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "08:06:22 [ERROR] [LSPOS] 로그인 실패 — 중단: 로그인 실패",
-            "08:08:08 [ERROR] 실패 목록: [('2026-11-10', '매출파일_권종별'), ('2026-11-10', 'POS_당일매출상세현황')]"
+            "07:46:39 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "07:48:59 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "07:51:19 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "07:51:22 [ERROR] [LSPOS] 로그인 실패 — 중단: 로그인 실패",
+            "07:54:01 [ERROR] 실패 목록: [('2026-11-10', '매출파일_권종별'), ('2026-11-10', 'POS_당일매출상세현황')]"
           ]
         }
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:09:26",
-        "duration_sec": 550,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
       },
       "ISLAND": {
         "branch_code": "AMJJ",
@@ -703,6 +686,56 @@
           ]
         }
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "start_time": "08:00:15",
+        "end_time": "08:09:26",
+        "duration_sec": 550,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "11:45:32",
+        "end_time": "12:01:14",
+        "duration_sec": 942,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": "",
+        "error_recovered": {
+          "first_seen": "2026-11-11T08:14:02",
+          "recovered_at": "2026-11-11T12:05:36",
+          "summary": "P2→P1 처리 중단 — 종료코드 1",
+          "error_lines": [
+            "08:01:40 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "08:04:00 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "08:06:20 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
+            "08:06:22 [ERROR] [LSPOS] 로그인 실패 — 중단: 로그인 실패",
+            "08:08:08 [ERROR] 실패 목록: [('2026-11-10', '매출파일_권종별'), ('2026-11-10', 'POS_당일매출상세현황')]"
+          ]
+        }
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -721,77 +754,25 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
-      },
+      }
+    },
+    "2026-11-09": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "11:28:17",
-        "end_time": "11:43:25",
-        "duration_sec": 907,
+        "start_time": "07:45:17",
+        "end_time": "07:59:57",
+        "duration_sec": 879,
         "error_count": 0,
-        "warning_count": 1,
+        "warning_count": 0,
         "error_summary": "",
         "error_lines": [],
-        "warning_lines": [
-          "11:33:29 [WARNING] 동일 파일명 이미 존재 — 덮어쓰기: 261110_신용카드.xlsx"
-        ],
+        "warning_lines": [],
         "file_status": "완료",
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "is_retry": false,
-        "log_file": "",
-        "error_recovered": {
-          "first_seen": "2026-11-11T08:04:02",
-          "recovered_at": "2026-11-11T12:05:36",
-          "summary": "P2→P1 처리 중단 — 종료코드 1",
-          "error_lines": [
-            "07:46:39 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "07:48:59 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "07:51:19 [ERROR] [LSPOS구형] ID 입력 필드 미발견 — URL: htt[경로]",
-            "07:51:22 [ERROR] [LSPOS] 로그인 실패 — 중단: 로그인 실패",
-            "07:54:01 [ERROR] 실패 목록: [('2026-11-10', '매출파일_권종별'), ('2026-11-10', 'POS_당일매출상세현황')]"
-          ]
-        }
-      }
-    },
-    "2026-11-09": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:16:02",
-        "duration_sec": 948,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:09:24",
-        "duration_sec": 549,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -826,6 +807,44 @@
           }
         ]
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "start_time": "08:00:15",
+        "end_time": "08:09:24",
+        "duration_sec": 549,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:16:02",
+        "duration_sec": 948,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -844,14 +863,16 @@
         "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
-      },
+      }
+    },
+    "2026-11-08": {
       "BUSAN": {
         "branch_code": "AMBS",
         "display_name": "아르떼뮤지엄 부산",
         "status": "success",
-        "start_time": "07:45:17",
-        "end_time": "07:59:57",
-        "duration_sec": 879,
+        "start_time": "07:45:13",
+        "end_time": "08:00:07",
+        "duration_sec": 893,
         "error_count": 0,
         "warning_count": 0,
         "error_summary": "",
@@ -861,46 +882,6 @@
         "mail_status": "완료",
         "kpi_status": "완료",
         "slack_status": "발송",
-        "is_retry": false,
-        "log_file": ""
-      }
-    },
-    "2026-11-08": {
-      "KIDS": {
-        "branch_code": "AKJJ",
-        "display_name": "아르떼키즈파크 제주",
-        "status": "success",
-        "start_time": "08:00:14",
-        "end_time": "08:16:04",
-        "duration_sec": 950,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
-        "is_retry": false,
-        "log_file": ""
-      },
-      "OCEAN": {
-        "branch_code": "AMYS",
-        "display_name": "아르떼뮤지엄 여수",
-        "status": "success",
-        "start_time": "08:00:15",
-        "end_time": "08:10:58",
-        "duration_sec": 643,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "스킵",
         "is_retry": false,
         "log_file": ""
       },
@@ -935,6 +916,44 @@
           }
         ]
       },
+      "OCEAN": {
+        "branch_code": "AMYS",
+        "display_name": "아르떼뮤지엄 여수",
+        "status": "success",
+        "start_time": "08:00:15",
+        "end_time": "08:10:58",
+        "duration_sec": 643,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
+      "KIDS": {
+        "branch_code": "AKJJ",
+        "display_name": "아르떼키즈파크 제주",
+        "status": "success",
+        "start_time": "08:00:14",
+        "end_time": "08:16:04",
+        "duration_sec": 950,
+        "error_count": 0,
+        "warning_count": 0,
+        "error_summary": "",
+        "error_lines": [],
+        "warning_lines": [],
+        "file_status": "완료",
+        "mail_status": "완료",
+        "kpi_status": "완료",
+        "slack_status": "스킵",
+        "is_retry": false,
+        "log_file": ""
+      },
       "VALLEY": {
         "branch_code": "AMGN",
         "display_name": "아르떼뮤지엄 강릉",
@@ -955,25 +974,6 @@
         "kpi_status": "완료",
         "slack_status": "스킵",
         "is_retry": true,
-        "log_file": ""
-      },
-      "BUSAN": {
-        "branch_code": "AMBS",
-        "display_name": "아르떼뮤지엄 부산",
-        "status": "success",
-        "start_time": "07:45:13",
-        "end_time": "08:00:07",
-        "duration_sec": 893,
-        "error_count": 0,
-        "warning_count": 0,
-        "error_summary": "",
-        "error_lines": [],
-        "warning_lines": [],
-        "file_status": "완료",
-        "mail_status": "완료",
-        "kpi_status": "완료",
-        "slack_status": "발송",
-        "is_retry": false,
         "log_file": ""
       }
     },
